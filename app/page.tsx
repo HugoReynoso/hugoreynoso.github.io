@@ -1,0 +1,123 @@
+import type { Metadata } from "next";
+import { headers } from "next/headers";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const incomingHeaders = await headers();
+  const host = incomingHeaders.get("host") ?? "localhost:3000";
+  const protocol = incomingHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
+  const image = `${protocol}://${host}/og.png`;
+  const title = "Hugo Aldo Reynoso · Software Developer a Milano";
+  const description = "Software developer full-stack con esperienza in applicazioni web, dati e automazione.";
+  return {
+    openGraph: { title, description, type: "website", images: [{ url: image, width: 1734, height: 908, alt: "Hugo Aldo Reynoso · Software Developer a Milano" }] },
+    twitter: { card: "summary_large_image", title, description, images: [image] },
+  };
+}
+
+const experience = [
+  {
+    period: "2018 — oggi",
+    role: "Software Developer",
+    company: "Software House Idea · Milano",
+    description: "Sviluppo applicazioni gestionali e portali web per aziende nei settori healthcare, trasporti e logistica, seguendo sia il front-end sia il back-end.",
+    tech: ["Angular", "TypeScript", "Java", "Spring Boot", "PostgreSQL"],
+  },
+  {
+    period: "2017 — 2018",
+    role: "IT Consultant · RPA",
+    company: "Aubay Italia · Vodafone Italia",
+    description: "Analisi e sviluppo di procedure automatizzate, monitoraggio delle performance e ottimizzazione dei flussi operativi.",
+    tech: ["UiPath", "Automate 7", "Oracle", "SQL"],
+  },
+  {
+    period: "2017",
+    role: "IT Consultant · Data & ETL",
+    company: "Everis Italia · Gi Group",
+    description: "Sviluppo ETL e migrazione di dati tra applicazioni, dalla trasformazione al caricamento e alla verifica.",
+    tech: ["SQL Server", "SSIS", "T-SQL", "Visual Basic"],
+  },
+];
+
+const skillGroups = [
+  { title: "Front-end", skills: ["Angular", "TypeScript", "JavaScript", "HTML", "CSS", "Bootstrap"] },
+  { title: "Back-end", skills: ["Java", "Spring", "Spring Boot", "REST API"] },
+  { title: "Data", skills: ["PostgreSQL", "MySQL", "Oracle", "SQL Server", "ETL", "Spark"] },
+  { title: "Workflow", skills: ["Git", "Jira", "Confluence", "Agile", "Teamwork"] },
+];
+
+const navItems = [
+  ["01", "Profilo", "#profilo"],
+  ["02", "Esperienza", "#esperienza"],
+  ["03", "Competenze", "#competenze"],
+  ["04", "Formazione", "#formazione"],
+  ["05", "Contatti", "#contatti"],
+];
+
+export default function Home() {
+  return (
+    <main>
+      <aside className="sidebar">
+        <a className="brand" href="#profilo" aria-label="Vai all'inizio"><span className="brand-mark">HR</span><span>Hugo Reynoso</span></a>
+        <nav aria-label="Navigazione principale">
+          <p className="nav-label">Esplora</p>
+          {navItems.map(([number, label, href]) => <a className="nav-item" href={href} key={href}><span>{number}</span>{label}</a>)}
+        </nav>
+        <div className="sidebar-footer"><span className="status-dot" /> Disponibile a nuove opportunità<small>Milano, Italia</small></div>
+      </aside>
+
+      <div className="content">
+        <section className="hero" id="profilo">
+          <div className="eyebrow"><span>Software Developer</span><span>·</span><span>Milano</span></div>
+          <h1>Costruisco software.<br /><em>Do forma ai dati.</em></h1>
+          <p className="hero-copy">Ciao, sono <strong>Hugo Aldo Reynoso</strong>. Sviluppatore peruviano cresciuto professionalmente in Italia, con esperienza tra interfacce, sistemi gestionali e database. Oggi esploro come l&apos;AI può rendere il software più utile, intelligente e umano.</p>
+          <div className="hero-actions">
+            <a className="button primary" href="mailto:HugoAldoReynoso@gmail.com">Parliamo di un&apos;opportunità <span>↗</span></a>
+            <a className="button secondary" href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+          </div>
+          <div className="quick-facts">
+            <div><strong>8+</strong><span>anni nello sviluppo</span></div>
+            <div><strong>Full-stack</strong><span>front-end, back-end e dati</span></div>
+            <div><strong>3 lingue</strong><span>italiano, spagnolo, inglese</span></div>
+          </div>
+        </section>
+
+        <section id="esperienza">
+          <header className="section-heading"><span>01 / Esperienza</span><h2>Dal problema al prodotto,<br />un livello alla volta.</h2></header>
+          <div className="timeline">{experience.map((item) => (
+            <article className="experience-card" key={item.role}>
+              <p className="period">{item.period}</p>
+              <div><h3>{item.role}</h3><p className="company">{item.company}</p><p>{item.description}</p><div className="tags">{item.tech.map((tech) => <span key={tech}>{tech}</span>)}</div></div>
+            </article>
+          ))}</div>
+        </section>
+
+        <section id="competenze">
+          <header className="section-heading"><span>02 / Competenze</span><h2>Un profilo trasversale,<br />con solide fondamenta.</h2></header>
+          <div className="skill-grid">{skillGroups.map((group, index) => (
+            <article className="skill-card" key={group.title}><span className="skill-number">0{index + 1}</span><h3>{group.title}</h3><ul>{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
+          ))}</div>
+        </section>
+
+        <section id="formazione">
+          <header className="section-heading"><span>03 / Formazione</span><h2>Curiosità continua,<br />dalle basi all&apos;AI.</h2></header>
+          <div className="education-list">
+            <article><span>Università</span><div><h3>Informatica</h3><p>Università degli Studi di Milano-Bicocca</p><small>Algoritmi, software design, database, reti, sistemi operativi e HCI.</small></div></article>
+            <article><span>Specializzazione</span><div><h3>Database & Business Intelligence</h3><p>Philmark Informatica · Everis Italia</p><small>SQL, PL/SQL, Data Warehouse, ETL, OLAP e Big Data.</small></div></article>
+            <article><span>Diploma</span><div><h3>Perito Informatico</h3><p>I.T.I. Altiero Spinelli · Sesto San Giovanni</p><small>Le fondamenta tecniche da cui è iniziato tutto.</small></div></article>
+          </div>
+        </section>
+
+        <section className="contact" id="contatti">
+          <p className="eyebrow">Costruiamo qualcosa di valore</p><h2>Hai un progetto o<br />un&apos;opportunità?</h2>
+          <a className="mail-link" href="mailto:HugoAldoReynoso@gmail.com">HugoAldoReynoso@gmail.com <span>↗</span></a>
+          <div className="social-row">
+            <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <span title="Inserisci il tuo profilo GitHub">GitHub · link da aggiungere</span>
+            <span title="Inserisci il tuo profilo Instagram">Instagram · link da aggiungere</span>
+          </div>
+        </section>
+        <footer><span>© 2026 Hugo Aldo Reynoso</span><span>Progettato e sviluppato a Milano</span></footer>
+      </div>
+    </main>
+  );
+}
