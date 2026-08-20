@@ -139,8 +139,8 @@ export default function Home() {
 
         <section id="competenze">
           <header className="section-heading"><span>Competenze</span><h2>Un profilo trasversale,<br />con solide fondamenta.</h2></header>
-          <div className="skill-grid">{skillGroups.map((group, index) => (
-            <article className="skill-card" key={group.title}><span className="skill-number">0{index + 1}</span><h3>{group.title}</h3><ul>{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
+          <div className="skill-grid">{skillGroups.map((group) => (
+            <article className="skill-card" key={group.title}><h3>{group.title}</h3><ul>{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
           ))}</div>
         </section>
 
