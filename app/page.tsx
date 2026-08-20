@@ -65,12 +65,12 @@ const projects = [
 ];
 
 const navItems = [
-  ["01", "Profilo", "#profilo"],
-  ["02", "Esperienza", "#esperienza"],
-  ["03", "Progetti", "#progetti"],
-  ["04", "Competenze", "#competenze"],
-  ["05", "Formazione", "#formazione"],
-  ["06", "Contatti", "#contatti"],
+  ["Profilo", "#profilo"],
+  ["Esperienza", "#esperienza"],
+  ["Progetti", "#progetti"],
+  ["Competenze", "#competenze"],
+  ["Formazione", "#formazione"],
+  ["Contatti", "#contatti"],
 ];
 
 export default function Home() {
@@ -80,7 +80,7 @@ export default function Home() {
         <a className="brand" href="#profilo" aria-label="Vai all'inizio"><span className="brand-mark">HR</span><span>Hugo Reynoso</span></a>
         <nav aria-label="Navigazione principale">
           <p className="nav-label">Esplora</p>
-          {navItems.map(([number, label, href]) => <a className="nav-item" href={href} key={href}><span>{number}</span>{label}</a>)}
+          {navItems.map(([label, href]) => <a className="nav-item" href={href} key={href}>{label}</a>)}
         </nav>
         <div className="sidebar-footer"><span className="status-dot" /> Disponibile a nuove opportunità<small>Milano, Italia</small></div>
       </aside>
@@ -90,11 +90,10 @@ export default function Home() {
           <div className="eyebrow"><span>Software Developer</span><span>·</span><span>Milano</span></div>
           <figure className="portrait-card">
             <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
-            <figcaption><span className="status-dot" /> @HugoReynoso</figcaption>
+            <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
           </figure>
-          <p className="terminal-line"><span>hugo@milano</span>:~/portfolio$ whoami</p>
-          <h1>Costruisco software.<br /><em>Do forma ai dati.</em></h1>
-          <p className="hero-copy">Ciao, sono <strong>Hugo Aldo Reynoso</strong>. Sviluppatore peruviano cresciuto professionalmente in Italia, con esperienza tra interfacce, sistemi gestionali e database. Oggi esploro come l&apos;AI può rendere il software più utile, intelligente e umano.</p>
+          <h1>Costruisco software.</h1>
+          <p className="hero-copy">Ciao, sono <strong>Hugo Aldo Reynoso</strong>. Sviluppo applicazioni web e mobile in contesti enterprise e nella consulenza IT. Specializzato in Angular, Vue.js, Ionic, Java e Spring Boot, ho contribuito a progetti complessi per Pubblica Amministrazione, telecomunicazioni, pagamenti, sanità e logistica. Oggi esploro come l&apos;AI possa rendere il software più utile, intelligente e umano.</p>
           <div className="hero-actions">
             <a className="button primary" href="mailto:HugoAldoReynoso@gmail.com">Parliamo di un&apos;opportunità <span>↗</span></a>
             <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
@@ -163,7 +162,7 @@ export default function Home() {
             <a href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noreferrer">Instagram ↗</a>
           </div>
         </section>
-        <footer><span>© 2026 Hugo Aldo Reynoso</span><span>Progettato e sviluppato a Milano</span></footer>
+        <footer><span>© 2026 Hugo Aldo Reynoso</span></footer>
       </div>
     </main>
   );

@@ -12,7 +12,6 @@ main { min-height:100vh; }
 nav { margin-top:92px; }
 .nav-label { color:var(--muted); text-transform:uppercase; font:600 10px var(--font-geist-mono); letter-spacing:.18em; margin-bottom:16px; }
 .nav-item { display:flex; gap:14px; padding:11px 12px; margin:2px 0; border-radius:6px; color:var(--muted); font:13px var(--font-geist-mono); transition:.2s ease; }
-.nav-item span { color:rgba(20,22,26,.35); font:11px var(--font-geist-mono); }
 .nav-item:hover { color:var(--ink); background:var(--soft); }
 .sidebar-footer { margin-top:auto; display:grid; grid-template-columns:10px 1fr; gap:8px; font-size:11px; line-height:1.35; }
 .sidebar-footer small { grid-column:2; color:var(--muted); }
@@ -26,8 +25,6 @@ h1 { max-width:850px; font-size:clamp(64px,8vw,112px); line-height:.9; letter-sp
 h1 em { color:transparent; -webkit-text-stroke:1.5px var(--ink); font-style:normal; }
 .hero-copy { max-width:700px; font-size:20px; line-height:1.6; color:var(--muted); }
 .hero-copy strong { color:var(--ink); }
-.terminal-line { margin:38px 0 -20px; color:var(--muted); font:12px var(--font-geist-mono); }
-.terminal-line span { color:#8a5b00; }
 .portrait-card { position:absolute; top:92px; right:70px; width:158px; margin:0; padding:7px; border:1px solid var(--line-strong); border-radius:8px; background:var(--panel); box-shadow:0 18px 45px rgba(20,22,26,.12); transform:rotate(1.5deg); }
 .portrait-card::before { content:"profile.jpg"; position:absolute; top:-24px; left:0; color:var(--muted); font:10px var(--font-geist-mono); }
 .portrait-card img { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:5px; filter:saturate(.82) contrast(1.04); }
