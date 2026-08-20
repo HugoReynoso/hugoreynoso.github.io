@@ -5,7 +5,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const incomingHeaders = await headers();
   const host = incomingHeaders.get("host") ?? "localhost:3000";
   const protocol = incomingHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const image = `${protocol}://${host}/og-v2.png`;
+  const image = `${protocol}://${host}/og-v3.png`;
   const title = "Hugo Aldo Reynoso · Software Developer a Milano";
   const description = "Software developer full-stack con esperienza in applicazioni web, dati e automazione.";
   return {
