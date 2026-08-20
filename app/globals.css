@@ -26,7 +26,6 @@ h1 em { color:transparent; -webkit-text-stroke:1.5px var(--ink); font-style:norm
 .hero-copy { max-width:700px; font-size:20px; line-height:1.6; color:var(--muted); }
 .hero-copy strong { color:var(--ink); }
 .portrait-card { position:absolute; top:92px; right:70px; width:158px; margin:0; padding:7px; border:1px solid var(--line-strong); border-radius:8px; background:var(--panel); box-shadow:0 18px 45px rgba(20,22,26,.12); transform:rotate(1.5deg); }
-.portrait-card::before { content:"profile.jpg"; position:absolute; top:-24px; left:0; color:var(--muted); font:10px var(--font-geist-mono); }
 .portrait-card img { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:5px; filter:saturate(.82) contrast(1.04); }
 .portrait-card figcaption { display:flex; align-items:center; gap:8px; padding:9px 4px 3px; color:var(--muted); font:10px var(--font-geist-mono); }
 .hero-actions { display:flex; gap:12px; margin-top:34px; }

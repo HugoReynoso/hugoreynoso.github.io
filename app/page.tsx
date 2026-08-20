@@ -89,11 +89,11 @@ export default function Home() {
         <section className="hero" id="profilo">
           <div className="eyebrow"><span>Software Developer</span><span>·</span><span>Milano</span></div>
           <figure className="portrait-card">
-            <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
+            <img src="/hugo-reynoso-professional.png" alt="Hugo Aldo Reynoso" />
             <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
           </figure>
           <h1>Costruisco software.</h1>
-          <p className="hero-copy">Ciao, sono <strong>Hugo Aldo Reynoso</strong>. Sviluppo applicazioni web e mobile in contesti enterprise e nella consulenza IT. Specializzato in Angular, Vue.js, Ionic, Java e Spring Boot, ho contribuito a progetti complessi per Pubblica Amministrazione, telecomunicazioni, pagamenti, sanità e logistica. Oggi esploro come l&apos;AI possa rendere il software più utile, intelligente e umano.</p>
+          <p className="hero-copy">Ciao, sono <strong>Hugo Aldo Reynoso</strong>, software developer specializzato nella progettazione e nello sviluppo di applicazioni web e mobile per realtà enterprise. Lavoro con Angular, Vue.js, Ionic, Java e Spring Boot e ho maturato esperienza in progetti complessi per Pubblica Amministrazione, telecomunicazioni, pagamenti digitali, sanità e logistica. Oggi integro il mio percorso con l&apos;intelligenza artificiale, esplorando nuovi modi per costruire software più utile, efficiente e vicino alle persone.</p>
           <div className="hero-actions">
             <a className="button primary" href="mailto:HugoAldoReynoso@gmail.com">Parliamo di un&apos;opportunità <span>↗</span></a>
             <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
