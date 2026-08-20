@@ -106,7 +106,7 @@ export default function Home() {
         </section>
 
         <section id="esperienza">
-          <header className="section-heading"><span>01 / Esperienza</span><h2>Dal problema al prodotto,<br />un livello alla volta.</h2></header>
+          <header className="section-heading"><span>Esperienza</span><h2>Dal problema al prodotto,<br />un livello alla volta.</h2></header>
           <div className="timeline">{experience.map((item) => (
             <article className="experience-card" key={item.role}>
               <p className="period">{item.period}</p>
@@ -117,7 +117,7 @@ export default function Home() {
 
         <section id="progetti">
           <header className="section-heading">
-            <span>02 / Progetti</span>
+            <span>Progetti</span>
             <h2>Codice pubblico,<br />apprendimento continuo.</h2>
             <p className="section-intro">Una selezione dal mio profilo GitHub: esperimenti e materiali costruiti intorno ai dati e ad Apache Spark.</p>
           </header>
@@ -138,14 +138,14 @@ export default function Home() {
         </section>
 
         <section id="competenze">
-          <header className="section-heading"><span>03 / Competenze</span><h2>Un profilo trasversale,<br />con solide fondamenta.</h2></header>
+          <header className="section-heading"><span>Competenze</span><h2>Un profilo trasversale,<br />con solide fondamenta.</h2></header>
           <div className="skill-grid">{skillGroups.map((group, index) => (
             <article className="skill-card" key={group.title}><span className="skill-number">0{index + 1}</span><h3>{group.title}</h3><ul>{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
           ))}</div>
         </section>
 
         <section id="formazione">
-          <header className="section-heading"><span>04 / Formazione</span><h2>Curiosità continua,<br />dalle basi all&apos;AI.</h2></header>
+          <header className="section-heading"><span>Formazione</span><h2>Curiosità continua,<br />dalle basi all&apos;AI.</h2></header>
           <div className="education-list">
             <article><span>Università</span><div><h3>Informatica</h3><p>Università degli Studi di Milano-Bicocca</p><small>Algoritmi, software design, database, reti, sistemi operativi e HCI.</small></div></article>
             <article><span>Specializzazione</span><div><h3>Database & Business Intelligence</h3><p>Philmark Informatica · Everis Italia</p><small>SQL, PL/SQL, Data Warehouse, ETL, OLAP e Big Data.</small></div></article>
