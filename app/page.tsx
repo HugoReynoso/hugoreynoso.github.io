@@ -5,7 +5,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const incomingHeaders = await headers();
   const host = incomingHeaders.get("host") ?? "localhost:3000";
   const protocol = incomingHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const image = `${protocol}://${host}/og.png`;
+  const image = `${protocol}://${host}/og-v2.png`;
   const title = "Hugo Aldo Reynoso · Software Developer a Milano";
   const description = "Software developer full-stack con esperienza in applicazioni web, dati e automazione.";
   return {
@@ -45,12 +45,32 @@ const skillGroups = [
   { title: "Workflow", skills: ["Git", "Jira", "Confluence", "Agile", "Teamwork"] },
 ];
 
+const projects = [
+  {
+    name: "Spark",
+    path: "HugoReynoso / Spark",
+    description: "Repository dedicato allo studio e alla sperimentazione con Apache Spark e l'elaborazione distribuita dei dati.",
+    language: "Apache Spark",
+    size: "690 KB",
+    href: "https://github.com/HugoReynoso/Spark",
+  },
+  {
+    name: "spark-examples",
+    path: "HugoReynoso / spark-examples",
+    description: "Raccolta di esempi pratici per esplorare Spark, i flussi di elaborazione e il mondo Big Data.",
+    language: "Data engineering",
+    size: "140 KB",
+    href: "https://github.com/HugoReynoso/spark-examples",
+  },
+];
+
 const navItems = [
   ["01", "Profilo", "#profilo"],
   ["02", "Esperienza", "#esperienza"],
-  ["03", "Competenze", "#competenze"],
-  ["04", "Formazione", "#formazione"],
-  ["05", "Contatti", "#contatti"],
+  ["03", "Progetti", "#progetti"],
+  ["04", "Competenze", "#competenze"],
+  ["05", "Formazione", "#formazione"],
+  ["06", "Contatti", "#contatti"],
 ];
 
 export default function Home() {
@@ -68,11 +88,16 @@ export default function Home() {
       <div className="content">
         <section className="hero" id="profilo">
           <div className="eyebrow"><span>Software Developer</span><span>·</span><span>Milano</span></div>
+          <figure className="portrait-card">
+            <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
+            <figcaption><span className="status-dot" /> @HugoReynoso</figcaption>
+          </figure>
+          <p className="terminal-line"><span>hugo@milano</span>:~/portfolio$ whoami</p>
           <h1>Costruisco software.<br /><em>Do forma ai dati.</em></h1>
           <p className="hero-copy">Ciao, sono <strong>Hugo Aldo Reynoso</strong>. Sviluppatore peruviano cresciuto professionalmente in Italia, con esperienza tra interfacce, sistemi gestionali e database. Oggi esploro come l&apos;AI può rendere il software più utile, intelligente e umano.</p>
           <div className="hero-actions">
             <a className="button primary" href="mailto:HugoAldoReynoso@gmail.com">Parliamo di un&apos;opportunità <span>↗</span></a>
-            <a className="button secondary" href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+            <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
           </div>
           <div className="quick-facts">
             <div><strong>8+</strong><span>anni nello sviluppo</span></div>
@@ -91,15 +116,37 @@ export default function Home() {
           ))}</div>
         </section>
 
+        <section id="progetti">
+          <header className="section-heading">
+            <span>02 / Progetti</span>
+            <h2>Codice pubblico,<br />apprendimento continuo.</h2>
+            <p className="section-intro">Una selezione dal mio profilo GitHub: esperimenti e materiali costruiti intorno ai dati e ad Apache Spark.</p>
+          </header>
+          <div className="project-grid">
+            {projects.map((project) => (
+              <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.name}>
+                <div className="repo-top"><span className="repo-icon">⌘</span><span>Public</span></div>
+                <p className="repo-path">{project.path}</p>
+                <h3>{project.name}<span>↗</span></h3>
+                <p className="repo-description">{project.description}</p>
+                <div className="repo-meta"><span><i />{project.language}</span><span>{project.size}</span></div>
+              </a>
+            ))}
+          </div>
+          <a className="github-profile-link" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">
+            <span>github.com/HugoReynoso</span><span>Vedi tutti i repository ↗</span>
+          </a>
+        </section>
+
         <section id="competenze">
-          <header className="section-heading"><span>02 / Competenze</span><h2>Un profilo trasversale,<br />con solide fondamenta.</h2></header>
+          <header className="section-heading"><span>03 / Competenze</span><h2>Un profilo trasversale,<br />con solide fondamenta.</h2></header>
           <div className="skill-grid">{skillGroups.map((group, index) => (
             <article className="skill-card" key={group.title}><span className="skill-number">0{index + 1}</span><h3>{group.title}</h3><ul>{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
           ))}</div>
         </section>
 
         <section id="formazione">
-          <header className="section-heading"><span>03 / Formazione</span><h2>Curiosità continua,<br />dalle basi all&apos;AI.</h2></header>
+          <header className="section-heading"><span>04 / Formazione</span><h2>Curiosità continua,<br />dalle basi all&apos;AI.</h2></header>
           <div className="education-list">
             <article><span>Università</span><div><h3>Informatica</h3><p>Università degli Studi di Milano-Bicocca</p><small>Algoritmi, software design, database, reti, sistemi operativi e HCI.</small></div></article>
             <article><span>Specializzazione</span><div><h3>Database & Business Intelligence</h3><p>Philmark Informatica · Everis Italia</p><small>SQL, PL/SQL, Data Warehouse, ETL, OLAP e Big Data.</small></div></article>
@@ -112,8 +159,8 @@ export default function Home() {
           <a className="mail-link" href="mailto:HugoAldoReynoso@gmail.com">HugoAldoReynoso@gmail.com <span>↗</span></a>
           <div className="social-row">
             <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <span title="Inserisci il tuo profilo GitHub">GitHub · link da aggiungere</span>
-            <span title="Inserisci il tuo profilo Instagram">Instagram · link da aggiungere</span>
+            <a href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noreferrer">Instagram ↗</a>
           </div>
         </section>
         <footer><span>© 2026 Hugo Aldo Reynoso</span><span>Progettato e sviluppato a Milano</span></footer>
