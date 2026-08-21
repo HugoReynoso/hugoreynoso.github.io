@@ -7,7 +7,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   title: "Hugo Aldo Reynoso · Software Developer a Milano",
-  description: "Software developer full-stack con esperienza in applicazioni web, dati e automazione. Disponibile per nuove opportunità a Milano.",
+  description: "Portfolio personale di Hugo Aldo Reynoso, software developer a Milano con esperienza in applicazioni web e mobile, dati e intelligenza artificiale.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 

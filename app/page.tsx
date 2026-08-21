@@ -7,7 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol = incomingHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const image = `${protocol}://${host}/og-v3.png`;
   const title = "Hugo Aldo Reynoso · Software Developer a Milano";
-  const description = "Software developer full-stack con esperienza in applicazioni web, dati e automazione.";
+  const description = "Portfolio personale di Hugo Aldo Reynoso, software developer a Milano con esperienza in applicazioni web e mobile, dati e intelligenza artificiale.";
   return {
     openGraph: { title, description, type: "website", images: [{ url: image, width: 1734, height: 908, alt: "Hugo Aldo Reynoso · Software Developer a Milano" }] },
     twitter: { card: "summary_large_image", title, description, images: [image] },
@@ -16,25 +16,55 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const experience = [
   {
-    period: "2018 — oggi",
+    period: "mar 2023 — presente",
     role: "Software Developer",
-    company: "Software House Idea · Milano",
-    description: "Sviluppo applicazioni gestionali e portali web per aziende nei settori healthcare, trasporti e logistica, seguendo sia il front-end sia il back-end.",
-    tech: ["Angular", "TypeScript", "Java", "Spring Boot", "PostgreSQL"],
+    company: "GeneGIS GI · Tempo pieno",
+    location: "Milano · Ibrido",
+    description: "Consulente software su progetti enterprise per la Pubblica Amministrazione e aziende private.",
+    activities: [
+      "Sviluppo e manutenzione di applicazioni web con Angular, Java e Spring Boot.",
+      "Nuove funzionalità e refactoring di applicazioni con Vue.js e Java.",
+      "Sviluppo completo di un’applicazione mobile ibrida con Vue.js e Ionic per il personale operativo sul campo.",
+      "Bug fixing, ottimizzazione del software esistente e integrazione con API REST.",
+    ],
+    tech: ["Angular", "Vue.js", "Ionic", "Java", "Spring Boot", "REST API", "C#"],
   },
   {
-    period: "2017 — 2018",
-    role: "IT Consultant · RPA",
-    company: "Aubay Italia · Vodafone Italia",
-    description: "Analisi e sviluppo di procedure automatizzate, monitoraggio delle performance e ottimizzazione dei flussi operativi.",
-    tech: ["UiPath", "Automate 7", "Oracle", "SQL"],
+    period: "mag 2018 — feb 2023",
+    role: "Software Developer",
+    company: "Idea Srl · Tempo pieno",
+    location: "Milano, Italia",
+    description: "Sviluppatore full-stack di applicazioni gestionali e portali web per aziende nei settori sanità, logistica e pagamenti. Progetti per Ospedale San Raffaele, SIApay, Lottomatica e TWScourier.",
+    activities: [
+      "Sviluppo front-end di portali e gestionali web.",
+      "Sviluppo full-stack di applicazioni aziendali e interfacce responsive.",
+      "Implementazione di API, logica back-end, database e integrazioni dati.",
+    ],
+    tech: ["Angular", "TypeScript", "JavaScript", "Java", "Spring Boot", "PostgreSQL", "MySQL", "SQL Server"],
   },
   {
-    period: "2017",
-    role: "IT Consultant · Data & ETL",
-    company: "Everis Italia · Gi Group",
-    description: "Sviluppo ETL e migrazione di dati tra applicazioni, dalla trasformazione al caricamento e alla verifica.",
-    tech: ["SQL Server", "SSIS", "T-SQL", "Visual Basic"],
+    period: "dic 2017 — mag 2018",
+    role: "IT Consultant",
+    company: "Aubay · Cliente Vodafone Italia",
+    location: "Milano, Italia",
+    description: "Analisi e automazione dei processi aziendali in ambito telecomunicazioni.",
+    activities: [
+      "Sviluppo e manutenzione di procedure di Robotic Process Automation.",
+      "Analisi dei flussi operativi e gestione dei dati di processo.",
+    ],
+    tech: ["RPA", "Automate 7", "Toad for Oracle", "SQL", "Excel"],
+  },
+  {
+    period: "giu 2017 — dic 2017",
+    role: "External IT Consultant",
+    company: "everis Italia · Cliente Gi Group",
+    location: "Milano, Italia",
+    description: "Consulenza su progetti di ETL, Data Migration e integrazione dei dati tra sistemi aziendali.",
+    activities: [
+      "Migrazione e trasformazione dei dati tra applicazioni aziendali.",
+      "Sviluppo e verifica di processi ETL con SQL Server Integration Services.",
+    ],
+    tech: ["SQL Server 2014", "SSIS", "SQL", "T-SQL", "Visual Basic"],
   },
 ];
 
@@ -82,7 +112,14 @@ export default function Home() {
           <p className="nav-label">Esplora</p>
           {navItems.map(([label, href]) => <a className="nav-item" href={href} key={href}>{label}</a>)}
         </nav>
-        <div className="sidebar-footer"><span className="status-dot" /> Disponibile a nuove opportunità<small>Milano, Italia</small></div>
+        <div className="sidebar-footer"><span className="status-dot" /> Software, dati e AI<small>Milano, Italia</small></div>
+      </aside>
+
+      <aside className="social-rail" aria-label="Profili social">
+        <span className="social-rail-label">Seguimi</span>
+        <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+        <a href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        <a href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noreferrer">Instagram <span>↗</span></a>
       </aside>
 
       <div className="content">
@@ -95,11 +132,11 @@ export default function Home() {
           <h1>Costruisco software.</h1>
           <p className="hero-copy">Ciao, sono <strong>Hugo Aldo Reynoso</strong>, software developer specializzato nella progettazione e nello sviluppo di applicazioni web e mobile. Lavoro con Angular, Vue.js, Java e Spring Boot e ho maturato esperienza in progetti complessi per Pubblica Amministrazione, telecomunicazioni, pagamenti digitali, sanità e logistica. Oggi integro il mio percorso con l&apos;intelligenza artificiale, esplorando nuovi modi per costruire software più utile, efficiente e vicino alle persone.</p>
           <div className="hero-actions">
-            <a className="button primary" href="mailto:HugoAldoReynoso@gmail.com">Parliamo di un&apos;opportunità <span>↗</span></a>
+            <a className="button primary" href="#esperienza">Scopri il mio percorso <span>↓</span></a>
             <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
           </div>
           <div className="quick-facts">
-            <div><strong>8+</strong><span>anni nello sviluppo</span></div>
+            <div><strong>9+</strong><span>anni nello sviluppo</span></div>
             <div><strong>Full-stack</strong><span>front-end, back-end e dati</span></div>
             <div><strong>3 lingue</strong><span>italiano, spagnolo, inglese</span></div>
           </div>
@@ -108,9 +145,15 @@ export default function Home() {
         <section id="esperienza">
           <header className="section-heading"><span>Esperienza</span><h2>Dal problema al prodotto,<br />un livello alla volta.</h2></header>
           <div className="timeline">{experience.map((item) => (
-            <article className="experience-card" key={item.role}>
+            <article className="experience-card" key={item.company}>
               <p className="period">{item.period}</p>
-              <div><h3>{item.role}</h3><p className="company">{item.company}</p><p>{item.description}</p><div className="tags">{item.tech.map((tech) => <span key={tech}>{tech}</span>)}</div></div>
+              <div>
+                <h3>{item.role}</h3>
+                <p className="company">{item.company}<span>{item.location}</span></p>
+                <p>{item.description}</p>
+                <ul className="experience-activities">{item.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
+                <div className="tags">{item.tech.map((tech) => <span key={tech}>{tech}</span>)}</div>
+              </div>
             </article>
           ))}</div>
         </section>
@@ -154,7 +197,8 @@ export default function Home() {
         </section>
 
         <section className="contact" id="contatti">
-          <p className="eyebrow">Costruiamo qualcosa di valore</p><h2>Hai un progetto o<br />un&apos;opportunità?</h2>
+          <p className="eyebrow">Restiamo in contatto</p><h2>Conosciamoci<br />meglio.</h2>
+          <p className="contact-copy">Mi fa piacere entrare in contatto con professionisti, aziende e persone interessate a software, dati e intelligenza artificiale.</p>
           <a className="mail-link" href="mailto:HugoAldoReynoso@gmail.com">HugoAldoReynoso@gmail.com <span>↗</span></a>
           <div className="social-row">
             <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
