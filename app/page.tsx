@@ -110,16 +110,16 @@ export default function Home() {
         <a className="brand" href="#profilo" aria-label="Vai all'inizio"><span className="brand-mark">HR</span><span>Hugo Reynoso</span></a>
         <nav aria-label="Navigazione principale">
           <p className="nav-label">Esplora</p>
-          {navItems.map(([label, href]) => <a className="nav-item" href={href} key={href}>{label}</a>)}
+          {navItems.map(([label, href]) => <a className="nav-item" href={href} key={href}><span>{label}</span><span className="nav-arrow" aria-hidden="true">→</span></a>)}
         </nav>
         <div className="sidebar-footer"><span className="status-dot" /> Software, dati e AI<small>Milano, Italia</small></div>
       </aside>
 
       <aside className="social-rail" aria-label="Profili social">
         <span className="social-rail-label">Seguimi</span>
-        <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
-        <a href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
-        <a href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noreferrer">Instagram <span>↗</span></a>
+        <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer"><span className="social-icon" aria-hidden="true">in</span><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer"><span className="social-icon" aria-hidden="true">GH</span><span>GitHub</span><span aria-hidden="true">↗</span></a>
+        <a href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noreferrer"><span className="social-icon" aria-hidden="true">IG</span><span>Instagram</span><span aria-hidden="true">↗</span></a>
       </aside>
 
       <div className="content">
