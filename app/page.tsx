@@ -1,18 +1,6 @@
-import type { Metadata } from "next";
-import { headers } from "next/headers";
+const publicPath = process.env.GITHUB_PAGES === "true" ? "/personal-website" : "";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const incomingHeaders = await headers();
-  const host = incomingHeaders.get("host") ?? "localhost:3000";
-  const protocol = incomingHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const image = `${protocol}://${host}/og-v3.png`;
-  const title = "Hugo Aldo Reynoso · Software Developer a Milano";
-  const description = "Portfolio personale di Hugo Aldo Reynoso, software developer a Milano con esperienza in applicazioni web e mobile, dati e intelligenza artificiale.";
-  return {
-    openGraph: { title, description, type: "website", images: [{ url: image, width: 1734, height: 908, alt: "Hugo Aldo Reynoso · Software Developer a Milano" }] },
-    twitter: { card: "summary_large_image", title, description, images: [image] },
-  };
-}
+export const dynamic = "force-static";
 
 const experience = [
   {
@@ -126,7 +114,7 @@ export default function Home() {
         <section className="hero" id="profilo">
           <div className="eyebrow"><span>Software Developer</span><span>·</span><span>Milano</span></div>
           <figure className="portrait-card">
-            <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
+            <img src={`${publicPath}/hugo-reynoso.jpg`} alt="Hugo Aldo Reynoso" />
             <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
           </figure>
           <h1>Costruisco software.</h1>
