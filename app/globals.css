@@ -7,9 +7,15 @@ body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--fo
 a { color:inherit; text-decoration:none; }
 main { min-height:100vh; }
 .sidebar { position:fixed; inset:0 auto 0 0; width:280px; padding:28px 24px; border-right:1px solid var(--line); background:rgba(251,251,252,.92); backdrop-filter:blur(14px); display:flex; flex-direction:column; z-index:10; }
-.brand { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:-.02em; }
+.sidebar-top { display:flex; flex-direction:column; align-items:flex-start; gap:18px; }
+.brand { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:-.02em; white-space:nowrap; }
 .brand-mark { display:grid; place-items:center; width:38px; height:38px; background:var(--ink); color:var(--accent); border:1px solid var(--ink); font:700 12px var(--font-geist-mono); border-radius:6px; }
-nav { margin-top:56px; }
+.language-switcher { display:flex; align-items:center; padding:3px; border:1px solid var(--line); border-radius:7px; background:var(--soft); }
+.language-switcher button { min-width:30px; height:28px; padding:0 7px; border:0; border-radius:4px; background:transparent; color:var(--muted); cursor:pointer; font:600 9px var(--font-geist-mono); letter-spacing:.04em; transition:.2s ease; }
+.language-switcher button:hover { color:var(--ink); }
+.language-switcher button.active { background:var(--ink); color:var(--accent); box-shadow:0 1px 3px rgba(20,22,26,.15); }
+.language-switcher button:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
+.sidebar nav { margin-top:42px; }
 .nav-label { color:var(--muted); text-transform:uppercase; font:600 10px var(--font-geist-mono); letter-spacing:.18em; margin-bottom:16px; }
 .nav-item { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:11px 12px; margin:2px 0; border-radius:6px; color:var(--muted); font:13px var(--font-geist-mono); transition:.2s ease; }
 .nav-item:hover { color:var(--ink); background:var(--soft); }
@@ -100,6 +106,7 @@ h1 em { color:transparent; -webkit-text-stroke:1.5px var(--ink); font-style:norm
 footer { display:flex; justify-content:space-between; padding:28px 70px; color:var(--muted); font:10px var(--font-geist-mono); text-transform:uppercase; }
 @media (max-width:850px) {
   .sidebar { position:sticky; top:0; width:100%; height:auto; padding:11px 16px 9px; flex-direction:column; align-items:stretch; gap:9px; }
+  .sidebar-top { width:100%; flex-direction:row; align-items:center; justify-content:space-between; gap:12px; }
   .brand { width:max-content; }
   .brand-mark { width:34px; height:34px; }
   .sidebar nav { display:flex; gap:6px; margin:0; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:none; -webkit-overflow-scrolling:touch; }

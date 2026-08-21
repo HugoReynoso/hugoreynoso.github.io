@@ -1,107 +1,80 @@
-export const dynamic = "force-static";
+"use client";
 
-const experience = [
-  {
-    period: "mar 2023 — presente",
-    role: "Software Developer",
-    company: "GeneGIS GI · Tempo pieno",
-    location: "Milano · Ibrido",
-    description: "Consulente software su progetti enterprise per la Pubblica Amministrazione e aziende private.",
-    activities: [
-      "Sviluppo e manutenzione di applicazioni web con Angular, Java e Spring Boot.",
-      "Nuove funzionalità e refactoring di applicazioni con Vue.js e Java.",
-      "Sviluppo completo di un’applicazione mobile ibrida con Vue.js e Ionic per il personale operativo sul campo.",
-      "Bug fixing, ottimizzazione del software esistente e integrazione con API REST.",
-    ],
-    tech: ["Angular", "Vue.js", "Ionic", "Java", "Spring Boot", "REST API", "C#"],
-  },
-  {
-    period: "mag 2018 — feb 2023",
-    role: "Software Developer",
-    company: "Idea Srl · Tempo pieno",
-    location: "Milano, Italia",
-    description: "Sviluppatore full-stack di applicazioni gestionali e portali web per aziende nei settori sanità, logistica e pagamenti. Progetti per Ospedale San Raffaele, SIApay, Lottomatica e TWScourier.",
-    activities: [
-      "Sviluppo front-end di portali e gestionali web.",
-      "Sviluppo full-stack di applicazioni aziendali e interfacce responsive.",
-      "Implementazione di API, logica back-end, database e integrazioni dati.",
-    ],
-    tech: ["Angular", "TypeScript", "JavaScript", "Java", "Spring Boot", "PostgreSQL", "MySQL", "SQL Server"],
-  },
-  {
-    period: "dic 2017 — mag 2018",
-    role: "IT Consultant",
-    company: "Aubay · Cliente Vodafone Italia",
-    location: "Milano, Italia",
-    description: "Analisi e automazione dei processi aziendali in ambito telecomunicazioni.",
-    activities: [
-      "Sviluppo e manutenzione di procedure di Robotic Process Automation.",
-      "Analisi dei flussi operativi e gestione dei dati di processo.",
-    ],
-    tech: ["RPA", "Automate 7", "Toad for Oracle", "SQL", "Excel"],
-  },
-  {
-    period: "giu 2017 — dic 2017",
-    role: "External IT Consultant",
-    company: "everis Italia · Cliente Gi Group",
-    location: "Milano, Italia",
-    description: "Consulenza su progetti di ETL, Data Migration e integrazione dei dati tra sistemi aziendali.",
-    activities: [
-      "Migrazione e trasformazione dei dati tra applicazioni aziendali.",
-      "Sviluppo e verifica di processi ETL con SQL Server Integration Services.",
-    ],
-    tech: ["SQL Server 2014", "SSIS", "SQL", "T-SQL", "Visual Basic"],
-  },
+import { useEffect, useState } from "react";
+import { type Locale, portfolioCopy } from "./translations";
+
+const navTargets = ["#profilo", "#esperienza", "#progetti", "#competenze", "#formazione", "#contatti"];
+const locales: Locale[] = ["it", "en", "es"];
+
+const experienceTech = [
+  ["Angular", "Vue.js", "Ionic", "Java", "Spring Boot", "REST API", "C#"],
+  ["Angular", "TypeScript", "JavaScript", "Java", "Spring Boot", "PostgreSQL", "MySQL", "SQL Server"],
+  ["RPA", "Automate 7", "Toad for Oracle", "SQL", "Excel"],
+  ["SQL Server 2014", "SSIS", "SQL", "T-SQL", "Visual Basic"],
 ];
 
-const skillGroups = [
-  { title: "Front-end", skills: ["Angular", "TypeScript", "JavaScript", "HTML", "CSS", "Bootstrap"] },
-  { title: "Back-end", skills: ["Java", "Spring", "Spring Boot", "REST API"] },
-  { title: "Data", skills: ["PostgreSQL", "MySQL", "Oracle", "SQL Server", "ETL", "Spark"] },
-  { title: "Workflow", skills: ["Git", "Jira", "Confluence", "Agile", "Teamwork"] },
+const skillLists = [
+  ["Angular", "TypeScript", "JavaScript", "HTML", "CSS", "Bootstrap"],
+  ["Java", "Spring", "Spring Boot", "REST API"],
+  ["PostgreSQL", "MySQL", "Oracle", "SQL Server", "ETL", "Spark"],
+  ["Git", "Jira", "Confluence", "Agile", "Teamwork"],
 ];
 
 const projects = [
-  {
-    name: "Spark",
-    path: "HugoReynoso / Spark",
-    description: "Repository dedicato allo studio e alla sperimentazione con Apache Spark e l'elaborazione distribuita dei dati.",
-    language: "Apache Spark",
-    size: "690 KB",
-    href: "https://github.com/HugoReynoso/Spark",
-  },
-  {
-    name: "spark-examples",
-    path: "HugoReynoso / spark-examples",
-    description: "Raccolta di esempi pratici per esplorare Spark, i flussi di elaborazione e il mondo Big Data.",
-    language: "Data engineering",
-    size: "140 KB",
-    href: "https://github.com/HugoReynoso/spark-examples",
-  },
+  { name: "Spark", path: "HugoReynoso / Spark", language: "Apache Spark", size: "690 KB", href: "https://github.com/HugoReynoso/Spark" },
+  { name: "spark-examples", path: "HugoReynoso / spark-examples", language: "Data engineering", size: "140 KB", href: "https://github.com/HugoReynoso/spark-examples" },
 ];
 
-const navItems = [
-  ["Profilo", "#profilo"],
-  ["Esperienza", "#esperienza"],
-  ["Progetti", "#progetti"],
-  ["Competenze", "#competenze"],
-  ["Formazione", "#formazione"],
-  ["Contatti", "#contatti"],
-];
+function preferredLocale(): Locale {
+  const saved = window.localStorage.getItem("portfolio-language");
+  if (saved === "it" || saved === "en" || saved === "es") return saved;
+  const browserLocale = window.navigator.language.toLowerCase();
+  if (browserLocale.startsWith("es")) return "es";
+  if (browserLocale.startsWith("en")) return "en";
+  return "it";
+}
 
 export default function Home() {
+  const [locale, setLocale] = useState<Locale>("it");
+  const [isLanguageReady, setIsLanguageReady] = useState(false);
+  const copy = portfolioCopy[locale];
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setLocale(preferredLocale());
+      setIsLanguageReady(true);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!isLanguageReady) return;
+    document.documentElement.lang = locale;
+    document.title = copy.pageTitle;
+    window.localStorage.setItem("portfolio-language", locale);
+  }, [copy.pageTitle, isLanguageReady, locale]);
+
   return (
     <main>
       <aside className="sidebar">
-        <a className="brand" href="#profilo" aria-label="Vai all'inizio"><span className="brand-mark">HR</span><span>Hugo Reynoso</span></a>
-        <nav aria-label="Navigazione principale">
-          <p className="nav-label">Esplora</p>
-          {navItems.map(([label, href]) => <a className="nav-item" href={href} key={href}><span>{label}</span><span className="nav-chevron" aria-hidden="true" /></a>)}
+        <div className="sidebar-top">
+          <a className="brand" href="#profilo" aria-label={copy.brandAria}><span className="brand-mark">HR</span><span>Hugo Reynoso</span></a>
+          <div className="language-switcher" role="group" aria-label={copy.languageLabel}>
+            {locales.map((language) => (
+              <button type="button" lang={language} aria-pressed={locale === language} className={locale === language ? "active" : ""} onClick={() => setLocale(language)} key={language}>
+                {language.toUpperCase()}
+              </button>
+            ))}
+          </div>
+        </div>
+        <nav aria-label={copy.navigationAria}>
+          <p className="nav-label">{copy.explore}</p>
+          {copy.nav.map((label, index) => <a className="nav-item" href={navTargets[index]} key={navTargets[index]}><span>{label}</span><span className="nav-chevron" aria-hidden="true" /></a>)}
         </nav>
-        <div className="sidebar-footer"><span className="status-dot" /> Software, dati e AI<small>Milano, Italia</small></div>
+        <div className="sidebar-footer"><span className="status-dot" /> {copy.sidebarTagline}<small>{copy.location}</small></div>
       </aside>
 
-      <aside className="social-rail" aria-label="Profili social">
+      <aside className="social-rail" aria-label={copy.socialAria}>
         <span className="social-rail-label">Social</span>
         <a className="linkedin" href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><span className="social-icon" aria-hidden="true">in</span><span className="social-name">LinkedIn</span><span className="social-external" aria-hidden="true">↗</span></a>
         <a className="github" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer" aria-label="GitHub"><span className="social-icon" aria-hidden="true">GH</span><span className="social-name">GitHub</span><span className="social-external" aria-hidden="true">↗</span></a>
@@ -110,35 +83,33 @@ export default function Home() {
 
       <div className="content">
         <section className="hero" id="profilo">
-          <div className="eyebrow"><span>Software Developer</span><span>·</span><span>Milano</span></div>
+          <div className="eyebrow"><span>{copy.hero.role}</span><span>·</span><span>{copy.hero.city}</span></div>
           <figure className="portrait-card">
             <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
             <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
           </figure>
-          <h1>Costruisco software.</h1>
-          <p className="hero-copy">Ciao, sono <strong>Hugo Aldo Reynoso</strong>, software developer specializzato nella progettazione e nello sviluppo di applicazioni web e mobile. Lavoro con Angular, Vue.js, Java e Spring Boot e ho maturato esperienza in progetti complessi per Pubblica Amministrazione, telecomunicazioni, pagamenti digitali, sanità e logistica. Oggi integro il mio percorso con l&apos;intelligenza artificiale, esplorando nuovi modi per costruire software più utile, efficiente e vicino alle persone.</p>
+          <h1>{copy.hero.title}</h1>
+          <p className="hero-copy">{copy.hero.introBefore} <strong>Hugo Aldo Reynoso</strong>, {copy.hero.introAfter}</p>
           <div className="hero-actions">
-            <a className="button primary" href="#esperienza">Scopri il mio percorso <span>↓</span></a>
+            <a className="button primary" href="#esperienza">{copy.hero.cta} <span>↓</span></a>
             <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
           </div>
           <div className="quick-facts">
-            <div><strong>9+</strong><span>anni nello sviluppo</span></div>
-            <div><strong>Full-stack</strong><span>front-end, back-end e dati</span></div>
-            <div><strong>3 lingue</strong><span>italiano, spagnolo, inglese</span></div>
+            {copy.hero.facts.map((fact) => <div key={fact.value}><strong>{fact.value}</strong><span>{fact.label}</span></div>)}
           </div>
         </section>
 
         <section id="esperienza">
-          <header className="section-heading"><span>Esperienza</span><h2>Dal problema al prodotto,<br />un livello alla volta.</h2></header>
-          <div className="timeline">{experience.map((item) => (
-            <article className="experience-card" key={item.company}>
+          <header className="section-heading"><span>{copy.experience.label}</span><h2>{copy.experience.title[0]}<br />{copy.experience.title[1]}</h2></header>
+          <div className="timeline">{copy.experience.items.map((item, index) => (
+            <article className="experience-card" key={`${item.company}-${item.period}`}>
               <p className="period">{item.period}</p>
               <div>
                 <h3>{item.role}</h3>
                 <p className="company">{item.company}<span>{item.location}</span></p>
                 <p>{item.description}</p>
                 <ul className="experience-activities">{item.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
-                <div className="tags">{item.tech.map((tech) => <span key={tech}>{tech}</span>)}</div>
+                <div className="tags">{experienceTech[index].map((tech) => <span key={tech}>{tech}</span>)}</div>
               </div>
             </article>
           ))}</div>
@@ -146,45 +117,43 @@ export default function Home() {
 
         <section id="progetti">
           <header className="section-heading">
-            <span>Progetti</span>
-            <h2>Codice pubblico,<br />apprendimento continuo.</h2>
-            <p className="section-intro">Una selezione dal mio profilo GitHub: esperimenti e materiali costruiti intorno ai dati e ad Apache Spark.</p>
+            <span>{copy.projects.label}</span>
+            <h2>{copy.projects.title[0]}<br />{copy.projects.title[1]}</h2>
+            <p className="section-intro">{copy.projects.intro}</p>
           </header>
           <div className="project-grid">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.name}>
-                <div className="repo-top"><span className="repo-icon">⌘</span><span>Public</span></div>
+                <div className="repo-top"><span className="repo-icon">⌘</span><span>{copy.projects.publicLabel}</span></div>
                 <p className="repo-path">{project.path}</p>
                 <h3>{project.name}<span>↗</span></h3>
-                <p className="repo-description">{project.description}</p>
+                <p className="repo-description">{copy.projects.descriptions[index]}</p>
                 <div className="repo-meta"><span><i />{project.language}</span><span>{project.size}</span></div>
               </a>
             ))}
           </div>
           <a className="github-profile-link" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">
-            <span>github.com/HugoReynoso</span><span>Vedi tutti i repository ↗</span>
+            <span>github.com/HugoReynoso</span><span>{copy.projects.allRepositories} ↗</span>
           </a>
         </section>
 
         <section id="competenze">
-          <header className="section-heading"><span>Competenze</span><h2>Un profilo trasversale,<br />con solide fondamenta.</h2></header>
-          <div className="skill-grid">{skillGroups.map((group) => (
-            <article className="skill-card" key={group.title}><h3>{group.title}</h3><ul>{group.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
+          <header className="section-heading"><span>{copy.skills.label}</span><h2>{copy.skills.title[0]}<br />{copy.skills.title[1]}</h2></header>
+          <div className="skill-grid">{copy.skills.groups.map((title, index) => (
+            <article className="skill-card" key={title}><h3>{title}</h3><ul>{skillLists[index].map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
           ))}</div>
         </section>
 
         <section id="formazione">
-          <header className="section-heading"><span>Formazione</span><h2>Curiosità continua,<br />dalle basi all&apos;AI.</h2></header>
+          <header className="section-heading"><span>{copy.education.label}</span><h2>{copy.education.title[0]}<br />{copy.education.title[1]}</h2></header>
           <div className="education-list">
-            <article><span>Università</span><div><h3>Informatica</h3><p>Università degli Studi di Milano-Bicocca</p><small>Algoritmi, software design, database, reti, sistemi operativi e HCI.</small></div></article>
-            <article><span>Specializzazione</span><div><h3>Database & Business Intelligence</h3><p>Philmark Informatica · Everis Italia</p><small>SQL, PL/SQL, Data Warehouse, ETL, OLAP e Big Data.</small></div></article>
-            <article><span>Diploma</span><div><h3>Perito Informatico</h3><p>I.T.I. Altiero Spinelli · Sesto San Giovanni</p><small>Le fondamenta tecniche da cui è iniziato tutto.</small></div></article>
+            {copy.education.items.map((item) => <article key={item.type}><span>{item.type}</span><div><h3>{item.degree}</h3><p>{item.school}</p><small>{item.details}</small></div></article>)}
           </div>
         </section>
 
         <section className="contact" id="contatti">
-          <p className="eyebrow">Restiamo in contatto</p><h2>Conosciamoci<br />meglio.</h2>
-          <p className="contact-copy">Mi fa piacere entrare in contatto con professionisti, aziende e persone interessate a software, dati e intelligenza artificiale.</p>
+          <p className="eyebrow">{copy.contact.eyebrow}</p><h2>{copy.contact.title[0]}<br />{copy.contact.title[1]}</h2>
+          <p className="contact-copy">{copy.contact.copy}</p>
           <a className="mail-link" href="mailto:HugoAldoReynoso@gmail.com">HugoAldoReynoso@gmail.com <span>↗</span></a>
           <div className="social-row">
             <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
