@@ -1,5 +1,3 @@
-const publicPath = process.env.GITHUB_PAGES === "true" ? "/personal-website" : "";
-
 export const dynamic = "force-static";
 
 const experience = [
@@ -114,7 +112,7 @@ export default function Home() {
         <section className="hero" id="profilo">
           <div className="eyebrow"><span>Software Developer</span><span>·</span><span>Milano</span></div>
           <figure className="portrait-card">
-            <img src={`${publicPath}/hugo-reynoso.jpg`} alt="Hugo Aldo Reynoso" />
+            <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
             <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
           </figure>
           <h1>Costruisco software.</h1>

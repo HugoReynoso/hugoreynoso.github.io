@@ -7,7 +7,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
 const siteUrl = isGitHubPages
-  ? "https://hugoreynoso.github.io/personal-website"
+  ? "https://hugoreynoso.github.io"
   : "https://hugo-aldo-reynoso.hugoaldoreynoso.chatgpt.site";
 const socialImage = `${siteUrl}/og-v3.png`;
 const favicon = `${siteUrl}/favicon.svg`;

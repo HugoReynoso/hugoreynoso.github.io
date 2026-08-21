@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
   ...(isGitHubPages
     ? {
         output: "export" as const,
-        assetPrefix: "/personal-website",
         trailingSlash: true,
       }
     : {}),
