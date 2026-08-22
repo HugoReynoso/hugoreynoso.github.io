@@ -21,8 +21,8 @@ const skillLists = [
 ];
 
 const projects = [
-  { name: "Spark", path: "HugoReynoso / Spark", language: "Apache Spark", size: "690 KB", href: "https://github.com/HugoReynoso/Spark" },
-  { name: "spark-examples", path: "HugoReynoso / spark-examples", language: "Data engineering", size: "140 KB", href: "https://github.com/HugoReynoso/spark-examples" },
+  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", size: "PWA", href: "https://github.com/HugoReynoso/game-logos" },
+  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", size: "PWA", href: "https://github.com/HugoReynoso/game-flags" },
 ];
 
 function preferredLocale(): Locale {

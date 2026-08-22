@@ -119,8 +119,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     },
     projects: {
       label: "Progetti", title: ["Codice pubblico,", "apprendimento continuo."],
-      intro: "Una selezione dal mio profilo GitHub: esperimenti e materiali costruiti intorno ai dati e ad Apache Spark.", publicLabel: "Pubblico",
-      descriptions: ["Repository dedicato allo studio e alla sperimentazione con Apache Spark e l'elaborazione distribuita dei dati.", "Raccolta di esempi pratici per esplorare Spark, i flussi di elaborazione e il mondo Big Data."],
+      intro: "Una selezione dei miei progetti più recenti su GitHub: applicazioni web mobile-first, multilingua e installabili.", publicLabel: "Pubblico",
+      descriptions: ["Gioco PWA mobile-first per riconoscere i loghi dei brand, con modalità Classic, Time Attack e Sulla fronte, profili locali e supporto in tre lingue.", "Gioco PWA multilingua per riconoscere le bandiere del mondo, con modalità Classic e Sulla fronte, funzionamento offline e classifiche opzionali con Supabase."],
       allRepositories: "Vedi tutti i repository",
     },
     skills: { label: "Competenze", title: ["Un profilo trasversale,", "con solide fondamenta."], groups: ["Front-end", "Back-end", "Dati", "Workflow"] },
@@ -176,8 +176,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       ],
     },
     projects: {
-      label: "Projects", title: ["Public code,", "continuous learning."], intro: "A selection from my GitHub profile: experiments and learning materials focused on data and Apache Spark.", publicLabel: "Public",
-      descriptions: ["A repository dedicated to learning and experimenting with Apache Spark and distributed data processing.", "A collection of practical examples for exploring Spark, processing pipelines and the Big Data ecosystem."], allRepositories: "View all repositories",
+      label: "Projects", title: ["Public code,", "continuous learning."], intro: "A selection of my latest GitHub projects: mobile-first, multilingual and installable web applications.", publicLabel: "Public",
+      descriptions: ["A mobile-first PWA for recognizing brand logos, featuring Classic, Time Attack and Forehead modes, local profiles and support for three languages.", "A multilingual PWA for recognizing world flags, featuring Classic and Forehead modes, offline support and optional Supabase leaderboards."], allRepositories: "View all repositories",
     },
     skills: { label: "Skills", title: ["A versatile profile,", "built on solid foundations."], groups: ["Front-end", "Back-end", "Data", "Workflow"] },
     education: {
@@ -232,8 +232,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       ],
     },
     projects: {
-      label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Una selección de mi perfil de GitHub: experimentos y materiales centrados en los datos y Apache Spark.", publicLabel: "Público",
-      descriptions: ["Repositorio dedicado al aprendizaje y la experimentación con Apache Spark y el procesamiento distribuido de datos.", "Colección de ejemplos prácticos para explorar Spark, los flujos de procesamiento y el mundo del Big Data."], allRepositories: "Ver todos los repositorios",
+      label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Una selección de mis proyectos más recientes en GitHub: aplicaciones web mobile-first, multilingües e instalables.", publicLabel: "Público",
+      descriptions: ["Juego PWA mobile-first para reconocer logotipos de marcas, con modos Clásico, Contrarreloj y En la frente, perfiles locales y soporte en tres idiomas.", "Juego PWA multilingüe para reconocer las banderas del mundo, con modos Clásico y En la frente, funcionamiento offline y clasificaciones opcionales con Supabase."], allRepositories: "Ver todos los repositorios",
     },
     skills: { label: "Competencias", title: ["Un perfil versátil,", "con bases sólidas."], groups: ["Front-end", "Back-end", "Datos", "Flujo de trabajo"] },
     education: {
