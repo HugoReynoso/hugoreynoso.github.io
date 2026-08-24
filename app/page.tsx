@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { type Locale, portfolioCopy } from "./translations";
 
 const navTargets = ["#profilo", "#esperienza", "#progetti", "#competenze", "#formazione", "#contatti"];
@@ -21,8 +21,12 @@ const skillLists = [
 ];
 
 const projects = [
-  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", size: "PWA", href: "https://github.com/HugoReynoso/game-logos" },
-  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", size: "PWA", href: "https://github.com/HugoReynoso/game-flags" },
+  { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense" },
+  { name: "Personal Portfolio", path: "HugoReynoso / hugoreynoso.github.io", language: "React · TypeScript", href: "https://github.com/HugoReynoso/hugoreynoso.github.io" },
+  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", href: "https://github.com/HugoReynoso/game-logos" },
+  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", href: "https://github.com/HugoReynoso/game-flags" },
+  { name: "Spark", path: "HugoReynoso / Spark", language: "Apache Spark", href: "https://github.com/HugoReynoso/Spark" },
+  { name: "Spark Examples", path: "HugoReynoso / spark-examples", language: "Java · Spark", href: "https://github.com/HugoReynoso/spark-examples" },
 ];
 
 function preferredLocale(): Locale {
@@ -37,6 +41,10 @@ function preferredLocale(): Locale {
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("it");
   const [isLanguageReady, setIsLanguageReady] = useState(false);
+  const [firstVisibleProject, setFirstVisibleProject] = useState(0);
+  const [canScrollProjectsBack, setCanScrollProjectsBack] = useState(false);
+  const [canScrollProjectsForward, setCanScrollProjectsForward] = useState(true);
+  const projectTrackRef = useRef<HTMLDivElement>(null);
   const copy = portfolioCopy[locale];
 
   useEffect(() => {
@@ -53,6 +61,32 @@ export default function Home() {
     document.title = copy.pageTitle;
     window.localStorage.setItem("portfolio-language", locale);
   }, [copy.pageTitle, isLanguageReady, locale]);
+
+  const updateProjectPosition = () => {
+    const track = projectTrackRef.current;
+    const firstCard = track?.querySelector<HTMLElement>(".project-card");
+    if (!track || !firstCard) return;
+    const step = firstCard.offsetWidth + 16;
+    setFirstVisibleProject(Math.min(projects.length - 1, Math.round(track.scrollLeft / step)));
+    setCanScrollProjectsBack(track.scrollLeft > 2);
+    setCanScrollProjectsForward(track.scrollLeft < track.scrollWidth - track.clientWidth - 2);
+  };
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(updateProjectPosition);
+    window.addEventListener("resize", updateProjectPosition);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateProjectPosition);
+    };
+  }, []);
+
+  const scrollProjects = (direction: -1 | 1) => {
+    const track = projectTrackRef.current;
+    const firstCard = track?.querySelector<HTMLElement>(".project-card");
+    if (!track || !firstCard) return;
+    track.scrollBy({ left: direction * (firstCard.offsetWidth + 16), behavior: "smooth" });
+  };
 
   return (
     <main>
@@ -121,14 +155,25 @@ export default function Home() {
             <h2>{copy.projects.title[0]}<br />{copy.projects.title[1]}</h2>
             <p className="section-intro">{copy.projects.intro}</p>
           </header>
-          <div className="project-grid">
+          <div className="project-carousel-controls">
+            <span className="project-counter" aria-live="polite">{firstVisibleProject + 1} / {projects.length}</span>
+            <button type="button" onClick={() => scrollProjects(-1)} disabled={!canScrollProjectsBack} aria-label={copy.projects.previousLabel}>←</button>
+            <button type="button" onClick={() => scrollProjects(1)} disabled={!canScrollProjectsForward} aria-label={copy.projects.nextLabel}>→</button>
+          </div>
+          <div
+            className="project-track"
+            ref={projectTrackRef}
+            onScroll={updateProjectPosition}
+            role="region"
+            aria-label={copy.projects.carouselLabel}
+          >
             {projects.map((project, index) => (
               <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.name}>
                 <div className="repo-top"><span className="repo-icon">⌘</span><span>{copy.projects.publicLabel}</span></div>
                 <p className="repo-path">{project.path}</p>
                 <h3>{project.name}<span>↗</span></h3>
                 <p className="repo-description">{copy.projects.descriptions[index]}</p>
-                <div className="repo-meta"><span><i />{project.language}</span><span>{project.size}</span></div>
+                <div className="repo-meta"><span><i />{project.language}</span><span>{copy.projects.types[index]}</span></div>
               </a>
             ))}
           </div>

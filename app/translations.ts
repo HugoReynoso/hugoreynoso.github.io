@@ -39,7 +39,11 @@ type PortfolioCopy = {
     intro: string;
     publicLabel: string;
     descriptions: string[];
+    types: string[];
     allRepositories: string;
+    carouselLabel: string;
+    previousLabel: string;
+    nextLabel: string;
   };
   skills: {
     label: string;
@@ -119,9 +123,20 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     },
     projects: {
       label: "Progetti", title: ["Codice pubblico,", "apprendimento continuo."],
-      intro: "Una selezione dei miei progetti più recenti su GitHub: applicazioni web mobile-first, multilingua e installabili.", publicLabel: "Pubblico",
-      descriptions: ["Gioco PWA mobile-first per riconoscere i loghi dei brand, con modalità Classic, Time Attack e Sulla fronte, profili locali e supporto in tre lingue.", "Gioco PWA multilingua per riconoscere le bandiere del mondo, con modalità Classic e Sulla fronte, funzionamento offline e classifiche opzionali con Supabase."],
+      intro: "Tutti i miei repository pubblici, dai giochi web mobile-first agli esperimenti su dati e Apache Spark.", publicLabel: "Pubblico",
+      descriptions: [
+        "Tower defense fantasy mobile-first sviluppato con Phaser 3 e TypeScript, con 6 mappe, 40 ondate, 10 guardiani e progressione salvata localmente.",
+        "Il codice di questo portfolio personale multilingua e responsive, progettato per raccontare il mio percorso, i progetti e le competenze.",
+        "Gioco PWA mobile-first per riconoscere i loghi dei brand, con modalità Classic, Time Attack e Sulla fronte, profili locali e supporto in tre lingue.",
+        "Gioco PWA multilingua per riconoscere le bandiere del mondo, con modalità Classic e Sulla fronte, funzionamento offline e classifiche opzionali con Supabase.",
+        "Repository dedicato allo studio e alla sperimentazione con Apache Spark e l'elaborazione distribuita dei dati.",
+        "Fork con esempi pratici in Java per esplorare Apache Spark e i principali flussi di elaborazione dati.",
+      ],
+      types: ["Gioco", "Portfolio", "PWA", "PWA", "Dati", "Fork"],
       allRepositories: "Vedi tutti i repository",
+      carouselLabel: "Carosello dei repository GitHub",
+      previousLabel: "Mostra i repository precedenti",
+      nextLabel: "Mostra i repository successivi",
     },
     skills: { label: "Competenze", title: ["Un profilo trasversale,", "con solide fondamenta."], groups: ["Front-end", "Back-end", "Dati", "Workflow"] },
     education: {
@@ -176,8 +191,18 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       ],
     },
     projects: {
-      label: "Projects", title: ["Public code,", "continuous learning."], intro: "A selection of my latest GitHub projects: mobile-first, multilingual and installable web applications.", publicLabel: "Public",
-      descriptions: ["A mobile-first PWA for recognizing brand logos, featuring Classic, Time Attack and Forehead modes, local profiles and support for three languages.", "A multilingual PWA for recognizing world flags, featuring Classic and Forehead modes, offline support and optional Supabase leaderboards."], allRepositories: "View all repositories",
+      label: "Projects", title: ["Public code,", "continuous learning."], intro: "All my public repositories, from mobile-first web games to data and Apache Spark experiments.", publicLabel: "Public",
+      descriptions: [
+        "A mobile-first fantasy tower defense built with Phaser 3 and TypeScript, featuring 6 maps, 40 waves, 10 guardians and locally saved progression.",
+        "The source code of this multilingual, responsive personal portfolio, designed to present my experience, projects and skills.",
+        "A mobile-first PWA for recognizing brand logos, featuring Classic, Time Attack and Forehead modes, local profiles and support for three languages.",
+        "A multilingual PWA for recognizing world flags, featuring Classic and Forehead modes, offline support and optional Supabase leaderboards.",
+        "A repository for learning and experimenting with Apache Spark and distributed data processing.",
+        "A fork containing practical Java examples for exploring Apache Spark and essential data-processing workflows.",
+      ], types: ["Game", "Portfolio", "PWA", "PWA", "Data", "Fork"], allRepositories: "View all repositories",
+      carouselLabel: "GitHub repositories carousel",
+      previousLabel: "Show previous repositories",
+      nextLabel: "Show next repositories",
     },
     skills: { label: "Skills", title: ["A versatile profile,", "built on solid foundations."], groups: ["Front-end", "Back-end", "Data", "Workflow"] },
     education: {
@@ -232,8 +257,18 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       ],
     },
     projects: {
-      label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Una selección de mis proyectos más recientes en GitHub: aplicaciones web mobile-first, multilingües e instalables.", publicLabel: "Público",
-      descriptions: ["Juego PWA mobile-first para reconocer logotipos de marcas, con modos Clásico, Contrarreloj y En la frente, perfiles locales y soporte en tres idiomas.", "Juego PWA multilingüe para reconocer las banderas del mundo, con modos Clásico y En la frente, funcionamiento offline y clasificaciones opcionales con Supabase."], allRepositories: "Ver todos los repositorios",
+      label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Todos mis repositorios públicos, desde juegos web mobile-first hasta experimentos con datos y Apache Spark.", publicLabel: "Público",
+      descriptions: [
+        "Tower defense de fantasía mobile-first desarrollado con Phaser 3 y TypeScript, con 6 mapas, 40 oleadas, 10 guardianes y progreso guardado localmente.",
+        "El código de este portfolio personal multilingüe y adaptable, diseñado para presentar mi experiencia, proyectos y competencias.",
+        "Juego PWA mobile-first para reconocer logotipos de marcas, con modos Clásico, Contrarreloj y En la frente, perfiles locales y soporte en tres idiomas.",
+        "Juego PWA multilingüe para reconocer las banderas del mundo, con modos Clásico y En la frente, funcionamiento offline y clasificaciones opcionales con Supabase.",
+        "Repositorio para aprender y experimentar con Apache Spark y el procesamiento distribuido de datos.",
+        "Fork con ejemplos prácticos en Java para explorar Apache Spark y los principales flujos de procesamiento de datos.",
+      ], types: ["Juego", "Portfolio", "PWA", "PWA", "Datos", "Fork"], allRepositories: "Ver todos los repositorios",
+      carouselLabel: "Carrusel de repositorios de GitHub",
+      previousLabel: "Mostrar repositorios anteriores",
+      nextLabel: "Mostrar repositorios siguientes",
     },
     skills: { label: "Competencias", title: ["Un perfil versátil,", "con bases sólidas."], groups: ["Front-end", "Back-end", "Datos", "Flujo de trabajo"] },
     education: {
