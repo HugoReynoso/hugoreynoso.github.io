@@ -89,6 +89,7 @@ h1 em { color:transparent; -webkit-text-stroke:1.5px var(--ink); font-style:norm
 .project-track::-webkit-scrollbar { display:none; }
 .project-card { flex:0 0 calc((100% - 16px)/2); min-width:0; min-height:270px; padding:22px; border:1px solid var(--line); border-radius:8px; background:var(--panel); display:flex; flex-direction:column; scroll-snap-align:start; transition:.2s ease; }
 .project-card:hover { border-color:var(--line-strong); transform:translateY(-3px); box-shadow:0 12px 30px rgba(20,22,26,.10); }
+.project-preview { display:block; width:calc(100% + 44px); height:auto; aspect-ratio:16/9; object-fit:cover; margin:-22px -22px 20px; border-radius:7px 7px 0 0; border-bottom:1px solid var(--line); background:var(--soft); }
 .repo-top { display:flex; align-items:center; justify-content:space-between; color:var(--muted); font:10px var(--font-geist-mono); }
 .repo-top>span:last-child { border:1px solid var(--line); border-radius:999px; padding:4px 8px; }
 .repo-icon { color:var(--muted); font-size:17px; }
@@ -158,5 +159,6 @@ footer { display:flex; justify-content:space-between; padding:28px 70px; color:v
   .github-profile-link { flex-direction:column; gap:10px; }
   .project-carousel-controls { margin-top:-22px; }
   .project-card { min-height:250px; padding:20px; }
+  .project-preview { width:calc(100% + 40px); margin:-20px -20px 18px; }
   .skill-card ul { columns:1; }
 }

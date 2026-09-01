@@ -40,6 +40,7 @@ type PortfolioCopy = {
     publicLabel: string;
     descriptions: string[];
     types: string[];
+    previewAlts: string[];
     allRepositories: string;
     carouselLabel: string;
     previousLabel: string;
@@ -133,6 +134,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "Fork con esempi pratici in Java per esplorare Apache Spark e i principali flussi di elaborazione dati.",
       ],
       types: ["Gioco", "Portfolio", "PWA", "PWA", "Dati", "Fork"],
+      previewAlts: ["Anteprima del gioco Green Valley Guardians", "", "Anteprima del gioco Logo Streak", "Anteprima del gioco Flag Streak", "", ""],
       allRepositories: "Vedi tutti i repository",
       carouselLabel: "Carosello dei repository GitHub",
       previousLabel: "Mostra i repository precedenti",
@@ -199,7 +201,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "A multilingual PWA for recognizing world flags, featuring Classic and Forehead modes, offline support and optional Supabase leaderboards.",
         "A repository for learning and experimenting with Apache Spark and distributed data processing.",
         "A fork containing practical Java examples for exploring Apache Spark and essential data-processing workflows.",
-      ], types: ["Game", "Portfolio", "PWA", "PWA", "Data", "Fork"], allRepositories: "View all repositories",
+      ], types: ["Game", "Portfolio", "PWA", "PWA", "Data", "Fork"], previewAlts: ["Green Valley Guardians game preview", "", "Logo Streak game preview", "Flag Streak game preview", "", ""], allRepositories: "View all repositories",
       carouselLabel: "GitHub repositories carousel",
       previousLabel: "Show previous repositories",
       nextLabel: "Show next repositories",
@@ -265,7 +267,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "Juego PWA multilingüe para reconocer las banderas del mundo, con modos Clásico y En la frente, funcionamiento offline y clasificaciones opcionales con Supabase.",
         "Repositorio para aprender y experimentar con Apache Spark y el procesamiento distribuido de datos.",
         "Fork con ejemplos prácticos en Java para explorar Apache Spark y los principales flujos de procesamiento de datos.",
-      ], types: ["Juego", "Portfolio", "PWA", "PWA", "Datos", "Fork"], allRepositories: "Ver todos los repositorios",
+      ], types: ["Juego", "Portfolio", "PWA", "PWA", "Datos", "Fork"], previewAlts: ["Vista previa del juego Green Valley Guardians", "", "Vista previa del juego Logo Streak", "Vista previa del juego Flag Streak", "", ""], allRepositories: "Ver todos los repositorios",
       carouselLabel: "Carrusel de repositorios de GitHub",
       previousLabel: "Mostrar repositorios anteriores",
       nextLabel: "Mostrar repositorios siguientes",

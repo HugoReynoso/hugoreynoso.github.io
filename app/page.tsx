@@ -21,10 +21,10 @@ const skillLists = [
 ];
 
 const projects = [
-  { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense" },
+  { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense", preview: "/projects/green-valley-guardians.jpg" },
   { name: "Personal Portfolio", path: "HugoReynoso / hugoreynoso.github.io", language: "React · TypeScript", href: "https://github.com/HugoReynoso/hugoreynoso.github.io" },
-  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", href: "https://github.com/HugoReynoso/game-logos" },
-  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", href: "https://github.com/HugoReynoso/game-flags" },
+  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", href: "https://github.com/HugoReynoso/game-logos", preview: "/projects/logo-streak.jpg" },
+  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", href: "https://github.com/HugoReynoso/game-flags", preview: "/projects/flag-streak.jpg" },
   { name: "Spark", path: "HugoReynoso / Spark", language: "Apache Spark", href: "https://github.com/HugoReynoso/Spark" },
   { name: "Spark Examples", path: "HugoReynoso / spark-examples", language: "Java · Spark", href: "https://github.com/HugoReynoso/spark-examples" },
 ];
@@ -169,6 +169,7 @@ export default function Home() {
           >
             {projects.map((project, index) => (
               <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.name}>
+                {project.preview && <img className="project-preview" src={project.preview} alt={copy.projects.previewAlts[index]} width="1200" height="675" loading="lazy" decoding="async" />}
                 <div className="repo-top"><span className="repo-icon">⌘</span><span>{copy.projects.publicLabel}</span></div>
                 <p className="repo-path">{project.path}</p>
                 <h3>{project.name}<span>↗</span></h3>
