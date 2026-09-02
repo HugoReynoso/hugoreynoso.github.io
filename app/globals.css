@@ -41,6 +41,7 @@ section { max-width:1050px; margin:0 auto; padding:88px 70px; border-bottom:1px 
 .eyebrow span:first-child { background:var(--accent); color:var(--ink); border:1px solid rgba(20,22,26,.14); padding:7px 10px; border-radius:999px; }
 h1 { max-width:850px; font-size:clamp(64px,8vw,104px); line-height:.9; letter-spacing:-.075em; margin:32px 0 28px; font-weight:650; }
 .hero h1 { max-width:calc(100% - 205px); }
+.hero-heading { display:contents; }
 h1 em { color:transparent; -webkit-text-stroke:1.5px var(--ink); font-style:normal; }
 .hero-copy { max-width:700px; font-size:20px; line-height:1.6; color:var(--muted); }
 .hero-copy strong { color:var(--ink); }
@@ -128,9 +129,10 @@ footer { display:flex; justify-content:space-between; padding:28px 70px; color:v
   .content { margin-left:0; }
   section { padding:66px 25px; scroll-margin-top:104px; }
   .hero { min-height:auto; padding-top:56px; }
-  .portrait-card { position:relative; inset:auto; width:130px; margin:34px 0 0; transform:none; }
-  h1 { font-size:clamp(48px,12vw,64px); margin:32px 0 28px; }
-  .hero h1 { max-width:none; }
+  .hero-heading { display:flex; align-items:center; gap:18px; margin:32px 0 28px; }
+  .portrait-card { position:relative; inset:auto; order:2; flex:0 0 112px; width:112px; margin:0; transform:none; }
+  h1 { font-size:clamp(38px,10vw,56px); margin:0; }
+  .hero h1 { order:1; flex:1 1 auto; max-width:none; }
   .hero-copy { font-size:17px; }
   .button { min-height:48px; }
   .quick-facts { grid-template-columns:1fr; gap:17px; margin-top:38px; }

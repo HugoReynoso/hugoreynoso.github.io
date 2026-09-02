@@ -120,11 +120,13 @@ export default function Home() {
       <div className="content">
         <section className="hero" id="profilo">
           <div className="eyebrow"><span>{copy.hero.role}</span><span>·</span><span>{copy.hero.city}</span></div>
-          <figure className="portrait-card">
-            <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
-            <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
-          </figure>
-          <h1>{copy.hero.title}</h1>
+          <div className="hero-heading">
+            <figure className="portrait-card">
+              <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
+              <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
+            </figure>
+            <h1>{copy.hero.title}</h1>
+          </div>
           <p className="hero-copy">{copy.hero.introBefore} <strong>Hugo Aldo Reynoso</strong>, {copy.hero.introAfter}</p>
           <div className="hero-actions">
             <a className="button primary" href="#esperienza">{copy.hero.cta} <span>↓</span></a>
