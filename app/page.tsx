@@ -21,6 +21,7 @@ const skillLists = [
 ];
 
 const projects = [
+  { name: "SpinWheel", path: "HugoReynoso / spin-wheel", language: "React · TypeScript", href: "https://github.com/HugoReynoso/spin-wheel", preview: "/projects/spin-wheel.jpg" },
   { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.png" },
   { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense", preview: "/projects/green-valley-guardians.jpg" },
   //{ name: "Personal Portfolio", path: "HugoReynoso / hugoreynoso.github.io", language: "React · TypeScript", href: "https://github.com/HugoReynoso/hugoreynoso.github.io" },
