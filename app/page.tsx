@@ -7,17 +7,10 @@ const navTargets = ["#profilo", "#esperienza", "#progetti", "#competenze", "#for
 const locales: Locale[] = ["it", "en", "es"];
 
 const experienceTech = [
-  ["Angular", "Vue.js", "Ionic", "Java", "Spring Boot", "REST API", "C#"],
-  ["Angular", "TypeScript", "JavaScript", "Java", "Spring Boot", "PostgreSQL", "MySQL", "SQL Server"],
-  ["RPA", "Automate 7", "Toad for Oracle", "SQL", "Excel"],
-  ["SQL Server 2014", "SSIS", "SQL", "T-SQL", "Visual Basic"],
-];
-
-const skillLists = [
-  ["Angular", "TypeScript", "JavaScript", "HTML", "CSS", "Bootstrap"],
-  ["Java", "Spring", "Spring Boot", "REST API"],
-  ["PostgreSQL", "MySQL", "Oracle", "SQL Server", "ETL", "Spark"],
-  ["Git", "Jira", "Confluence", "Agile", "Teamwork"],
+  ["Angular 6/8", "Vue.js", "Ionic", "Java", "Spring Boot", "REST API", "C#", "SQL", "Git", "Agile/Scrum"],
+  ["Angular", "TypeScript", "JavaScript", "Bootstrap", "Java", "Spring", "Spring Boot", "REST API", "PostgreSQL", "MySQL", "SQL Server"],
+  ["RPA", "Automate 7", "Oracle SQL", "Toad for Oracle", "Excel"],
+  ["SQL Server", "SSIS", "T-SQL", "Visual Basic"],
 ];
 
 const projects = [
@@ -192,7 +185,7 @@ export default function Home() {
         <section id="competenze">
           <header className="section-heading"><span>{copy.skills.label}</span><h2>{copy.skills.title[0]}<br />{copy.skills.title[1]}</h2></header>
           <div className="skill-grid">{copy.skills.groups.map((title, index) => (
-            <article className="skill-card" key={title}><h3>{title}</h3><ul>{skillLists[index].map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
+            <article className="skill-card" key={title}><h3>{title}</h3><ul>{copy.skills.items[index].map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
           ))}</div>
         </section>
 

@@ -50,6 +50,7 @@ type PortfolioCopy = {
     label: string;
     title: [string, string];
     groups: string[];
+    items: string[][];
   };
   education: {
     label: string;
@@ -65,7 +66,7 @@ type PortfolioCopy = {
 
 export const portfolioCopy: Record<Locale, PortfolioCopy> = {
   it: {
-    pageTitle: "Hugo Aldo Reynoso · Software Developer a Milano",
+    pageTitle: "Hugo Aldo Reynoso · Senior Full-Stack Developer a Milano",
     languageLabel: "Seleziona lingua",
     brandAria: "Vai all'inizio",
     navigationAria: "Navigazione principale",
@@ -75,16 +76,16 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     location: "Milano, Italia",
     socialAria: "Profili social",
     hero: {
-      role: "Software Developer",
+      role: "Senior Full-Stack Developer",
       city: "Milano",
       title: "Costruisco software.",
       introBefore: "Ciao, sono",
-      introAfter: "software developer specializzato nella progettazione e nello sviluppo di applicazioni web e mobile. Lavoro con Angular, Vue.js, Java e Spring Boot e ho maturato esperienza in progetti complessi per Pubblica Amministrazione, telecomunicazioni, pagamenti digitali, sanità e logistica. Oggi integro il mio percorso con l'intelligenza artificiale, esplorando nuovi modi per costruire software più utile, efficiente e vicino alle persone.",
+      introAfter: "senior full-stack developer con oltre 7 anni di esperienza nello sviluppo di applicazioni web enterprise e mobile. Sono specializzato in Java, Spring Boot, Angular e Vue.js, con esperienza end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API. Ho lavorato su progetti per Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
       cta: "Scopri il mio percorso",
       facts: [
-        { value: "9+", label: "anni nello sviluppo" },
-        { value: "Full-stack", label: "front-end, back-end e dati" },
-        { value: "3 lingue", label: "italiano, spagnolo, inglese" },
+        { value: "7+", label: "anni nello sviluppo enterprise" },
+        { value: "Full-stack", label: "Java, Spring Boot, Angular e Vue.js" },
+        { value: "3 lingue", label: "spagnolo, italiano e inglese" },
       ],
     },
     experience: {
@@ -92,33 +93,35 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       title: ["Dal problema al prodotto,", "un livello alla volta."],
       items: [
         {
-          period: "mar 2023 — presente", role: "Software Developer", company: "GeneGIS GI · Tempo pieno", location: "Milano · Ibrido",
-          description: "Consulente software su progetti enterprise per la Pubblica Amministrazione e aziende private.",
+          period: "2023 — presente", role: "Software Developer", company: "GeneGIS GI · Tempo pieno", location: "Milano · Ibrido",
+          description: "Consulenza e sviluppo full-stack per progetti enterprise della Pubblica Amministrazione e di aziende private.",
           activities: [
-            "Sviluppo e manutenzione di applicazioni web con Angular, Java e Spring Boot.",
-            "Nuove funzionalità e refactoring di applicazioni con Vue.js e Java.",
-            "Sviluppo completo di un'applicazione mobile ibrida con Vue.js e Ionic per il personale operativo sul campo.",
-            "Bug fixing, ottimizzazione del software esistente e integrazione con API REST.",
+            "Axitea: sviluppo end-to-end di un'app mobile ibrida con Vue.js e Ionic per personale operativo, con NFC, geolocalizzazione e API REST.",
+            "Axitea: nuove funzionalità, bug fixing e refactoring del front-end Vue.js, integrato con back-end e API in C#.",
+            "Regione Veneto (B23B): manutenzione evolutiva e correttiva con Angular 6, Java e Spring Boot.",
+            "Regione Veneto (G10): nuove evolutive, manutenzione e risoluzione anomalie con Vue.js, Java e Spring Boot.",
+            "Altri progetti PA per Regione Lombardia e Provincia Autonoma di Trento: sviluppo e manutenzione con Angular 8.",
           ],
         },
         {
-          period: "mag 2018 — feb 2023", role: "Software Developer", company: "Idea Srl · Tempo pieno", location: "Milano, Italia",
-          description: "Sviluppatore full-stack di applicazioni gestionali e portali web per aziende nei settori sanità, logistica e pagamenti. Progetti per Ospedale San Raffaele, SIApay, Lottomatica e TWScourier.",
+          period: "2018 — 2023", role: "Software Developer", company: "Idea S.r.l. · Tempo pieno", location: "Milano · Ibrido",
+          description: "Sviluppo full-stack di portali web, gestionali e soluzioni custom per clienti enterprise nei settori healthcare, logistica e pagamenti.",
           activities: [
-            "Sviluppo front-end di portali e gestionali web.",
-            "Sviluppo full-stack di applicazioni aziendali e interfacce responsive.",
-            "Implementazione di API, logica back-end, database e integrazioni dati.",
+            "Progetti per Ospedale San Raffaele, SIApay, Lottomatica e TWScourier.",
+            "Sviluppo front-end enterprise con Angular, TypeScript, JavaScript e Bootstrap.",
+            "Sviluppo back-end con Java, Spring e Spring Boot, con integrazione tramite REST API.",
+            "Soluzioni gestionali per healthcare e logistica, moduli applicativi in ambito pagamenti e database PostgreSQL, MySQL e SQL Server.",
           ],
         },
         {
-          period: "dic 2017 — mag 2018", role: "IT Consultant", company: "Aubay · Cliente Vodafone Italia", location: "Milano, Italia",
-          description: "Analisi e automazione dei processi aziendali in ambito telecomunicazioni.",
-          activities: ["Sviluppo e manutenzione di procedure di Robotic Process Automation.", "Analisi dei flussi operativi e gestione dei dati di processo."],
+          period: "2017 — 2018", role: "IT Consultant", company: "Aubay Italia S.p.A. · Cliente Vodafone Italia", location: "Milano",
+          description: "Analisi dei requisiti e sviluppo di soluzioni RPA per l'automazione dei processi aziendali.",
+          activities: ["Monitoraggio e ottimizzazione dei flussi operativi.", "Elaborazione dati e scripting SQL con Toad for Oracle, Automate 7 e Microsoft Excel."],
         },
         {
-          period: "giu 2017 — dic 2017", role: "External IT Consultant", company: "everis Italia · Cliente Gi Group", location: "Milano, Italia",
-          description: "Consulenza su progetti di ETL, Data Migration e integrazione dei dati tra sistemi aziendali.",
-          activities: ["Migrazione e trasformazione dei dati tra applicazioni aziendali.", "Sviluppo e verifica di processi ETL con SQL Server Integration Services."],
+          period: "2017", role: "IT Consultant", company: "Everis Italia S.p.A. · Cliente Gi Group", location: "Milano",
+          description: "Sviluppo di processi ETL e migrazione dati tra sistemi HR ed enterprise.",
+          activities: ["Creazione di script SQL/T-SQL e pacchetti SSIS per l'integrità e la coerenza dei dati.", "Utilizzo di SQL Server, SSIS, T-SQL e Visual Basic."],
         },
       ],
     },
@@ -143,19 +146,19 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       previousLabel: "Mostra i repository precedenti",
       nextLabel: "Mostra i repository successivi",
     },
-    skills: { label: "Competenze", title: ["Un profilo trasversale,", "con solide fondamenta."], groups: ["Front-end", "Back-end", "Dati", "Workflow"] },
+    skills: { label: "Competenze", title: ["Un profilo trasversale,", "con solide fondamenta."], groups: ["Front-end", "Back-end", "Database & dati", "Strumenti & lingue"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Spagnolo · madrelingua", "Italiano · avanzato", "Inglese · intermedio"]] },
     education: {
       label: "Formazione", title: ["Curiosità continua,", "dalle basi all'AI."],
       items: [
-        { type: "Università", degree: "Informatica", school: "Università degli Studi di Milano-Bicocca", details: "Algoritmi, software design, database, reti, sistemi operativi e HCI." },
-        { type: "Specializzazione", degree: "Database & Business Intelligence", school: "Philmark Informatica · Everis Italia", details: "SQL, PL/SQL, Data Warehouse, ETL, OLAP e Big Data." },
-        { type: "Diploma", degree: "Perito Informatico", school: "I.T.I. Altiero Spinelli · Sesto San Giovanni", details: "Le fondamenta tecniche da cui è iniziato tutto." },
+        { type: "Università", degree: "Laurea in Informatica · in corso", school: "Università degli Studi di Milano-Bicocca", details: "Studente universitario, in corso." },
+        { type: "Specializzazione", degree: "Database & Business Intelligence", school: "Philmark Informatica S.p.A. · Everis Italia S.p.A.", details: "2017 · 240 ore · SQL e PL/SQL, Data Warehouse, ETL, OLAP, Business Intelligence e fondamenti di Big Data." },
+        { type: "Diploma", degree: "Diploma di Perito Informatico", school: "Istituto Tecnico Industriale Altiero Spinelli · Sesto San Giovanni", details: "Le fondamenta tecniche da cui è iniziato tutto." },
       ],
     },
     contact: { eyebrow: "Restiamo in contatto", title: ["Conosciamoci", "meglio."], copy: "Mi fa piacere entrare in contatto con professionisti, aziende e persone interessate a software, dati e intelligenza artificiale." },
   },
   en: {
-    pageTitle: "Hugo Aldo Reynoso · Software Developer in Milan",
+    pageTitle: "Hugo Aldo Reynoso · Senior Full-Stack Developer in Milan",
     languageLabel: "Select language",
     brandAria: "Back to the top",
     navigationAria: "Main navigation",
@@ -165,33 +168,33 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     location: "Milan, Italy",
     socialAria: "Social profiles",
     hero: {
-      role: "Software Developer", city: "Milan", title: "I build software.", introBefore: "Hi, I'm",
-      introAfter: "a software developer specializing in the design and development of web and mobile applications. I work with Angular, Vue.js, Java and Spring Boot, with experience on complex projects for public administration, telecommunications, digital payments, healthcare and logistics. Today, I am expanding my path through artificial intelligence, exploring new ways to build software that is more useful, efficient and human-centered.",
+      role: "Senior Full-Stack Developer", city: "Milan", title: "I build software.", introBefore: "Hi, I'm",
+      introAfter: "a senior full-stack developer with over 7 years of experience building enterprise web and mobile applications. I specialize in Java, Spring Boot, Angular and Vue.js, with end-to-end experience in maintenance, refactoring and REST API integration. I have worked on projects for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.",
       cta: "Explore my experience",
-      facts: [{ value: "9+", label: "years in software development" }, { value: "Full-stack", label: "front-end, back-end and data" }, { value: "3 languages", label: "Italian, Spanish, English" }],
+      facts: [{ value: "7+", label: "years in enterprise development" }, { value: "Full-stack", label: "Java, Spring Boot, Angular and Vue.js" }, { value: "3 languages", label: "Spanish, Italian, English" }],
     },
     experience: {
       label: "Experience", title: ["From problem to product,", "one layer at a time."],
       items: [
         {
-          period: "Mar 2023 — present", role: "Software Developer", company: "GeneGIS GI · Full-time", location: "Milan · Hybrid",
-          description: "Software consultant on enterprise projects for public administration and private companies.",
-          activities: ["Development and maintenance of web applications with Angular, Java and Spring Boot.", "New features and application refactoring with Vue.js and Java.", "End-to-end development of a hybrid mobile application with Vue.js and Ionic for field operations staff.", "Bug fixing, optimization of existing software and REST API integration."],
+          period: "2023 — present", role: "Software Developer", company: "GeneGIS GI · Full-time", location: "Milan · Hybrid",
+          description: "Full-stack consulting and development for public-administration and private enterprise projects.",
+          activities: ["Axitea: end-to-end development of a hybrid mobile app with Vue.js and Ionic for field staff, including NFC, geolocation and REST APIs.", "Axitea: new features, bug fixes and front-end refactoring in Vue.js, integrated with C# back-end services and APIs.", "Regione Veneto (B23B): corrective and evolutionary maintenance with Angular 6, Java and Spring Boot.", "Regione Veneto (G10): new features, maintenance and issue resolution with Vue.js, Java and Spring Boot.", "Other public-administration projects for Regione Lombardia and Provincia Autonoma di Trento: development and maintenance with Angular 8."],
         },
         {
-          period: "May 2018 — Feb 2023", role: "Software Developer", company: "Idea Srl · Full-time", location: "Milan, Italy",
-          description: "Full-stack developer of business applications and web portals for companies in healthcare, logistics and payments. Projects for Ospedale San Raffaele, SIApay, Lottomatica and TWScourier.",
-          activities: ["Front-end development of web portals and business applications.", "Full-stack development of enterprise applications and responsive interfaces.", "Implementation of APIs, back-end logic, databases and data integrations."],
+          period: "2018 — 2023", role: "Software Developer", company: "Idea S.r.l. · Full-time", location: "Milan · Hybrid",
+          description: "Full-stack development of web portals, business applications and custom solutions for enterprise clients in healthcare, logistics and payments.",
+          activities: ["Projects for Ospedale San Raffaele, SIApay, Lottomatica and TWScourier.", "Enterprise front-end development with Angular, TypeScript, JavaScript and Bootstrap.", "Back-end development with Java, Spring and Spring Boot, integrated through REST APIs.", "Business solutions for healthcare and logistics, payment modules and PostgreSQL, MySQL and SQL Server databases."],
         },
         {
-          period: "Dec 2017 — May 2018", role: "IT Consultant", company: "Aubay · Vodafone Italy client", location: "Milan, Italy",
-          description: "Analysis and automation of business processes in the telecommunications sector.",
-          activities: ["Development and maintenance of Robotic Process Automation procedures.", "Operational flow analysis and process data management."],
+          period: "2017 — 2018", role: "IT Consultant", company: "Aubay Italia S.p.A. · Vodafone Italy client", location: "Milan",
+          description: "Requirements analysis and RPA solution development for business-process automation.",
+          activities: ["Monitoring and optimization of operational workflows.", "Data processing and SQL scripting with Toad for Oracle, Automate 7 and Microsoft Excel."],
         },
         {
-          period: "Jun 2017 — Dec 2017", role: "External IT Consultant", company: "everis Italy · Gi Group client", location: "Milan, Italy",
-          description: "Consulting on ETL, data migration and data integration projects across enterprise systems.",
-          activities: ["Data migration and transformation across enterprise applications.", "Development and validation of ETL processes with SQL Server Integration Services."],
+          period: "2017", role: "IT Consultant", company: "Everis Italia S.p.A. · Gi Group client", location: "Milan",
+          description: "Development of ETL processes and data migration between HR and enterprise systems.",
+          activities: ["Creation of SQL/T-SQL scripts and SSIS packages to ensure data integrity and consistency.", "Technologies: SQL Server, SSIS, T-SQL and Visual Basic."],
         },
       ],
     },
@@ -212,19 +215,19 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       previousLabel: "Show previous repositories",
       nextLabel: "Show next repositories",
     },
-    skills: { label: "Skills", title: ["A versatile profile,", "built on solid foundations."], groups: ["Front-end", "Back-end", "Data", "Workflow"] },
+    skills: { label: "Skills", title: ["A versatile profile,", "built on solid foundations."], groups: ["Front-end", "Back-end", "Databases & data", "Tools & languages"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Spanish · native", "Italian · advanced", "English · intermediate"]] },
     education: {
       label: "Education", title: ["Continuous curiosity,", "from fundamentals to AI."],
       items: [
-        { type: "University", degree: "Computer Science", school: "University of Milano-Bicocca", details: "Algorithms, software design, databases, networks, operating systems and HCI." },
-        { type: "Specialization", degree: "Database & Business Intelligence", school: "Philmark Informatica · Everis Italy", details: "SQL, PL/SQL, Data Warehouse, ETL, OLAP and Big Data." },
-        { type: "Diploma", degree: "IT Technician", school: "I.T.I. Altiero Spinelli · Sesto San Giovanni", details: "The technical foundations where it all began." },
+        { type: "University", degree: "BSc in Computer Science · ongoing", school: "University of Milano-Bicocca", details: "Current undergraduate student." },
+        { type: "Specialization", degree: "Database & Business Intelligence", school: "Philmark Informatica S.p.A. · Everis Italia S.p.A.", details: "2017 · 240 hours · SQL and PL/SQL, Data Warehouse, ETL, OLAP, Business Intelligence and Big Data fundamentals." },
+        { type: "Diploma", degree: "IT Technician Diploma", school: "Altiero Spinelli Technical Industrial Institute · Sesto San Giovanni", details: "The technical foundations where it all began." },
       ],
     },
     contact: { eyebrow: "Let's stay in touch", title: ["Let's get to know", "each other."], copy: "I am always happy to connect with professionals, companies and people interested in software, data and artificial intelligence." },
   },
   es: {
-    pageTitle: "Hugo Aldo Reynoso · Desarrollador de software en Milán",
+    pageTitle: "Hugo Aldo Reynoso · Senior Full-Stack Developer en Milán",
     languageLabel: "Seleccionar idioma",
     brandAria: "Volver al inicio",
     navigationAria: "Navegación principal",
@@ -234,33 +237,33 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     location: "Milán, Italia",
     socialAria: "Perfiles sociales",
     hero: {
-      role: "Desarrollador de software", city: "Milán", title: "Creo software.", introBefore: "Hola, soy",
-      introAfter: "desarrollador de software especializado en el diseño y desarrollo de aplicaciones web y móviles. Trabajo con Angular, Vue.js, Java y Spring Boot y he adquirido experiencia en proyectos complejos para la Administración Pública, telecomunicaciones, pagos digitales, sanidad y logística. Hoy amplío mi trayectoria con la inteligencia artificial, explorando nuevas formas de crear software más útil, eficiente y cercano a las personas.",
+      role: "Senior Full-Stack Developer", city: "Milán", title: "Creo software.", introBefore: "Hola, soy",
+      introAfter: "senior full-stack developer con más de 7 años de experiencia en el desarrollo de aplicaciones web empresariales y móviles. Estoy especializado en Java, Spring Boot, Angular y Vue.js, con experiencia end-to-end, mantenimiento evolutivo, refactorización e integración mediante API REST. He trabajado en proyectos para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.",
       cta: "Descubre mi experiencia",
-      facts: [{ value: "9+", label: "años en desarrollo" }, { value: "Full-stack", label: "front-end, back-end y datos" }, { value: "3 idiomas", label: "italiano, español, inglés" }],
+      facts: [{ value: "7+", label: "años en desarrollo empresarial" }, { value: "Full-stack", label: "Java, Spring Boot, Angular y Vue.js" }, { value: "3 idiomas", label: "español, italiano e inglés" }],
     },
     experience: {
       label: "Experiencia", title: ["Del problema al producto,", "capa a capa."],
       items: [
         {
-          period: "mar 2023 — actualidad", role: "Desarrollador de software", company: "GeneGIS GI · Tiempo completo", location: "Milán · Híbrido",
-          description: "Consultor de software en proyectos empresariales para la Administración Pública y empresas privadas.",
-          activities: ["Desarrollo y mantenimiento de aplicaciones web con Angular, Java y Spring Boot.", "Nuevas funcionalidades y refactorización de aplicaciones con Vue.js y Java.", "Desarrollo integral de una aplicación móvil híbrida con Vue.js e Ionic para personal operativo de campo.", "Corrección de errores, optimización del software existente e integración con API REST."],
+          period: "2023 — actualidad", role: "Desarrollador de software", company: "GeneGIS GI · Tiempo completo", location: "Milán · Híbrido",
+          description: "Consultoría y desarrollo full-stack para proyectos empresariales de la Administración Pública y empresas privadas.",
+          activities: ["Axitea: desarrollo end-to-end de una app móvil híbrida con Vue.js e Ionic para personal operativo, con NFC, geolocalización y API REST.", "Axitea: nuevas funcionalidades, corrección de errores y refactorización del front-end Vue.js, integrado con back-end y API en C#.", "Región del Véneto (B23B): mantenimiento evolutivo y correctivo con Angular 6, Java y Spring Boot.", "Región del Véneto (G10): nuevas evolutivas, mantenimiento y resolución de incidencias con Vue.js, Java y Spring Boot.", "Otros proyectos de Administración Pública para Región de Lombardía y Provincia Autónoma de Trento: desarrollo y mantenimiento con Angular 8."],
         },
         {
-          period: "may 2018 — feb 2023", role: "Desarrollador de software", company: "Idea Srl · Tiempo completo", location: "Milán, Italia",
-          description: "Desarrollador full-stack de aplicaciones empresariales y portales web para compañías de los sectores sanitario, logístico y de pagos. Proyectos para Ospedale San Raffaele, SIApay, Lottomatica y TWScourier.",
-          activities: ["Desarrollo front-end de portales y aplicaciones empresariales web.", "Desarrollo full-stack de aplicaciones corporativas e interfaces adaptables.", "Implementación de API, lógica back-end, bases de datos e integraciones de datos."],
+          period: "2018 — 2023", role: "Desarrollador de software", company: "Idea S.r.l. · Tiempo completo", location: "Milán · Híbrido",
+          description: "Desarrollo full-stack de portales web, aplicaciones de gestión y soluciones a medida para clientes empresariales de sanidad, logística y pagos.",
+          activities: ["Proyectos para Ospedale San Raffaele, SIApay, Lottomatica y TWScourier.", "Desarrollo front-end empresarial con Angular, TypeScript, JavaScript y Bootstrap.", "Desarrollo back-end con Java, Spring y Spring Boot, integrado mediante API REST.", "Soluciones de gestión para sanidad y logística, módulos de pagos y bases de datos PostgreSQL, MySQL y SQL Server."],
         },
         {
-          period: "dic 2017 — may 2018", role: "Consultor de TI", company: "Aubay · Cliente Vodafone Italia", location: "Milán, Italia",
-          description: "Análisis y automatización de procesos empresariales en el sector de las telecomunicaciones.",
-          activities: ["Desarrollo y mantenimiento de procedimientos de automatización robótica de procesos.", "Análisis de flujos operativos y gestión de datos de procesos."],
+          period: "2017 — 2018", role: "Consultor de TI", company: "Aubay Italia S.p.A. · Cliente Vodafone Italia", location: "Milán",
+          description: "Análisis de requisitos y desarrollo de soluciones RPA para la automatización de procesos empresariales.",
+          activities: ["Monitorización y optimización de flujos operativos.", "Procesamiento de datos y scripting SQL con Toad for Oracle, Automate 7 y Microsoft Excel."],
         },
         {
-          period: "jun 2017 — dic 2017", role: "Consultor externo de TI", company: "everis Italia · Cliente Gi Group", location: "Milán, Italia",
-          description: "Consultoría en proyectos de ETL, migración e integración de datos entre sistemas empresariales.",
-          activities: ["Migración y transformación de datos entre aplicaciones empresariales.", "Desarrollo y validación de procesos ETL con SQL Server Integration Services."],
+          period: "2017", role: "Consultor de TI", company: "Everis Italia S.p.A. · Cliente Gi Group", location: "Milán",
+          description: "Desarrollo de procesos ETL y migración de datos entre sistemas de RR. HH. y empresariales.",
+          activities: ["Creación de scripts SQL/T-SQL y paquetes SSIS para garantizar la integridad y consistencia de los datos.", "Tecnologías: SQL Server, SSIS, T-SQL y Visual Basic."],
         },
       ],
     },
@@ -281,13 +284,13 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       previousLabel: "Mostrar repositorios anteriores",
       nextLabel: "Mostrar repositorios siguientes",
     },
-    skills: { label: "Competencias", title: ["Un perfil versátil,", "con bases sólidas."], groups: ["Front-end", "Back-end", "Datos", "Flujo de trabajo"] },
+    skills: { label: "Competencias", title: ["Un perfil versátil,", "con bases sólidas."], groups: ["Front-end", "Back-end", "Bases de datos", "Herramientas e idiomas"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Español · nativo", "Italiano · avanzado", "Inglés · intermedio"]] },
     education: {
       label: "Formación", title: ["Curiosidad constante,", "desde las bases hasta la IA."],
       items: [
-        { type: "Universidad", degree: "Informática", school: "Universidad de Milano-Bicocca", details: "Algoritmos, diseño de software, bases de datos, redes, sistemas operativos e HCI." },
-        { type: "Especialización", degree: "Database & Business Intelligence", school: "Philmark Informatica · Everis Italia", details: "SQL, PL/SQL, Data Warehouse, ETL, OLAP y Big Data." },
-        { type: "Diploma", degree: "Técnico informático", school: "I.T.I. Altiero Spinelli · Sesto San Giovanni", details: "Las bases técnicas con las que comenzó todo." },
+        { type: "Universidad", degree: "Grado en Informática · en curso", school: "Universidad de Milano-Bicocca", details: "Estudiante universitario en curso." },
+        { type: "Especialización", degree: "Database & Business Intelligence", school: "Philmark Informatica S.p.A. · Everis Italia S.p.A.", details: "2017 · 240 horas · SQL y PL/SQL, Data Warehouse, ETL, OLAP, Business Intelligence y fundamentos de Big Data." },
+        { type: "Diploma", degree: "Diploma de Técnico Informático", school: "Instituto Técnico Industrial Altiero Spinelli · Sesto San Giovanni", details: "Las bases técnicas con las que comenzó todo." },
       ],
     },
     contact: { eyebrow: "Sigamos en contacto", title: ["Conozcámonos", "mejor."], copy: "Me interesa conectar con profesionales, empresas y personas interesadas en el software, los datos y la inteligencia artificial." },
