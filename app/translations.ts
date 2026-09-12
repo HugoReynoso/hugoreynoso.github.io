@@ -129,6 +129,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       label: "Progetti", title: ["Codice pubblico,", "apprendimento continuo."],
       intro: "Tutti i miei repository pubblici, dai giochi web mobile-first agli esperimenti su dati e Apache Spark.", publicLabel: "Pubblico",
       descriptions: [
+        "Web app mobile-first per connettersi a una LIVE TikTok, seguire la chat, leggere i messaggi con la sintesi vocale e visualizzare regali e classifiche in tempo reale.",
         "Gioco match-3 mobile-first: abbina simboli, usa power-up e salva re Alder in una campagna di 10 livelli, giocabile anche offline.",
         "Ruota casuale mobile-first per estrarre un nome: partecipanti, liste salvate, cronologia, temi e animazioni accessibili direttamente nel browser.",
         "Gioco arcade mobile-first dove guidi una folla attraverso portali, raccogli potenziamenti e affronti ondate di avversari.",
@@ -139,8 +140,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "Repository dedicato allo studio e alla sperimentazione con Apache Spark e l'elaborazione distribuita dei dati.",
         "Fork con esempi pratici in Java per esplorare Apache Spark e i principali flussi di elaborazione dati.",
       ],
-      types: ["Gioco", "Web app", "Gioco", "Gioco", "PWA", "PWA", "Utility", "Dati", "Fork"],
-      previewAlts: ["Anteprima del gioco Crownfall — Puzzle Rescue", "Anteprima di SpinWheel", "Anteprima del gioco Neon Bastion", "Anteprima del gioco Green Valley Guardians", "Anteprima del gioco Flag Streak", "Anteprima del gioco Logo Streak", "Anteprima di Find My Car", "", ""],
+      types: ["Web app", "Gioco", "Web app", "Gioco", "Gioco", "PWA", "PWA", "Utility", "Dati", "Fork"],
+      previewAlts: ["Anteprima di TikTok Chat", "Anteprima del gioco Crownfall — Puzzle Rescue", "Anteprima di SpinWheel", "Anteprima del gioco Neon Bastion", "Anteprima del gioco Green Valley Guardians", "Anteprima del gioco Flag Streak", "Anteprima del gioco Logo Streak", "Anteprima di Find My Car", "", ""],
       allRepositories: "Vedi tutti i repository",
       carouselLabel: "Carosello dei repository GitHub",
       previousLabel: "Mostra i repository precedenti",
@@ -201,6 +202,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     projects: {
       label: "Projects", title: ["Public code,", "continuous learning."], intro: "All my public repositories, from mobile-first web games to data and Apache Spark experiments.", publicLabel: "Public",
       descriptions: [
+        "A mobile-first web app for connecting to a TikTok LIVE, following the chat, reading messages with text-to-speech and viewing gifts and rankings in real time.",
         "A mobile-first match-3 game: match symbols, use power-ups and rescue King Alder through a 10-level campaign that also works offline.",
         "A mobile-first random name wheel with participants, saved lists, history, themes and accessible animations—all running directly in the browser.",
         "A mobile-first arcade game where you lead a crowd through gates, collect boosts and face waves of opponents.",
@@ -210,7 +212,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "A mobile utility for saving a car's location and finding it again through a map and the current position.",
         "A repository for learning and experimenting with Apache Spark and distributed data processing.",
         "A fork containing practical Java examples for exploring Apache Spark and essential data-processing workflows.",
-      ], types: ["Game", "Web app", "Game", "Game", "PWA", "PWA", "Utility", "Data", "Fork"], previewAlts: ["Crownfall — Puzzle Rescue game preview", "SpinWheel preview", "Neon Bastion game preview", "Green Valley Guardians game preview", "Flag Streak game preview", "Logo Streak game preview", "Find My Car preview", "", ""], allRepositories: "View all repositories",
+      ], types: ["Web app", "Game", "Web app", "Game", "Game", "PWA", "PWA", "Utility", "Data", "Fork"], previewAlts: ["TikTok Chat preview", "Crownfall — Puzzle Rescue game preview", "SpinWheel preview", "Neon Bastion game preview", "Green Valley Guardians game preview", "Flag Streak game preview", "Logo Streak game preview", "Find My Car preview", "", ""], allRepositories: "View all repositories",
       carouselLabel: "GitHub repositories carousel",
       previousLabel: "Show previous repositories",
       nextLabel: "Show next repositories",
@@ -270,6 +272,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     projects: {
       label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Todos mis repositorios públicos, desde juegos web mobile-first hasta experimentos con datos y Apache Spark.", publicLabel: "Público",
       descriptions: [
+        "Aplicación web mobile-first para conectarse a un LIVE de TikTok, seguir el chat, leer mensajes con síntesis de voz y ver regalos y clasificaciones en tiempo real.",
         "Juego match-3 mobile-first: combina símbolos, usa potenciadores y salva al rey Alder en una campaña de 10 niveles que también funciona sin conexión.",
         "Ruleta aleatoria mobile-first para elegir un nombre: participantes, listas guardadas, historial, temas y animaciones accesibles directamente en el navegador.",
         "Juego arcade mobile-first en el que guías una multitud por portales, recoges mejoras y te enfrentas a oleadas de adversarios.",
@@ -279,7 +282,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "Utilidad móvil para guardar la posición del coche y encontrarlo fácilmente mediante mapa y ubicación actual.",
         "Repositorio para aprender y experimentar con Apache Spark y el procesamiento distribuido de datos.",
         "Fork con ejemplos prácticos en Java para explorar Apache Spark y los principales flujos de procesamiento de datos.",
-      ], types: ["Juego", "Aplicación web", "Juego", "Juego", "PWA", "PWA", "Utilidad", "Datos", "Fork"], previewAlts: ["Vista previa del juego Crownfall — Puzzle Rescue", "Vista previa de SpinWheel", "Vista previa del juego Neon Bastion", "Vista previa del juego Green Valley Guardians", "Vista previa del juego Flag Streak", "Vista previa del juego Logo Streak", "Vista previa de Find My Car", "", ""], allRepositories: "Ver todos los repositorios",
+      ], types: ["Aplicación web", "Juego", "Aplicación web", "Juego", "Juego", "PWA", "PWA", "Utilidad", "Datos", "Fork"], previewAlts: ["Vista previa de TikTok Chat", "Vista previa del juego Crownfall — Puzzle Rescue", "Vista previa de SpinWheel", "Vista previa del juego Neon Bastion", "Vista previa del juego Green Valley Guardians", "Vista previa del juego Flag Streak", "Vista previa del juego Logo Streak", "Vista previa de Find My Car", "", ""], allRepositories: "Ver todos los repositorios",
       carouselLabel: "Carrusel de repositorios de GitHub",
       previousLabel: "Mostrar repositorios anteriores",
       nextLabel: "Mostrar repositorios siguientes",

@@ -14,6 +14,7 @@ const experienceTech = [
 ];
 
 const projects = [
+  { name: "TikTok Chat", path: "HugoReynoso / tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/tiktok-chat", preview: "/projects/tiktok-chat.jpg" },
   { name: "Crownfall — Puzzle Rescue", path: "HugoReynoso / puzzle-rescue", language: "React · TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/puzzle-rescue", preview: "/projects/crownfall-puzzle-rescue.jpg" },
   { name: "SpinWheel", path: "HugoReynoso / spin-wheel", language: "React · TypeScript", href: "https://github.com/HugoReynoso/spin-wheel", preview: "/projects/spin-wheel.jpg" },
   { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.png" },
