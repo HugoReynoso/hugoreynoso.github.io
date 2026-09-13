@@ -15,6 +15,7 @@ const experienceTech = [
 
 const projects = [
   { name: "TikTok Chat", path: "HugoReynoso / tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/tiktok-chat", preview: "/projects/tiktok-chat.jpg" },
+  { name: "Defend My Dog", path: "HugoReynoso / defend-my-dog", language: "TypeScript · Phaser 3 · Matter.js", href: "https://github.com/HugoReynoso/defend-my-dog", preview: "/projects/defend-my-dog.png" },
   { name: "Crownfall — Puzzle Rescue", path: "HugoReynoso / puzzle-rescue", language: "React · TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/puzzle-rescue", preview: "/projects/crownfall-puzzle-rescue.jpg" },
   { name: "SpinWheel", path: "HugoReynoso / spin-wheel", language: "React · TypeScript", href: "https://github.com/HugoReynoso/spin-wheel", preview: "/projects/spin-wheel.jpg" },
   { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.png" },
@@ -178,7 +179,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <a className="github-profile-link" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">
+          <a className="github-profile-link" href="/progetti/">
             <span>github.com/HugoReynoso</span><span>{copy.projects.allRepositories} ↗</span>
           </a>
         </section>
