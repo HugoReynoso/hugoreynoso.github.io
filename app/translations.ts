@@ -129,7 +129,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       label: "Progetti", title: ["Codice pubblico,", "apprendimento continuo."],
       intro: "Tutti i miei repository pubblici, dai giochi web mobile-first agli esperimenti su dati e Apache Spark.", publicLabel: "Pubblico",
       descriptions: [
-        "CAPI Snaiper, Nome in codice CAPI, e il Labrador color miele Docky indagano su un carico sospetto.",
+        "Nome in codice CAPI, e il Labrador color miele Docky indagano su un carico sospetto.",
         "Web app mobile-first per connettersi a una LIVE TikTok, seguire la chat, leggere i messaggi con la sintesi vocale e visualizzare regali e classifiche in tempo reale.",
         "Gioco match-3 mobile-first: abbina simboli, usa power-up e salva re Alder in una campagna di 10 livelli, giocabile anche offline.",
         "Ruota casuale mobile-first per estrarre un nome: partecipanti, liste salvate, cronologia, temi e animazioni accessibili direttamente nel browser.",
