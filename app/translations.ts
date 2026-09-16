@@ -26,6 +26,7 @@ type PortfolioCopy = {
     introBefore: string;
     introAfter: string;
     cta: string;
+    portfolio: string;
     facts: Array<{ value: string; label: string }>;
   };
   experience: {
@@ -82,6 +83,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       introBefore: "Ciao, sono",
       introAfter: "senior full-stack developer con oltre 7 anni di esperienza nello sviluppo di applicazioni web enterprise e mobile. Sono specializzato in Java, Spring Boot, Angular e Vue.js, con esperienza end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API. Ho lavorato su progetti per Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
       cta: "Scopri il mio percorso",
+      portfolio: "Portfolio",
       facts: [
         { value: "7+", label: "anni nello sviluppo enterprise" },
         { value: "Full-stack", label: "Java, Spring Boot, Angular e Vue.js" },
@@ -173,7 +175,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     hero: {
       role: "Senior Full-Stack Developer", city: "Milan", title: "Software Developer", introBefore: "Hi, I'm",
       introAfter: "a senior full-stack developer with over 7 years of experience building enterprise web and mobile applications. I specialize in Java, Spring Boot, Angular and Vue.js, with end-to-end experience in maintenance, refactoring and REST API integration. I have worked on projects for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.",
-      cta: "Explore my experience",
+      cta: "Explore my experience", portfolio: "Portfolio",
       facts: [{ value: "7+", label: "years in enterprise development" }, { value: "Full-stack", label: "Java, Spring Boot, Angular and Vue.js" }, { value: "3 languages", label: "Spanish, Italian, English" }],
     },
     experience: {
@@ -245,7 +247,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     hero: {
       role: "Senior Full-Stack Developer", city: "Milán", title: "Software Developer", introBefore: "Hola, soy",
       introAfter: "senior full-stack developer con más de 7 años de experiencia en el desarrollo de aplicaciones web empresariales y móviles. Estoy especializado en Java, Spring Boot, Angular y Vue.js, con experiencia end-to-end, mantenimiento evolutivo, refactorización e integración mediante API REST. He trabajado en proyectos para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.",
-      cta: "Descubre mi experiencia",
+      cta: "Descubre mi experiencia", portfolio: "Portfolio",
       facts: [{ value: "7+", label: "años en desarrollo empresarial" }, { value: "Full-stack", label: "Java, Spring Boot, Angular y Vue.js" }, { value: "3 idiomas", label: "español, italiano e inglés" }],
     },
     experience: {

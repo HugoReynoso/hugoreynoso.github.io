@@ -129,6 +129,7 @@ export default function Home() {
           <div className="hero-actions">
             <a className="button primary" href="#esperienza">{copy.hero.cta} <span>↓</span></a>
             <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+            <a className="button secondary" href="/progetti/">{copy.hero.portfolio} <span>→</span></a>
           </div>
           <div className="quick-facts">
             {copy.hero.facts.map((fact) => <div key={fact.value}><strong>{fact.value}</strong><span>{fact.label}</span></div>)}
