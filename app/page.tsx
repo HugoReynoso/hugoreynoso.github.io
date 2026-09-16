@@ -14,7 +14,7 @@ const experienceTech = [
 ];
 
 const projects = [
-  { name: "CAPI: Shadow Missions", path: "HugoReynoso / game-capi-shadow-missions", language: "React · TypeScript · Babylon.js", href: "https://github.com/HugoReynoso/game-capi-shadow-missions", preview: "/projects/capi-shadow-missions.webp" },
+  { name: "CAPI: Shadow Missions", path: "CAPI", language: "React · TypeScript · Babylon.js", href: "https://hugoreynoso.github.io/game-capi-shadow-missions/", preview: "/projects/capi-shadow-missions.webp" },
   { name: "TikTok Chat", path: "HugoReynoso / utility-tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/utility-tiktok-chat", preview: "/projects/tiktok-chat.jpg" },
   { name: "Defend My Dog", path: "HugoReynoso / game-defend-my-dog", language: "JavaScript · Vite", href: "https://github.com/HugoReynoso/game-defend-my-dog", preview: "/projects/defend-my-dog.png" },
   { name: "Crownfall — Puzzle Rescue", path: "HugoReynoso / game-puzzle-rescue", language: "React · TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-puzzle-rescue", preview: "/projects/crownfall-puzzle-rescue.jpg" },
