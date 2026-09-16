@@ -129,7 +129,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       label: "Progetti", title: ["Codice pubblico,", "apprendimento continuo."],
       intro: "Tutti i miei repository pubblici, dai giochi web mobile-first agli esperimenti su dati e Apache Spark.", publicLabel: "Pubblico",
       descriptions: [
-        "Demo 3D mobile-first di uno sniper game narrativo: CAPI indaga su un carico sospetto in una missione tattica giocabile.",
+        "Demo 3D mobile-first di uno sniper game narrativo: CAPI e il Labrador Docky indagano su un carico sospetto in una missione tattica giocabile.",
         "Web app mobile-first per connettersi a una LIVE TikTok, seguire la chat, leggere i messaggi con la sintesi vocale e visualizzare regali e classifiche in tempo reale.",
         "Gioco mobile-first in cui disegni una linea per proteggere un cane dagli attacchi: livelli rapidi, fisica semplice e comandi immediati.",
         "Gioco match-3 mobile-first: abbina simboli, usa power-up e salva re Alder in una campagna di 10 livelli, giocabile anche offline.",
@@ -204,7 +204,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     projects: {
       label: "Projects", title: ["Public code,", "continuous learning."], intro: "All my public repositories, from mobile-first web games to data and Apache Spark experiments.", publicLabel: "Public",
       descriptions: [
-        "A mobile-first 3D narrative sniper-game demo: CAPI investigates suspicious cargo in a playable tactical mission.",
+        "A mobile-first 3D narrative sniper-game demo: CAPI and her Labrador Docky investigate suspicious cargo in a playable tactical mission.",
         "A mobile-first web app for connecting to a TikTok LIVE, following the chat, reading messages with text-to-speech and viewing gifts and rankings in real time.",
         "A mobile-first game where you draw a line to protect a dog from incoming attacks, with quick levels, simple physics and direct controls.",
         "A mobile-first match-3 game: match symbols, use power-ups and rescue King Alder through a 10-level campaign that also works offline.",
@@ -276,7 +276,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     projects: {
       label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Todos mis repositorios públicos, desde juegos web mobile-first hasta experimentos con datos y Apache Spark.", publicLabel: "Público",
       descriptions: [
-        "Demo 3D mobile-first de un juego narrativo de francotirador: CAPI investiga una carga sospechosa en una misión táctica jugable.",
+        "Demo 3D mobile-first de un juego narrativo de francotirador: CAPI y el labrador Docky investigan una carga sospechosa en una misión táctica jugable.",
         "Aplicación web mobile-first para conectarse a un LIVE de TikTok, seguir el chat, leer mensajes con síntesis de voz y ver regalos y clasificaciones en tiempo real.",
         "Juego mobile-first en el que dibujas una línea para proteger a un perro de los ataques, con niveles rápidos, física sencilla y controles directos.",
         "Juego match-3 mobile-first: combina símbolos, usa potenciadores y salva al rey Alder en una campaña de 10 niveles que también funciona sin conexión.",
