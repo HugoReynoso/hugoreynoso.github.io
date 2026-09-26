@@ -46,7 +46,9 @@ export default function Home() {
   const [firstVisibleProject, setFirstVisibleProject] = useState(0);
   const [canScrollProjectsBack, setCanScrollProjectsBack] = useState(false);
   const [canScrollProjectsForward, setCanScrollProjectsForward] = useState(true);
+  const [canScrollNavigationForward, setCanScrollNavigationForward] = useState(false);
   const projectTrackRef = useRef<HTMLDivElement>(null);
+  const navigationRef = useRef<HTMLElement>(null);
   const copy = portfolioCopy[locale];
 
   useEffect(() => {
@@ -90,6 +92,23 @@ export default function Home() {
     track.scrollBy({ left: direction * (firstCard.offsetWidth + 16), behavior: "smooth" });
   };
 
+  const updateNavigationHint = () => {
+    const navigation = navigationRef.current;
+    if (!navigation) return;
+    setCanScrollNavigationForward(navigation.scrollLeft < navigation.scrollWidth - navigation.clientWidth - 2);
+  };
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(updateNavigationHint);
+    window.addEventListener("resize", updateNavigationHint);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateNavigationHint);
+    };
+  }, [locale]);
+
+  const scrollNavigation = () => navigationRef.current?.scrollBy({ left: 180, behavior: "smooth" });
+
   return (
     <main>
       <aside className="sidebar">
@@ -103,10 +122,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <nav aria-label={copy.navigationAria}>
+        <nav ref={navigationRef} onScroll={updateNavigationHint} aria-label={copy.navigationAria}>
           <p className="nav-label">{copy.explore}</p>
           {copy.nav.map((label, index) => <a className="nav-item" href={navTargets[index]} key={navTargets[index]}><span>{label}</span><span className="nav-chevron" aria-hidden="true" /></a>)}
         </nav>
+        {canScrollNavigationForward && <button className="nav-scroll-hint" type="button" onClick={scrollNavigation} aria-label={copy.navigationNextAria}>&rsaquo;</button>}
         <div className="sidebar-footer"><span className="status-dot" /> {copy.sidebarTagline}<small>{copy.location}</small></div>
       </aside>
 

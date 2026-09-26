@@ -21,6 +21,7 @@ main { min-height:100vh; }
 .nav-item:hover { color:var(--ink); background:var(--soft); }
 .nav-chevron { width:7px; height:7px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; opacity:.42; transform:rotate(-45deg); transition:.2s ease; }
 .nav-item:hover .nav-chevron { opacity:1; transform:translateX(2px) rotate(-45deg); }
+.nav-scroll-hint { display:none; }
 .sidebar-footer { margin-top:auto; display:grid; grid-template-columns:10px 1fr; gap:8px; font-size:11px; line-height:1.35; }
 .sidebar-footer small { grid-column:2; color:var(--muted); }
 .social-rail { position:fixed; right:18px; top:50%; transform:translateY(-50%); z-index:12; display:flex; flex-direction:column; align-items:stretch; gap:7px; padding:9px; border:1px solid var(--line); border-radius:9px; background:rgba(251,251,252,.92); backdrop-filter:blur(14px); box-shadow:0 12px 32px rgba(20,22,26,.08); }
@@ -119,9 +120,12 @@ footer { display:flex; justify-content:space-between; padding:28px 70px; color:v
   .sidebar-top { width:100%; flex-direction:row; align-items:center; justify-content:space-between; gap:12px; }
   .brand { width:max-content; }
   .brand-mark { width:34px; height:34px; }
-  .sidebar nav { display:flex; gap:6px; margin:0; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .sidebar nav { display:flex; gap:6px; margin:0; padding-right:48px; scroll-padding-right:48px; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
   .sidebar nav::-webkit-scrollbar { display:none; }
   .sidebar .nav-label,.sidebar-footer { display:none; }
+  .nav-scroll-hint { display:grid; place-items:center; position:absolute; right:16px; bottom:9px; z-index:2; width:40px; height:40px; padding:0; border:1px solid var(--line-strong); border-radius:7px; background:var(--panel); box-shadow:-10px 0 14px 8px rgba(251,251,252,.94); color:var(--ink); cursor:pointer; font:400 29px/1 var(--font-geist-sans); transition:background .2s ease,transform .2s ease; }
+  .nav-scroll-hint:hover,.nav-scroll-hint:focus-visible { background:var(--accent); transform:translateX(2px); }
+  .nav-scroll-hint:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
   .social-rail { top:auto; right:50%; bottom:12px; transform:translateX(50%); flex-direction:row; width:max-content; max-width:calc(100vw - 24px); padding:6px; }
   .social-rail-label { display:none; }
   .social-rail a { display:grid; place-items:center; min-width:0; width:44px; height:44px; padding:6px; }

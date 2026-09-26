@@ -14,6 +14,7 @@ type PortfolioCopy = {
   languageLabel: string;
   brandAria: string;
   navigationAria: string;
+  navigationNextAria: string;
   explore: string;
   nav: string[];
   sidebarTagline: string;
@@ -71,6 +72,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     languageLabel: "Seleziona lingua",
     brandAria: "Vai all'inizio",
     navigationAria: "Navigazione principale",
+    navigationNextAria: "Mostra altre sezioni del menu",
     explore: "Esplora",
     nav: ["Profilo", "Esperienza", "Progetti", "Competenze", "Formazione", "Contatti"],
     sidebarTagline: "Software, dati e AI",
@@ -169,6 +171,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     languageLabel: "Select language",
     brandAria: "Back to the top",
     navigationAria: "Main navigation",
+    navigationNextAria: "Show more menu sections",
     explore: "Explore",
     nav: ["Profile", "Experience", "Projects", "Skills", "Education", "Contact"],
     sidebarTagline: "Software, data and AI",
@@ -243,6 +246,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     languageLabel: "Seleccionar idioma",
     brandAria: "Volver al inicio",
     navigationAria: "Navegación principal",
+    navigationNextAria: "Mostrar más secciones del menú",
     explore: "Explorar",
     nav: ["Perfil", "Experiencia", "Proyectos", "Competencias", "Formación", "Contacto"],
     sidebarTagline: "Software, datos e IA",
