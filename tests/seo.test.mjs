@@ -15,6 +15,19 @@ test("layout espone i metadati SEO principali", async () => {
   assert.match(layout, /manifest: "\/manifest\.webmanifest"/);
 });
 
+test("il title non viene troncato da Google e coincide con quello impostato dalla pagina", async () => {
+  const title = (await read("app/layout.tsx")).match(/const title = "([^"]+)"/)?.[1];
+  assert.ok(title, "title non trovato");
+  assert.ok(title.length <= 60, `title di ${title.length} caratteri`);
+  const itTitle = (await read("app/translations.ts")).match(/pageTitle: "([^"]+)"/g)?.[0];
+  assert.equal(itTitle, `pageTitle: "${title}"`);
+});
+
+test("i crawler vedono sempre la versione italiana", async () => {
+  assert.match(await read("app/page.tsx"), /crawlerPattern\.test\(window\.navigator\.userAgent\)\) return "it"/);
+  assert.match(await read("app/layout.tsx"), /googlebot\|google-inspectiontool/);
+});
+
 test("la home ha un solo H1 con il nome", async () => {
   const page = await read("app/page.tsx");
   assert.equal(page.match(/<h1[\s>]/g)?.length, 1);

@@ -73,7 +73,7 @@ type PortfolioCopy = {
 
 export const portfolioCopy: Record<Locale, PortfolioCopy> = {
   it: {
-    pageTitle: "Hugo Aldo Reynoso · Senior Full-Stack Developer a Milano",
+    pageTitle: "Hugo Aldo Reynoso | Senior Full-Stack Developer a Milano",
     languageLabel: "Seleziona lingua",
     brandAria: "Vai all'inizio",
     navigationAria: "Navigazione principale",
@@ -167,7 +167,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     contact: { eyebrow: "Restiamo in contatto", title: ["Conosciamoci", "meglio."], copy: "Mi fa piacere entrare in contatto con professionisti, aziende e persone interessate a software, dati e intelligenza artificiale.", copyEmail: "Copia email", emailCopied: "Email copiata" },
   },
   en: {
-    pageTitle: "Hugo Aldo Reynoso · Senior Full-Stack Developer in Milan",
+    pageTitle: "Hugo Aldo Reynoso | Senior Full-Stack Developer in Milan",
     languageLabel: "Select language",
     brandAria: "Back to the top",
     navigationAria: "Main navigation",
@@ -234,7 +234,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     contact: { eyebrow: "Let's stay in touch", title: ["Let's get to know", "each other."], copy: "I am always happy to connect with professionals, companies and people interested in software, data and artificial intelligence.", copyEmail: "Copy email", emailCopied: "Email copied" },
   },
   es: {
-    pageTitle: "Hugo Aldo Reynoso · Senior Full-Stack Developer en Milán",
+    pageTitle: "Hugo Aldo Reynoso | Senior Full-Stack Developer en Milán",
     languageLabel: "Seleccionar idioma",
     brandAria: "Volver al inicio",
     navigationAria: "Navegación principal",

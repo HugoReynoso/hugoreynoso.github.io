@@ -40,7 +40,12 @@ const projects: Array<{ name: string; path: string; language: string; status: Pr
   { name: "Spark Examples", path: "HugoReynoso / spark-examples", language: "Java · Spark", status: "open", repo: "https://github.com/HugoReynoso/spark-examples" },
 ];
 
+// Il renderer di Googlebot si presenta in en-US: senza questo controllo indicizzerebbe la versione inglese,
+// in contrasto con title, description e lang in italiano. Stessa regex dello script in layout.tsx.
+const crawlerPattern = /bot\b|googlebot|google-inspectiontool|bingbot|crawler|spider|slurp|lighthouse|headlesschrome/i;
+
 function preferredLocale(): Locale {
+  if (crawlerPattern.test(window.navigator.userAgent)) return "it";
   const saved = window.localStorage.getItem("portfolio-language");
   if (saved === "it" || saved === "en" || saved === "es") return saved;
   const browserLocale = window.navigator.language.toLowerCase();

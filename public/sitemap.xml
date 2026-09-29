@@ -3,13 +3,13 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hugoreynoso.github.io/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <image:image><image:loc>https://hugoreynoso.github.io/hugo-reynoso.jpg</image:loc></image:image>
     <image:image><image:loc>https://hugoreynoso.github.io/og-image.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://hugoreynoso.github.io/progetti/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <image:image><image:loc>https://hugoreynoso.github.io/projects/safemi.webp</image:loc></image:image>
     <image:image><image:loc>https://hugoreynoso.github.io/projects/trova-benzina.webp</image:loc></image:image>
     <image:image><image:loc>https://hugoreynoso.github.io/projects/capi-shadow-missions-opt.webp</image:loc></image:image>
@@ -22,5 +22,9 @@
     <image:image><image:loc>https://hugoreynoso.github.io/projects/flag-streak.webp</image:loc></image:image>
     <image:image><image:loc>https://hugoreynoso.github.io/projects/logo-streak.webp</image:loc></image:image>
     <image:image><image:loc>https://hugoreynoso.github.io/projects/find-my-car.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://hugoreynoso.github.io/cv/Hugo-Aldo-Reynoso-CV.pdf</loc>
+    <lastmod>2026-09-30</lastmod>
   </url>
 </urlset>

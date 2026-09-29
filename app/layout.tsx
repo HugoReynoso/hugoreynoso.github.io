@@ -13,9 +13,11 @@ const siteUrl = isGitHubPages
 const canonicalUrl = "https://hugoreynoso.github.io/";
 const socialImage = `${canonicalUrl}og-image.jpg`;
 const portraitImage = `${canonicalUrl}hugo-reynoso.jpg`;
-const title = "Hugo Aldo Reynoso | Senior Full-Stack Developer Java e Angular a Milano";
+// Title sotto i ~60 caratteri, così Google non lo tronca; deve coincidere con portfolioCopy.it.pageTitle.
+const title = "Hugo Aldo Reynoso | Senior Full-Stack Developer a Milano";
 const description =
-  "Hugo Aldo Reynoso, Senior Full-Stack Developer a Milano con oltre 7 anni di esperienza: Java, Spring Boot, Angular, Vue.js e Ionic per applicazioni web e mobile enterprise.";
+  "Hugo Aldo Reynoso (Hugo Reynoso), sviluppatore full-stack a Milano con oltre 7 anni di esperienza in Java, Spring Boot, Angular e Vue.js. CV, progetti e contatti.";
+const cvUrl = `${canonicalUrl}cv/Hugo-Aldo-Reynoso-CV.pdf`;
 
 const sameAs = [
   "https://www.linkedin.com/in/hugo-aldo-reynoso/",
@@ -31,7 +33,7 @@ const structuredData = {
       "@id": `${canonicalUrl}#website`,
       url: canonicalUrl,
       name: "Hugo Aldo Reynoso",
-      alternateName: ["Hugo Reynoso", "Hugo Aldo Reynoso Portfolio"],
+      alternateName: ["Hugo Reynoso", "Hugo Aldo Reynoso Portfolio", "hugoreynoso.github.io"],
       description,
       inLanguage: "it-IT",
       publisher: { "@id": `${canonicalUrl}#person` },
@@ -45,23 +47,45 @@ const structuredData = {
       inLanguage: "it-IT",
       isPartOf: { "@id": `${canonicalUrl}#website` },
       mainEntity: { "@id": `${canonicalUrl}#person` },
-      primaryImageOfPage: { "@type": "ImageObject", url: portraitImage },
-      dateModified: "2026-09-29",
+      primaryImageOfPage: { "@id": `${canonicalUrl}#portrait` },
+      about: { "@id": `${canonicalUrl}#person` },
+      dateModified: "2026-09-30",
+      hasPart: [
+        { "@type": "WebPage", "@id": `${canonicalUrl}progetti/#page`, url: `${canonicalUrl}progetti/`, name: "Progetti di Hugo Aldo Reynoso" },
+        { "@type": "DigitalDocument", "@id": `${canonicalUrl}#cv`, url: cvUrl, name: "CV di Hugo Aldo Reynoso", encodingFormat: "application/pdf", author: { "@id": `${canonicalUrl}#person` } },
+      ],
+    },
+    {
+      "@type": "ImageObject",
+      "@id": `${canonicalUrl}#portrait`,
+      url: portraitImage,
+      contentUrl: portraitImage,
+      width: 660,
+      height: 800,
+      caption: "Hugo Aldo Reynoso, Senior Full-Stack Developer a Milano",
+      creator: { "@id": `${canonicalUrl}#person` },
+      creditText: "Hugo Aldo Reynoso",
+      copyrightNotice: "© Hugo Aldo Reynoso",
     },
     {
       "@type": "Person",
       "@id": `${canonicalUrl}#person`,
       name: "Hugo Aldo Reynoso",
-      alternateName: "Hugo Reynoso",
-      givenName: "Hugo Aldo",
+      alternateName: ["Hugo Reynoso", "Hugo A. Reynoso", "Reynoso Hugo Aldo"],
+      givenName: "Hugo",
+      additionalName: "Aldo",
       familyName: "Reynoso",
       url: canonicalUrl,
-      image: portraitImage,
+      mainEntityOfPage: { "@id": `${canonicalUrl}#profilepage` },
+      image: { "@id": `${canonicalUrl}#portrait` },
       email: "mailto:HugoAldoReynoso@gmail.com",
-      jobTitle: "Senior Full-Stack Developer",
+      jobTitle: ["Senior Full-Stack Developer", "Sviluppatore full-stack", "Software Developer"],
       description,
       address: { "@type": "PostalAddress", addressLocality: "Milano", addressRegion: "Lombardia", addressCountry: "IT" },
+      homeLocation: { "@type": "City", name: "Milano", containedInPlace: { "@type": "Country", name: "Italia" } },
+      workLocation: { "@type": "City", name: "Milano" },
       worksFor: { "@type": "Organization", name: "GeneGIS GI" },
+      subjectOf: { "@id": `${canonicalUrl}#cv` },
       alumniOf: [
         { "@type": "CollegeOrUniversity", name: "Università degli Studi di Milano-Bicocca" },
         { "@type": "HighSchool", name: "Istituto Tecnico Industriale Altiero Spinelli" },
@@ -69,6 +93,7 @@ const structuredData = {
       hasOccupation: {
         "@type": "Occupation",
         name: "Senior Full-Stack Developer",
+        alternateName: ["Sviluppatore full-stack", "Full-Stack Developer", "Java Developer"],
         occupationLocation: { "@type": "City", name: "Milano" },
         skills: "Java, Spring Boot, Angular, Vue.js, TypeScript, Ionic, REST API, SQL",
       },
@@ -151,7 +176,7 @@ export const metadata: Metadata = {
 
 // Nasconde la pagina finché React non applica la lingua preferita (se diversa dall'italiano),
 // così chi naviga in EN/ES non vede il testo cambiare. Timeout di sicurezza se lo script non parte.
-const localeBootScript = `try{var l=localStorage.getItem("portfolio-language");if(l!=="it"&&l!=="en"&&l!=="es"){var n=(navigator.language||"").toLowerCase();l=n.indexOf("es")===0?"es":n.indexOf("en")===0?"en":"it"}if(l!=="it"){var d=document.documentElement;d.classList.add("locale-pending");setTimeout(function(){d.classList.remove("locale-pending")},1500)}}catch(e){}`;
+const localeBootScript = `try{if(/bot\\b|googlebot|google-inspectiontool|bingbot|crawler|spider|slurp|lighthouse|headlesschrome/i.test(navigator.userAgent))throw 0;var l=localStorage.getItem("portfolio-language");if(l!=="it"&&l!=="en"&&l!=="es"){var n=(navigator.language||"").toLowerCase();l=n.indexOf("es")===0?"es":n.indexOf("en")===0?"en":"it"}if(l!=="it"){var d=document.documentElement;d.classList.add("locale-pending");setTimeout(function(){d.classList.remove("locale-pending")},1500)}}catch(e){}`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
