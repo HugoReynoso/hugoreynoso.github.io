@@ -15,7 +15,7 @@ const experienceTech = [
 
 const projects = [
   { name: "SafeMI", path: "Demo · In lavorazione", language: "Web app", href: "/progetti/", preview: "/projects/safemi.png" },
-  { name: "TrovaBenzina.it", path: "Demo pubblica · progetto privato", language: "Web app", href: "https://trova-benzina-frontend.vercel.app/", preview: "/projects/trova-benzina.png" },
+  { name: "TrovaBenzina.it", path: "Demo pubblica · progetto privato", language: "Web app", href: "https://trovabenzina.it/", preview: "/projects/trova-benzina.png" },
   { name: "CAPI: Shadow Missions", path: "CAPI", language: "React · TypeScript · Babylon.js", href: "https://github.com/HugoReynoso/game-capi-shadow-missions", preview: "/projects/capi-shadow-missions.webp" },
   { name: "TikTok Chat", path: "HugoReynoso / utility-tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/utility-tiktok-chat", preview: "/projects/tiktok-chat.jpg" },
   { name: "Defend My Dog", path: "HugoReynoso / game-defend-my-dog", language: "JavaScript · Vite", href: "https://github.com/HugoReynoso/game-defend-my-dog", preview: "/projects/defend-my-dog.png" },
