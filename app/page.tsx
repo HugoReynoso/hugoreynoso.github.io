@@ -14,17 +14,17 @@ const experienceTech = [
 ];
 
 const projects = [
-  { name: "CAPI: Shadow Missions", path: "CAPI", language: "React · TypeScript · Babylon.js", href: "https://github.com/HugoReynoso/game-capi-shadow-missions", preview: "/projects/capi-shadow-missions.webp" },
-  { name: "TikTok Chat", path: "HugoReynoso / utility-tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/utility-tiktok-chat", preview: "/projects/tiktok-chat.jpg" },
-  { name: "Defend My Dog", path: "HugoReynoso / game-defend-my-dog", language: "JavaScript · Vite", href: "https://github.com/HugoReynoso/game-defend-my-dog", preview: "/projects/defend-my-dog.png" },
-  { name: "Crownfall — Puzzle Rescue", path: "HugoReynoso / game-puzzle-rescue", language: "React · TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-puzzle-rescue", preview: "/projects/crownfall-puzzle-rescue.jpg" },
-  { name: "SpinWheel", path: "HugoReynoso / utility-spin-wheel", language: "React · TypeScript", href: "https://github.com/HugoReynoso/utility-spin-wheel", preview: "/projects/spin-wheel.jpg" },
-  { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.png" },
-  { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense", preview: "/projects/green-valley-guardians.jpg" },
+  { name: "CAPI: Shadow Missions", path: "CAPI", language: "React · TypeScript · Babylon.js", href: "https://github.com/HugoReynoso/game-capi-shadow-missions", preview: "/projects/capi-shadow-missions-opt.webp" },
+  { name: "TikTok Chat", path: "HugoReynoso / utility-tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/utility-tiktok-chat", preview: "/projects/tiktok-chat.webp" },
+  { name: "Defend My Dog", path: "HugoReynoso / game-defend-my-dog", language: "JavaScript · Vite", href: "https://github.com/HugoReynoso/game-defend-my-dog", preview: "/projects/defend-my-dog.webp" },
+  { name: "Crownfall — Puzzle Rescue", path: "HugoReynoso / game-puzzle-rescue", language: "React · TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-puzzle-rescue", preview: "/projects/crownfall-puzzle-rescue.webp" },
+  { name: "SpinWheel", path: "HugoReynoso / utility-spin-wheel", language: "React · TypeScript", href: "https://github.com/HugoReynoso/utility-spin-wheel", preview: "/projects/spin-wheel.webp" },
+  { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.webp" },
+  { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense", preview: "/projects/green-valley-guardians.webp" },
   //{ name: "Personal Portfolio", path: "HugoReynoso / hugoreynoso.github.io", language: "React · TypeScript", href: "https://github.com/HugoReynoso/hugoreynoso.github.io" },
-  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", href: "https://github.com/HugoReynoso/game-flags", preview: "/projects/flag-streak.jpg" },
-  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", href: "https://github.com/HugoReynoso/game-logos", preview: "/projects/logo-streak.jpg" },
-  { name: "Find My Car", path: "HugoReynoso / utility-find-my-car", language: "Flutter", href: "https://github.com/HugoReynoso/utility-find-my-car", preview: "/projects/find-my-car.png" },
+  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", href: "https://github.com/HugoReynoso/game-flags", preview: "/projects/flag-streak.webp" },
+  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", href: "https://github.com/HugoReynoso/game-logos", preview: "/projects/logo-streak.webp" },
+  { name: "Find My Car", path: "HugoReynoso / utility-find-my-car", language: "Flutter", href: "https://github.com/HugoReynoso/utility-find-my-car", preview: "/projects/find-my-car.webp" },
   { name: "Spark", path: "HugoReynoso / Spark", language: "Apache Spark", href: "https://github.com/HugoReynoso/Spark" },
   { name: "Spark Examples", path: "HugoReynoso / spark-examples", language: "Java · Spark", href: "https://github.com/HugoReynoso/spark-examples" },
 ];
@@ -110,9 +110,9 @@ export default function Home() {
 
       <aside className="social-rail" aria-label={copy.socialAria}>
         <span className="social-rail-label">Social</span>
-        <a className="linkedin" href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><span className="social-icon" aria-hidden="true">in</span><span className="social-name">LinkedIn</span><span className="social-external" aria-hidden="true">↗</span></a>
-        <a className="github" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer" aria-label="GitHub"><span className="social-icon" aria-hidden="true">GH</span><span className="social-name">GitHub</span><span className="social-external" aria-hidden="true">↗</span></a>
-        <a className="instagram" href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noreferrer" aria-label="Instagram"><span className="social-icon instagram-icon" aria-hidden="true">◎</span><span className="social-name">Instagram</span><span className="social-external" aria-hidden="true">↗</span></a>
+        <a className="linkedin" href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn"><span className="social-icon" aria-hidden="true">in</span><span className="social-name">LinkedIn</span><span className="social-external" aria-hidden="true">↗</span></a>
+        <a className="github" href="https://github.com/HugoReynoso" target="_blank" rel="me noopener noreferrer" aria-label="GitHub"><span className="social-icon" aria-hidden="true">GH</span><span className="social-name">GitHub</span><span className="social-external" aria-hidden="true">↗</span></a>
+        <a className="instagram" href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="me noopener noreferrer" aria-label="Instagram"><span className="social-icon instagram-icon" aria-hidden="true">◎</span><span className="social-name">Instagram</span><span className="social-external" aria-hidden="true">↗</span></a>
       </aside>
 
       <div className="content">
@@ -120,15 +120,15 @@ export default function Home() {
           <div className="eyebrow"><span>{copy.hero.role}</span><span>·</span><span>{copy.hero.city}</span></div>
           <div className="hero-heading">
             <figure className="portrait-card">
-              <img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso" />
+              <picture><source srcSet="/hugo-reynoso.webp" type="image/webp" /><img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso, Senior Full-Stack Developer a Milano" width="660" height="800" fetchPriority="high" decoding="async" /></picture>
               <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
             </figure>
-            <h1>{copy.hero.title}</h1>
+            <h1><span className="hero-name">Hugo Aldo Reynoso</span>{copy.hero.title}</h1>
           </div>
           <p className="hero-copy">{copy.hero.introBefore} <strong>Hugo Aldo Reynoso</strong>, {copy.hero.introAfter}</p>
           <div className="hero-actions">
             <a className="button primary" href="#esperienza">{copy.hero.cta} <span>↓</span></a>
-            <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+            <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
             <a className="button secondary" href="/progetti/">{copy.hero.portfolio} <span>→</span></a>
           </div>
           <div className="quick-facts">
@@ -171,7 +171,7 @@ export default function Home() {
             aria-label={copy.projects.carouselLabel}
           >
             {projects.map((project, index) => (
-              <a className="project-card" href={project.href} target="_blank" rel="noreferrer" key={project.name}>
+              <a className="project-card" href={project.href} target="_blank" rel="noopener noreferrer" key={project.name}>
                 {project.preview && <img className="project-preview" src={project.preview} alt={copy.projects.previewAlts[index]} width="1200" height="675" loading="lazy" decoding="async" />}
                 <div className="repo-top"><span className="repo-icon">⌘</span><span>{copy.projects.publicLabel}</span></div>
                 <p className="repo-path">{project.path}</p>
@@ -205,9 +205,9 @@ export default function Home() {
           <p className="contact-copy">{copy.contact.copy}</p>
           <a className="mail-link" href="mailto:HugoAldoReynoso@gmail.com">HugoAldoReynoso@gmail.com <span>↗</span></a>
           <div className="social-row">
-            <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <a href="https://github.com/HugoReynoso" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noreferrer">Instagram ↗</a>
+            <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/HugoReynoso" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
           </div>
         </section>
         <footer><span>© 2026 Hugo Aldo Reynoso</span></footer>
