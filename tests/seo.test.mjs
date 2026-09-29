@@ -28,6 +28,13 @@ test("tutte le immagini usate dal sito esistono in public/", async () => {
   for (const image of images) assert.ok(await exists(`public${image}`), `manca public${image}`);
 });
 
+test("il CV linkato dalla home esiste in public/", async () => {
+  const page = await read("app/page.tsx");
+  const cv = page.match(/const cvPath = "(\/[^"]+\.pdf)"/)?.[1];
+  assert.ok(cv, "cvPath non trovato");
+  assert.ok(await exists(`public${cv}`), `manca public${cv}`);
+});
+
 test("ogni progetto ha le traduzioni in tutte le lingue", async () => {
   const page = await read("app/page.tsx");
   const count = page.match(/^\s+\{ name: "/gm)?.length ?? 0;

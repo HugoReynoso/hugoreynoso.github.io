@@ -14,7 +14,7 @@ type PortfolioCopy = {
   languageLabel: string;
   brandAria: string;
   navigationAria: string;
-  navigationNextAria: string;
+  menuLabel: string;
   explore: string;
   nav: string[];
   sidebarTagline: string;
@@ -25,14 +25,18 @@ type PortfolioCopy = {
     city: string;
     title: string;
     introBefore: string;
-    introAfter: string;
+    introLead: string;
+    introMore: string;
     cta: string;
+    cv: string;
     portfolio: string;
     facts: Array<{ value: string; label: string }>;
   };
   experience: {
     label: string;
     title: [string, string];
+    showDetails: string;
+    hideDetails: string;
     items: ExperienceCopy[];
   };
   projects: {
@@ -67,6 +71,8 @@ type PortfolioCopy = {
     eyebrow: string;
     title: [string, string];
     copy: string;
+    copyEmail: string;
+    emailCopied: string;
   };
 };
 
@@ -76,20 +82,22 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     languageLabel: "Seleziona lingua",
     brandAria: "Vai all'inizio",
     navigationAria: "Navigazione principale",
-    navigationNextAria: "Mostra altre sezioni del menu",
+    menuLabel: "Menu di navigazione",
     explore: "Esplora",
     nav: ["Profilo", "Esperienza", "Progetti", "Competenze", "Formazione", "Contatti"],
     sidebarTagline: "Software, dati e AI",
     location: "Milano, Italia",
     socialAria: "Profili social",
     hero: {
-      role: "Senior Full-Stack Developer",
+      role: "Java · Spring Boot · Angular · Vue.js",
       city: "Milano",
-      title: "Full-Stack Developer",
+      title: "Senior Full-Stack Developer",
       introBefore: "Ciao, sono",
-      introAfter: "senior full-stack developer con oltre 7 anni di esperienza nello sviluppo di applicazioni web enterprise e mobile. Sono specializzato in Java, Spring Boot, Angular e Vue.js, con esperienza end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API. Ho lavorato su progetti per Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
-      cta: "Scopri il mio percorso",
-      portfolio: "Portfolio",
+      introLead: "sviluppo applicazioni web e mobile enterprise da oltre 7 anni.",
+      introMore: "Mi occupo di sviluppo end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API, per la Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
+      cta: "Contattami",
+      cv: "Scarica CV (PDF)",
+      portfolio: "Vedi progetti",
       facts: [
         { value: "7+", label: "anni nello sviluppo enterprise" },
         { value: "Full-stack", label: "Java, Spring Boot, Angular e Vue.js" },
@@ -99,6 +107,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     experience: {
       label: "Esperienza",
       title: ["Dal problema al prodotto,", "un livello alla volta."],
+      showDetails: "Mostra dettagli",
+      hideDetails: "Nascondi dettagli",
       items: [
         {
           period: "2023 — presente", role: "Software Developer", company: "GeneGIS GI · Tempo pieno", location: "Milano · Ibrido",
@@ -168,27 +178,28 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         { type: "Diploma", degree: "Diploma di Perito Informatico", school: "Istituto Tecnico Industriale Altiero Spinelli · Sesto San Giovanni", details: "Le fondamenta tecniche da cui è iniziato tutto." },
       ],
     },
-    contact: { eyebrow: "Restiamo in contatto", title: ["Conosciamoci", "meglio."], copy: "Mi fa piacere entrare in contatto con professionisti, aziende e persone interessate a software, dati e intelligenza artificiale." },
+    contact: { eyebrow: "Restiamo in contatto", title: ["Conosciamoci", "meglio."], copy: "Mi fa piacere entrare in contatto con professionisti, aziende e persone interessate a software, dati e intelligenza artificiale.", copyEmail: "Copia email", emailCopied: "Email copiata" },
   },
   en: {
     pageTitle: "Hugo Aldo Reynoso · Senior Full-Stack Developer in Milan",
     languageLabel: "Select language",
     brandAria: "Back to the top",
     navigationAria: "Main navigation",
-    navigationNextAria: "Show more menu sections",
+    menuLabel: "Navigation menu",
     explore: "Explore",
     nav: ["Profile", "Experience", "Projects", "Skills", "Education", "Contact"],
     sidebarTagline: "Software, data and AI",
     location: "Milan, Italy",
     socialAria: "Social profiles",
     hero: {
-      role: "Senior Full-Stack Developer", city: "Milan", title: "Full-Stack Developer", introBefore: "Hi, I'm",
-      introAfter: "a senior full-stack developer with over 7 years of experience building enterprise web and mobile applications. I specialize in Java, Spring Boot, Angular and Vue.js, with end-to-end experience in maintenance, refactoring and REST API integration. I have worked on projects for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.",
-      cta: "Explore my experience", portfolio: "Portfolio",
+      role: "Java · Spring Boot · Angular · Vue.js", city: "Milan", title: "Senior Full-Stack Developer", introBefore: "Hi, I'm",
+      introLead: "I have been building enterprise web and mobile applications for over 7 years.",
+      introMore: "I work end-to-end on development, maintenance, refactoring and REST API integration, for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.",
+      cta: "Contact me", cv: "Download CV (PDF)", portfolio: "View projects",
       facts: [{ value: "7+", label: "years in enterprise development" }, { value: "Full-stack", label: "Java, Spring Boot, Angular and Vue.js" }, { value: "3 languages", label: "Spanish, Italian, English" }],
     },
     experience: {
-      label: "Experience", title: ["From problem to product,", "one layer at a time."],
+      label: "Experience", title: ["From problem to product,", "one layer at a time."], showDetails: "Show details", hideDetails: "Hide details",
       items: [
         {
           period: "2023 — present", role: "Software Developer", company: "GeneGIS GI · Full-time", location: "Milan · Hybrid",
@@ -243,27 +254,28 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         { type: "Diploma", degree: "IT Technician Diploma", school: "Altiero Spinelli Technical Industrial Institute · Sesto San Giovanni", details: "The technical foundations where it all began." },
       ],
     },
-    contact: { eyebrow: "Let's stay in touch", title: ["Let's get to know", "each other."], copy: "I am always happy to connect with professionals, companies and people interested in software, data and artificial intelligence." },
+    contact: { eyebrow: "Let's stay in touch", title: ["Let's get to know", "each other."], copy: "I am always happy to connect with professionals, companies and people interested in software, data and artificial intelligence.", copyEmail: "Copy email", emailCopied: "Email copied" },
   },
   es: {
     pageTitle: "Hugo Aldo Reynoso · Senior Full-Stack Developer en Milán",
     languageLabel: "Seleccionar idioma",
     brandAria: "Volver al inicio",
     navigationAria: "Navegación principal",
-    navigationNextAria: "Mostrar más secciones del menú",
+    menuLabel: "Menú de navegación",
     explore: "Explorar",
     nav: ["Perfil", "Experiencia", "Proyectos", "Competencias", "Formación", "Contacto"],
     sidebarTagline: "Software, datos e IA",
     location: "Milán, Italia",
     socialAria: "Perfiles sociales",
     hero: {
-      role: "Senior Full-Stack Developer", city: "Milán", title: "Full-Stack Developer", introBefore: "Hola, soy",
-      introAfter: "senior full-stack developer con más de 7 años de experiencia en el desarrollo de aplicaciones web empresariales y móviles. Estoy especializado en Java, Spring Boot, Angular y Vue.js, con experiencia end-to-end, mantenimiento evolutivo, refactorización e integración mediante API REST. He trabajado en proyectos para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.",
-      cta: "Descubre mi experiencia", portfolio: "Portfolio",
+      role: "Java · Spring Boot · Angular · Vue.js", city: "Milán", title: "Senior Full-Stack Developer", introBefore: "Hola, soy",
+      introLead: "desarrollo aplicaciones web y móviles empresariales desde hace más de 7 años.",
+      introMore: "Trabajo end-to-end en desarrollo, mantenimiento evolutivo, refactorización e integración mediante API REST, para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.",
+      cta: "Contáctame", cv: "Descargar CV (PDF)", portfolio: "Ver proyectos",
       facts: [{ value: "7+", label: "años en desarrollo empresarial" }, { value: "Full-stack", label: "Java, Spring Boot, Angular y Vue.js" }, { value: "3 idiomas", label: "español, italiano e inglés" }],
     },
     experience: {
-      label: "Experiencia", title: ["Del problema al producto,", "capa a capa."],
+      label: "Experiencia", title: ["Del problema al producto,", "capa a capa."], showDetails: "Mostrar detalles", hideDetails: "Ocultar detalles",
       items: [
         {
           period: "2023 — actualidad", role: "Desarrollador de software", company: "GeneGIS GI · Tiempo completo", location: "Milán · Híbrido",
@@ -318,6 +330,6 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         { type: "Diploma", degree: "Diploma de Técnico Informático", school: "Instituto Técnico Industrial Altiero Spinelli · Sesto San Giovanni", details: "Las bases técnicas con las que comenzó todo." },
       ],
     },
-    contact: { eyebrow: "Sigamos en contacto", title: ["Conozcámonos", "mejor."], copy: "Me interesa conectar con profesionales, empresas y personas interesadas en el software, los datos y la inteligencia artificial." },
+    contact: { eyebrow: "Sigamos en contacto", title: ["Conozcámonos", "mejor."], copy: "Me interesa conectar con profesionales, empresas y personas interesadas en el software, los datos y la inteligencia artificial.", copyEmail: "Copiar email", emailCopied: "Email copiado" },
   },
 };

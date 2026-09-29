@@ -5,6 +5,8 @@ import { type Locale, portfolioCopy } from "./translations";
 
 const navTargets = ["#profilo", "#esperienza", "#progetti", "#competenze", "#formazione", "#contatti"];
 const locales: Locale[] = ["it", "en", "es"];
+const email = "HugoAldoReynoso@gmail.com";
+const cvPath = "/cv/Hugo-Aldo-Reynoso-CV.pdf";
 
 const experienceTech = [
   ["Angular 6/8", "Vue.js", "Ionic", "Java", "Spring Boot", "REST API", "C#", "SQL", "Git", "Agile/Scrum"],
@@ -41,16 +43,21 @@ function preferredLocale(): Locale {
   return "it";
 }
 
+const scrollBehavior = (): ScrollBehavior => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth");
+
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("it");
   const [isLanguageReady, setIsLanguageReady] = useState(false);
   const [firstVisibleProject, setFirstVisibleProject] = useState(0);
   const [canScrollProjectsBack, setCanScrollProjectsBack] = useState(false);
   const [canScrollProjectsForward, setCanScrollProjectsForward] = useState(true);
-  const [canScrollNavigationForward, setCanScrollNavigationForward] = useState(false);
+  const [activeSection, setActiveSection] = useState(navTargets[0]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isEmailCopied, setIsEmailCopied] = useState(false);
   const projectTrackRef = useRef<HTMLDivElement>(null);
-  const navigationRef = useRef<HTMLElement>(null);
+  const sidebarRef = useRef<HTMLElement>(null);
   const copy = portfolioCopy[locale];
+  const activeLabel = copy.nav[Math.max(0, navTargets.indexOf(activeSection))];
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -63,9 +70,33 @@ export default function Home() {
   useEffect(() => {
     if (!isLanguageReady) return;
     document.documentElement.lang = locale;
+    document.documentElement.classList.remove("locale-pending");
     document.title = copy.pageTitle;
     window.localStorage.setItem("portfolio-language", locale);
   }, [copy.pageTitle, isLanguageReady, locale]);
+
+  // Evidenzia nel menu la sezione che attraversa il centro dello schermo.
+  useEffect(() => {
+    const sections = navTargets.map((target) => document.querySelector<HTMLElement>(target)).filter((section) => section !== null);
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.find((entry) => entry.isIntersecting);
+      if (visible) setActiveSection(`#${visible.target.id}`);
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setIsMenuOpen(false); };
+    const closeOnOutsideClick = (event: PointerEvent) => { if (!sidebarRef.current?.contains(event.target as Node)) setIsMenuOpen(false); };
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+    };
+  }, [isMenuOpen]);
 
   const updateProjectPosition = () => {
     const track = projectTrackRef.current;
@@ -90,31 +121,29 @@ export default function Home() {
     const track = projectTrackRef.current;
     const firstCard = track?.querySelector<HTMLElement>(".project-card");
     if (!track || !firstCard) return;
-    track.scrollBy({ left: direction * (firstCard.offsetWidth + 16), behavior: "smooth" });
+    track.scrollBy({ left: direction * (firstCard.offsetWidth + 16), behavior: scrollBehavior() });
   };
 
-  const updateNavigationHint = () => {
-    const navigation = navigationRef.current;
-    if (!navigation) return;
-    setCanScrollNavigationForward(navigation.scrollLeft < navigation.scrollWidth - navigation.clientWidth - 2);
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      const field = document.createElement("textarea");
+      field.value = email;
+      document.body.append(field);
+      field.select();
+      document.execCommand("copy");
+      field.remove();
+    }
+    setIsEmailCopied(true);
+    window.setTimeout(() => setIsEmailCopied(false), 2500);
   };
-
-  useEffect(() => {
-    const frame = window.requestAnimationFrame(updateNavigationHint);
-    window.addEventListener("resize", updateNavigationHint);
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener("resize", updateNavigationHint);
-    };
-  }, [locale]);
-
-  const scrollNavigation = () => navigationRef.current?.scrollBy({ left: 180, behavior: "smooth" });
 
   return (
     <main>
-      <aside className="sidebar">
+      <aside className={`sidebar${isMenuOpen ? " menu-open" : ""}`} ref={sidebarRef}>
         <div className="sidebar-top">
-          <a className="brand" href="#profilo" aria-label={copy.brandAria}><span className="brand-mark">HR</span><span>Hugo Reynoso</span></a>
+          <a className="brand" href="#profilo" aria-label={copy.brandAria}><span className="brand-mark">HR</span><span className="brand-name">Hugo Reynoso</span></a>
           <div className="language-switcher" role="group" aria-label={copy.languageLabel}>
             {locales.map((language) => (
               <button type="button" lang={language} aria-pressed={locale === language} className={locale === language ? "active" : ""} onClick={() => setLocale(language)} key={language}>
@@ -122,12 +151,18 @@ export default function Home() {
               </button>
             ))}
           </div>
+          <button className="menu-toggle" type="button" aria-expanded={isMenuOpen} aria-controls="site-nav" aria-label={`${activeLabel} · ${copy.menuLabel}`} onClick={() => setIsMenuOpen((open) => !open)}>
+            <span className="menu-current">{activeLabel}</span><span className="menu-icon" aria-hidden="true" />
+          </button>
         </div>
-        <nav ref={navigationRef} onScroll={updateNavigationHint} aria-label={copy.navigationAria}>
+        <nav id="site-nav" aria-label={copy.navigationAria}>
           <p className="nav-label">{copy.explore}</p>
-          {copy.nav.map((label, index) => <a className="nav-item" href={navTargets[index]} key={navTargets[index]}><span>{label}</span><span className="nav-chevron" aria-hidden="true" /></a>)}
+          {copy.nav.map((label, index) => (
+            <a className="nav-item" href={navTargets[index]} key={navTargets[index]} aria-current={activeSection === navTargets[index] ? "location" : undefined} onClick={() => setIsMenuOpen(false)}>
+              <span>{label}</span><span className="nav-chevron" aria-hidden="true" />
+            </a>
+          ))}
         </nav>
-        {canScrollNavigationForward && <button className="nav-scroll-hint" type="button" onClick={scrollNavigation} aria-label={copy.navigationNextAria}>&rsaquo;</button>}
         <div className="sidebar-footer"><span className="status-dot" /> {copy.sidebarTagline}<small>{copy.location}</small></div>
       </aside>
 
@@ -144,15 +179,15 @@ export default function Home() {
           <div className="hero-heading">
             <figure className="portrait-card">
               <picture><source srcSet="/hugo-reynoso.webp" type="image/webp" /><img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso, Senior Full-Stack Developer a Milano" width="660" height="800" fetchPriority="high" decoding="async" /></picture>
-              <figcaption><span className="status-dot" /> @hugoaldoreynoso</figcaption>
+              <figcaption><span className="status-dot" /> @hugoaldorey</figcaption>
             </figure>
             <h1><span className="hero-name">Hugo Aldo Reynoso</span>{copy.hero.title}</h1>
           </div>
-          <p className="hero-copy">{copy.hero.introBefore} <strong>Hugo Aldo Reynoso</strong>, {copy.hero.introAfter}</p>
+          <p className="hero-copy">{copy.hero.introBefore} <strong>Hugo Aldo Reynoso</strong>, {copy.hero.introLead}<span className="hero-copy-more"> {copy.hero.introMore}</span></p>
           <div className="hero-actions">
-            <a className="button primary" href="#esperienza">{copy.hero.cta} <span>↓</span></a>
-            <a className="button secondary" href="https://github.com/HugoReynoso" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
-            <a className="button secondary" href="/progetti/">{copy.hero.portfolio} <span>→</span></a>
+            <a className="button primary" href="#contatti">{copy.hero.cta} <span>→</span></a>
+            <a className="button secondary" href={cvPath} download>{copy.hero.cv} <span>↓</span></a>
+            <a className="button secondary" href="#progetti">{copy.hero.portfolio} <span>→</span></a>
           </div>
           <div className="quick-facts">
             {copy.hero.facts.map((fact) => <div key={fact.value}><strong>{fact.value}</strong><span>{fact.label}</span></div>)}
@@ -167,9 +202,12 @@ export default function Home() {
               <div>
                 <h3>{item.role}</h3>
                 <p className="company">{item.company}<span>{item.location}</span></p>
-                <p>{item.description}</p>
-                <ul className="experience-activities">{item.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
-                <div className="tags">{experienceTech[index].map((tech) => <span key={tech}>{tech}</span>)}</div>
+                <p className="experience-summary">{item.description}</p>
+                <details className="experience-details">
+                  <summary><span className="details-show">{copy.experience.showDetails}</span><span className="details-hide">{copy.experience.hideDetails}</span></summary>
+                  <ul className="experience-activities">{item.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
+                  <div className="tags">{experienceTech[index].map((tech) => <span key={tech}>{tech}</span>)}</div>
+                </details>
               </div>
             </article>
           ))}</div>
@@ -230,7 +268,12 @@ export default function Home() {
         <section className="contact" id="contatti">
           <p className="eyebrow">{copy.contact.eyebrow}</p><h2>{copy.contact.title[0]}<br />{copy.contact.title[1]}</h2>
           <p className="contact-copy">{copy.contact.copy}</p>
-          <a className="mail-link" href="mailto:HugoAldoReynoso@gmail.com">HugoAldoReynoso@gmail.com <span>↗</span></a>
+          <a className="mail-link" href={`mailto:${email}`}>{email} <span>↗</span></a>
+          <div className="contact-actions">
+            <button className="button contact-button" type="button" onClick={copyEmail}>{isEmailCopied ? copy.contact.emailCopied : copy.contact.copyEmail} <span aria-hidden="true">{isEmailCopied ? "✓" : "⧉"}</span></button>
+            <a className="button contact-button" href={cvPath} download>{copy.hero.cv} <span aria-hidden="true">↓</span></a>
+            <span className="visually-hidden" aria-live="polite">{isEmailCopied ? copy.contact.emailCopied : ""}</span>
+          </div>
           <div className="social-row">
             <a href="https://www.linkedin.com/in/hugo-aldo-reynoso/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <a href="https://github.com/HugoReynoso" target="_blank" rel="noopener noreferrer">GitHub ↗</a>

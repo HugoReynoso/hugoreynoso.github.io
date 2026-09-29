@@ -96,7 +96,10 @@ const structuredData = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#14161a",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f1f2f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1114" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -146,10 +149,15 @@ export const metadata: Metadata = {
   // verification: { google: "IL_TUO_CODICE" },
 };
 
+// Nasconde la pagina finché React non applica la lingua preferita (se diversa dall'italiano),
+// così chi naviga in EN/ES non vede il testo cambiare. Timeout di sicurezza se lo script non parte.
+const localeBootScript = `try{var l=localStorage.getItem("portfolio-language");if(l!=="it"&&l!=="en"&&l!=="es"){var n=(navigator.language||"").toLowerCase();l=n.indexOf("es")===0?"es":n.indexOf("en")===0?"en":"it"}if(l!=="it"){var d=document.documentElement;d.classList.add("locale-pending");setTimeout(function(){d.classList.remove("locale-pending")},1500)}}catch(e){}`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="it">
+    <html lang="it" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: localeBootScript }} />
         <meta property="profile:first_name" content="Hugo Aldo" />
         <meta property="profile:last_name" content="Reynoso" />
         <link rel="preload" as="image" href="/hugo-reynoso.webp" type="image/webp" />
