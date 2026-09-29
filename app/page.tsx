@@ -13,22 +13,23 @@ const experienceTech = [
   ["SQL Server", "SSIS", "T-SQL", "Visual Basic"],
 ];
 
-const projects = [
-  { name: "SafeMI", path: "Demo · In lavorazione", language: "Web app", href: "/progetti/", preview: "/projects/safemi.webp" },
-  { name: "TrovaBenzina.it", path: "Demo pubblica · progetto privato", language: "Web app", href: "https://trovabenzina.it/", preview: "/projects/trova-benzina.webp" },
-  { name: "CAPI: Shadow Missions", path: "CAPI", language: "React · TypeScript · Babylon.js", href: "https://github.com/HugoReynoso/game-capi-shadow-missions", preview: "/projects/capi-shadow-missions-opt.webp" },
-  { name: "TikTok Chat", path: "HugoReynoso / utility-tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/utility-tiktok-chat", preview: "/projects/tiktok-chat.webp" },
-  { name: "Defend My Dog", path: "HugoReynoso / game-defend-my-dog", language: "JavaScript · Vite", href: "https://github.com/HugoReynoso/game-defend-my-dog", preview: "/projects/defend-my-dog.webp" },
-  { name: "Crownfall — Puzzle Rescue", path: "HugoReynoso / game-puzzle-rescue", language: "React · TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-puzzle-rescue", preview: "/projects/crownfall-puzzle-rescue.webp" },
-  { name: "SpinWheel", path: "HugoReynoso / utility-spin-wheel", language: "React · TypeScript", href: "https://github.com/HugoReynoso/utility-spin-wheel", preview: "/projects/spin-wheel.webp" },
-  { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.webp" },
-  { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense", preview: "/projects/green-valley-guardians.webp" },
-  //{ name: "Personal Portfolio", path: "HugoReynoso / hugoreynoso.github.io", language: "React · TypeScript", href: "https://github.com/HugoReynoso/hugoreynoso.github.io" },
-  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", href: "https://github.com/HugoReynoso/game-flags", preview: "/projects/flag-streak.webp" },
-  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", href: "https://github.com/HugoReynoso/game-logos", preview: "/projects/logo-streak.webp" },
-  { name: "Find My Car", path: "HugoReynoso / utility-find-my-car", language: "Flutter", href: "https://github.com/HugoReynoso/utility-find-my-car", preview: "/projects/find-my-car.webp" },
-  { name: "Spark", path: "HugoReynoso / Spark", language: "Apache Spark", href: "https://github.com/HugoReynoso/Spark" },
-  { name: "Spark Examples", path: "HugoReynoso / spark-examples", language: "Java · Spark", href: "https://github.com/HugoReynoso/spark-examples" },
+type ProjectStatus = "open" | "private" | "wip";
+
+const projects: Array<{ name: string; path: string; language: string; status: ProjectStatus; demo?: string; repo?: string; preview?: string }> = [
+  { name: "SafeMI", path: "Demo · In lavorazione", language: "Web app", status: "wip", demo: "/progetti/", preview: "/projects/safemi.webp" },
+  { name: "TrovaBenzina.it", path: "trovabenzina.it", language: "Web app", status: "private", demo: "https://trovabenzina.it/", preview: "/projects/trova-benzina.webp" },
+  { name: "CAPI: Shadow Missions", path: "HugoReynoso / game-capi-shadow-missions", language: "React · TypeScript · Babylon.js", status: "open", demo: "https://hugoreynoso.github.io/game-capi-shadow-missions/", repo: "https://github.com/HugoReynoso/game-capi-shadow-missions", preview: "/projects/capi-shadow-missions-opt.webp" },
+  { name: "TikTok Chat", path: "HugoReynoso / utility-tiktok-chat", language: "Vue 3 · TypeScript · Node.js", status: "open", demo: "https://hugoreynoso.github.io/utility-tiktok-chat/", repo: "https://github.com/HugoReynoso/utility-tiktok-chat", preview: "/projects/tiktok-chat.webp" },
+  { name: "Defend My Dog", path: "HugoReynoso / game-defend-my-dog", language: "JavaScript · Vite", status: "open", demo: "https://hugoreynoso.github.io/game-defend-my-dog/", repo: "https://github.com/HugoReynoso/game-defend-my-dog", preview: "/projects/defend-my-dog.webp" },
+  { name: "Crownfall — Puzzle Rescue", path: "HugoReynoso / game-puzzle-rescue", language: "React · TypeScript · Phaser 3", status: "open", demo: "https://hugoreynoso.github.io/game-puzzle-rescue/", repo: "https://github.com/HugoReynoso/game-puzzle-rescue", preview: "/projects/crownfall-puzzle-rescue.webp" },
+  { name: "SpinWheel", path: "HugoReynoso / utility-spin-wheel", language: "React · TypeScript", status: "open", demo: "https://hugoreynoso.github.io/utility-spin-wheel/", repo: "https://github.com/HugoReynoso/utility-spin-wheel", preview: "/projects/spin-wheel.webp" },
+  { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", status: "open", demo: "https://hugoreynoso.github.io/game-sparatutto/", repo: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.webp" },
+  { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", status: "open", demo: "https://hugoreynoso.github.io/game-tower-defense/", repo: "https://github.com/HugoReynoso/game-tower-defense", preview: "/projects/green-valley-guardians.webp" },
+  { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", status: "open", demo: "https://hugoreynoso.github.io/game-flags/", repo: "https://github.com/HugoReynoso/game-flags", preview: "/projects/flag-streak.webp" },
+  { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", status: "open", demo: "https://hugoreynoso.github.io/game-logos/", repo: "https://github.com/HugoReynoso/game-logos", preview: "/projects/logo-streak.webp" },
+  { name: "Find My Car", path: "HugoReynoso / utility-find-my-car", language: "Flutter", status: "open", demo: "https://hugoreynoso.github.io/utility-find-my-car/", repo: "https://github.com/HugoReynoso/utility-find-my-car", preview: "/projects/find-my-car.webp" },
+  { name: "Spark", path: "HugoReynoso / Spark", language: "Apache Spark", status: "open", repo: "https://github.com/HugoReynoso/Spark" },
+  { name: "Spark Examples", path: "HugoReynoso / spark-examples", language: "Java · Spark", status: "open", repo: "https://github.com/HugoReynoso/spark-examples" },
 ];
 
 function preferredLocale(): Locale {
@@ -193,18 +194,22 @@ export default function Home() {
             aria-label={copy.projects.carouselLabel}
           >
             {projects.map((project, index) => (
-              <a className="project-card" href={project.href} target="_blank" rel="noopener noreferrer" key={project.name}>
+              <article className="project-card" key={project.name}>
                 {project.preview && <img className="project-preview" src={project.preview} alt={copy.projects.previewAlts[index]} width="1200" height="675" loading="lazy" decoding="async" />}
-                <div className="repo-top"><span className="repo-icon">⌘</span><span>{copy.projects.publicLabel}</span></div>
+                <div className="repo-top"><span className="repo-icon">⌘</span><span className={`project-status ${project.status}`}>{copy.projects.statusLabels[project.status]}</span></div>
                 <p className="repo-path">{project.path}</p>
-                <h3>{project.name}<span>↗</span></h3>
+                <h3><a className="project-link" href={project.demo ?? project.repo} {...(project.demo?.startsWith("/") ? {} : { target: "_blank", rel: "noopener noreferrer" })}>{project.name}<span aria-hidden="true">↗</span></a></h3>
                 <p className="repo-description">{copy.projects.descriptions[index]}</p>
                 <div className="repo-meta"><span><i />{project.language}</span><span>{copy.projects.types[index]}</span></div>
-              </a>
+                <div className="project-actions">
+                  <span className="project-primary">{project.status === "wip" ? copy.projects.moreLabel : project.demo ? copy.projects.demoLabel : copy.projects.codeLabel} {project.demo?.startsWith("/") ? "→" : "↗"}</span>
+                  {project.demo && project.repo && <a className="project-code-link" href={project.repo} target="_blank" rel="noopener noreferrer">{copy.projects.codeLabel} ↗</a>}
+                </div>
+              </article>
             ))}
           </div>
           <a className="github-profile-link" href="/progetti/">
-            <span>github.com/HugoReynoso</span><span>{copy.projects.allRepositories} ↗</span>
+            <span>{copy.projects.allProjectsPath}</span><span>{copy.projects.allRepositories} →</span>
           </a>
         </section>
 
@@ -232,7 +237,7 @@ export default function Home() {
             <a href="https://www.instagram.com/hugoaldorey/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
           </div>
         </section>
-        <footer><span>© 2026 Hugo Aldo Reynoso</span></footer>
+        <footer><span suppressHydrationWarning>© {new Date().getFullYear()} Hugo Aldo Reynoso</span></footer>
       </div>
     </main>
   );

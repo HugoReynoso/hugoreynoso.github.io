@@ -92,7 +92,7 @@ h1 em { color:transparent; -webkit-text-stroke:1.5px var(--ink); font-style:norm
 .project-carousel-controls button:disabled { opacity:.35; cursor:not-allowed; }
 .project-track { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; overscroll-behavior-inline:contain; padding:3px 2px 18px; }
 .project-track::-webkit-scrollbar { display:none; }
-.project-card { flex:0 0 calc((100% - 16px)/2); min-width:0; min-height:270px; padding:22px; border:1px solid var(--line); border-radius:8px; background:var(--panel); display:flex; flex-direction:column; scroll-snap-align:start; transition:.2s ease; }
+.project-card { position:relative; flex:0 0 calc((100% - 16px)/2); min-width:0; min-height:270px; padding:22px; border:1px solid var(--line); border-radius:8px; background:var(--panel); display:flex; flex-direction:column; scroll-snap-align:start; transition:.2s ease; }
 .project-card:hover { border-color:var(--line-strong); transform:translateY(-3px); box-shadow:0 12px 30px rgba(20,22,26,.10); }
 .project-preview { display:block; width:calc(100% + 44px); height:auto; aspect-ratio:16/9; object-fit:cover; margin:-22px -22px 20px; border-radius:7px 7px 0 0; border-bottom:1px solid var(--line); background:var(--soft); }
 .repo-top { display:flex; align-items:center; justify-content:space-between; color:var(--muted); font:10px var(--font-geist-mono); }
@@ -101,6 +101,16 @@ h1 em { color:transparent; -webkit-text-stroke:1.5px var(--ink); font-style:norm
 .repo-path { color:var(--muted); font:11px var(--font-geist-mono); margin:30px 0 10px; }
 .project-card h3 { display:flex; justify-content:space-between; margin:0; color:var(--ink); font-size:24px; letter-spacing:-.03em; }
 .project-card h3 span { font-size:17px; }
+.project-link { display:flex; justify-content:space-between; width:100%; }
+.project-link::after { content:""; position:absolute; inset:0; border-radius:8px; }
+.project-link:focus-visible { outline:none; }
+.project-card:has(.project-link:focus-visible) { outline:2px solid var(--ink); outline-offset:2px; }
+.project-status.private { background:var(--soft); }
+.project-status.wip { background:var(--accent); color:var(--ink); }
+.project-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:16px; padding-top:14px; border-top:1px solid var(--line); font:600 11px var(--font-geist-mono); }
+.project-primary { color:var(--ink); }
+.project-code-link { position:relative; z-index:1; color:var(--muted); padding:4px 0; }
+.project-code-link:hover,.project-code-link:focus-visible { color:var(--ink); text-decoration:underline; }
 .repo-description { color:var(--muted); font-size:13px; line-height:1.6; }
 .repo-meta { margin-top:auto; display:flex; gap:20px; color:var(--muted); font:10px var(--font-geist-mono); }
 .repo-meta span { display:flex; align-items:center; gap:7px; }

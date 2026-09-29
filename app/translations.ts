@@ -39,7 +39,11 @@ type PortfolioCopy = {
     label: string;
     title: [string, string];
     intro: string;
-    publicLabel: string;
+    statusLabels: { open: string; private: string; wip: string };
+    demoLabel: string;
+    moreLabel: string;
+    codeLabel: string;
+    allProjectsPath: string;
     descriptions: string[];
     types: string[];
     previewAlts: string[];
@@ -81,7 +85,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     hero: {
       role: "Senior Full-Stack Developer",
       city: "Milano",
-      title: "Software Developer",
+      title: "Full-Stack Developer",
       introBefore: "Ciao, sono",
       introAfter: "senior full-stack developer con oltre 7 anni di esperienza nello sviluppo di applicazioni web enterprise e mobile. Sono specializzato in Java, Spring Boot, Angular e Vue.js, con esperienza end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API. Ho lavorato su progetti per Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
       cta: "Scopri il mio percorso",
@@ -131,7 +135,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     },
     projects: {
       label: "Progetti", title: ["Codice pubblico,", "apprendimento continuo."],
-      intro: "Tutti i miei repository pubblici, dai giochi web mobile-first agli esperimenti su dati e Apache Spark.", publicLabel: "Pubblico",
+      intro: "Web app, giochi mobile-first ed esperimenti su dati e Apache Spark: prova le demo o esplora il codice.", statusLabels: { open: "Open source", private: "Privato", wip: "In lavorazione" }, demoLabel: "Prova la demo", moreLabel: "Scopri di più", codeLabel: "Codice", allProjectsPath: "hugoreynoso.github.io/progetti",
       descriptions: [
         "Sicurezza Milano in tempo reale: una mappa per consultare furti, rapine e incidenti. Demo in lavorazione.",
         "Web app per confrontare i prezzi del carburante e trovare la stazione più conveniente.",
@@ -178,7 +182,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     location: "Milan, Italy",
     socialAria: "Social profiles",
     hero: {
-      role: "Senior Full-Stack Developer", city: "Milan", title: "Software Developer", introBefore: "Hi, I'm",
+      role: "Senior Full-Stack Developer", city: "Milan", title: "Full-Stack Developer", introBefore: "Hi, I'm",
       introAfter: "a senior full-stack developer with over 7 years of experience building enterprise web and mobile applications. I specialize in Java, Spring Boot, Angular and Vue.js, with end-to-end experience in maintenance, refactoring and REST API integration. I have worked on projects for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.",
       cta: "Explore my experience", portfolio: "Portfolio",
       facts: [{ value: "7+", label: "years in enterprise development" }, { value: "Full-stack", label: "Java, Spring Boot, Angular and Vue.js" }, { value: "3 languages", label: "Spanish, Italian, English" }],
@@ -209,7 +213,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       ],
     },
     projects: {
-      label: "Projects", title: ["Public code,", "continuous learning."], intro: "All my public repositories, from mobile-first web games to data and Apache Spark experiments.", publicLabel: "Public",
+      label: "Projects", title: ["Public code,", "continuous learning."], intro: "Web apps, mobile-first games and data experiments with Apache Spark: try the demos or explore the code.", statusLabels: { open: "Open source", private: "Private", wip: "In progress" }, demoLabel: "Try the demo", moreLabel: "Learn more", codeLabel: "Code", allProjectsPath: "hugoreynoso.github.io/progetti",
       descriptions: [
         "Real-time Milan safety: a map for consulting thefts, robberies and incidents. Demo in progress.",
         "A web app for comparing fuel prices and finding the most convenient station.",
@@ -253,7 +257,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     location: "Milán, Italia",
     socialAria: "Perfiles sociales",
     hero: {
-      role: "Senior Full-Stack Developer", city: "Milán", title: "Software Developer", introBefore: "Hola, soy",
+      role: "Senior Full-Stack Developer", city: "Milán", title: "Full-Stack Developer", introBefore: "Hola, soy",
       introAfter: "senior full-stack developer con más de 7 años de experiencia en el desarrollo de aplicaciones web empresariales y móviles. Estoy especializado en Java, Spring Boot, Angular y Vue.js, con experiencia end-to-end, mantenimiento evolutivo, refactorización e integración mediante API REST. He trabajado en proyectos para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.",
       cta: "Descubre mi experiencia", portfolio: "Portfolio",
       facts: [{ value: "7+", label: "años en desarrollo empresarial" }, { value: "Full-stack", label: "Java, Spring Boot, Angular y Vue.js" }, { value: "3 idiomas", label: "español, italiano e inglés" }],
@@ -284,7 +288,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       ],
     },
     projects: {
-      label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Todos mis repositorios públicos, desde juegos web mobile-first hasta experimentos con datos y Apache Spark.", publicLabel: "Público",
+      label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Aplicaciones web, juegos mobile-first y experimentos con datos y Apache Spark: prueba las demos o explora el código.", statusLabels: { open: "Código abierto", private: "Privado", wip: "En desarrollo" }, demoLabel: "Prueba la demo", moreLabel: "Más información", codeLabel: "Código", allProjectsPath: "hugoreynoso.github.io/progetti",
       descriptions: [
         "Seguridad de Milán en tiempo real: un mapa para consultar robos, atracos e incidentes. Demo en desarrollo.",
         "Aplicación web para comparar precios de combustible y encontrar la estación más conveniente.",

@@ -1,8 +1,10 @@
 # Hugo Aldo Reynoso — Personal Website
 
-[DEMO SITO WEB](https://hugoreynoso.github.io/)
+**🌐 Sito: [hugoreynoso.github.io](https://hugoreynoso.github.io/)** · [Progetti](https://hugoreynoso.github.io/progetti/) · [LinkedIn](https://www.linkedin.com/in/hugo-aldo-reynoso/)
 
-This repository contains my personal portfolio website. It presents my professional background, selected projects, technical skills, education, and contact information.
+Personal portfolio website of **Hugo Aldo Reynoso**, Senior Full-Stack Developer in Milan (Java, Spring Boot, Angular, Vue.js).
+
+This repository contains the source code of the site. It presents my professional background, selected projects, technical skills, education, and contact information.
 
 The website was designed to support my personal brand as a software developer in Milan and to provide recruiters, companies, and other developers with a clear overview of my experience and interests.
 
@@ -10,7 +12,9 @@ The website was designed to support my personal brand as a software developer in
 
 - Professional profile and introduction
 - Work experience timeline
-- Selected GitHub projects
+- Selected projects with live demos and source code
+- Multilingual content (Italian, English, Spanish)
+- SEO: structured data (schema.org), Open Graph, sitemap, optimized WebP images
 - Technical skills grouped by area
 - Education and specialization
 - Contact links for email, LinkedIn, GitHub, and Instagram
@@ -38,8 +42,8 @@ The website was designed to support my personal brand as a software developer in
 ### Installation
 
 ```bash
-git clone https://github.com/HugoReynoso/personal-website.git
-cd personal-website
+git clone https://github.com/HugoReynoso/hugoreynoso.github.io.git
+cd hugoreynoso.github.io
 npm install
 npm run dev
 ```
@@ -60,16 +64,26 @@ npm run lint
 
 ```text
 app/
-  globals.css    Global styles and responsive layout
-  layout.tsx     Root layout and website metadata
-  page.tsx       Portfolio content and page structure
-public/          Profile photo and public assets
+  globals.css        Global styles and responsive layout
+  layout.tsx         Root layout, SEO metadata and structured data
+  page.tsx           Portfolio page structure and project list
+  translations.ts    Italian, English and Spanish copy
+public/
+  progetti/          Standalone projects page (/progetti/)
+  projects/          Project previews (WebP)
+  sitemap.xml        Sitemap with image entries
+  robots.txt
+tests/
+  seo.test.mjs       Checks metadata, images and translations
 ```
+
+Deployment: every push to `main` is built and published to GitHub Pages by `.github/workflows/deploy-pages.yml`.
 
 ## Author
 
 **Hugo Aldo Reynoso**  
-Software Developer based in Milan, Italy
+Senior Full-Stack Developer based in Milan, Italy  
+[hugoreynoso.github.io](https://hugoreynoso.github.io/)
 
 - [LinkedIn](https://www.linkedin.com/in/hugo-aldo-reynoso/)
 - [GitHub](https://github.com/HugoReynoso)

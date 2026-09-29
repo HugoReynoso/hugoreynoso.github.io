@@ -139,7 +139,7 @@ export const metadata: Metadata = {
     url: canonicalUrl,
     siteName: "Hugo Aldo Reynoso",
     locale: "it_IT",
-    images: [{ url: socialImage, width: 1200, height: 630, alt: "Hugo Aldo Reynoso – Software Developer a Milano" }],
+    images: [{ url: socialImage, width: 1200, height: 630, alt: "Hugo Aldo Reynoso – Senior Full-Stack Developer a Milano" }],
   },
   twitter: { card: "summary_large_image", title, description, images: [socialImage] },
   // Incolla qui il codice di verifica di Google Search Console quando lo attivi:
