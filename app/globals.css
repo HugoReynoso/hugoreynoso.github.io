@@ -9,6 +9,7 @@
   --content-max:1050px;
 }
 @media (min-width:1600px) { :root { --content-max:1200px; } }
+@media (min-width:1800px) { :root { --content-max:1280px; } }
 @media (prefers-color-scheme:dark) {
   :root {
     --ink:#eceef2; --muted:rgba(236,238,242,.66); --line:rgba(236,238,242,.10); --line-strong:rgba(236,238,242,.24);
@@ -52,9 +53,11 @@ main { min-height:100vh; }
 .instagram-icon { font-size:18px; font-weight:400; }
 .social-external { opacity:.5; font-size:12px; }
 .status-dot { width:7px; height:7px; background:#6fbf39; border-radius:50%; margin-top:4px; box-shadow:0 0 0 4px rgba(111,191,57,.12); }
-.content { margin-left:280px; }
+.content { margin-left:280px; container-type:inline-size; overflow-x:clip; }
 section { max-width:var(--content-max); margin:0 auto; padding:64px 70px; border-bottom:1px solid var(--line); scroll-margin-top:20px; }
-.hero { min-height:min(860px,100vh); display:flex; justify-content:center; flex-direction:column; position:relative; background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px); background-size:40px 40px; }
+.hero { min-height:min(860px,100vh); display:flex; justify-content:center; flex-direction:column; position:relative; isolation:isolate; border-bottom:0; }
+/* La griglia copre tutta l'area del contenuto, non solo la colonna centrale: altrimenti sui monitor sembra una scatola che galleggia. */
+.hero::before { content:""; position:absolute; z-index:-1; inset:0 calc((100% - 100cqw) / 2); border-bottom:1px solid var(--line); background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px); background-size:40px 40px; }
 .eyebrow { display:flex; flex-wrap:wrap; gap:10px; align-items:center; text-transform:uppercase; font:600 11px var(--mono); letter-spacing:.12em; }
 .eyebrow-pill { background:var(--accent); color:var(--on-accent); border:1px solid rgba(20,22,26,.14); padding:7px 10px; border-radius:999px; }
 h1 { max-width:850px; font-size:clamp(52px,5vw,80px); line-height:.92; letter-spacing:-.07em; margin:24px 0 20px; font-weight:650; }
@@ -140,7 +143,7 @@ h1 em { color:transparent; -webkit-text-stroke:1.5px var(--ink); font-style:norm
 .repo-meta i { width:9px; height:9px; border-radius:50%; background:var(--accent); border:1px solid rgba(20,22,26,.14); }
 .github-profile-link { display:flex; justify-content:space-between; margin-top:18px; padding:18px 20px; background:var(--soft); border:1px solid var(--line); border-radius:8px; color:var(--muted); font:12px var(--mono); }
 .github-profile-link span:last-child { color:var(--link); font-weight:700; }
-.contact { background:var(--inverse-bg); color:var(--inverse-ink); max-width:none; padding-left:max(70px,calc((100vw - 280px - var(--content-max))/2 + 70px)); padding-right:max(70px,calc((100vw - 280px - var(--content-max))/2 + 70px)); }
+.contact { background:var(--inverse-bg); color:var(--inverse-ink); max-width:none; padding-left:max(70px,calc((100cqw - var(--content-max))/2 + 70px)); padding-right:max(70px,calc((100cqw - var(--content-max))/2 + 70px)); }
 .contact .eyebrow { color:var(--accent); }
 .contact h2 { font-size:clamp(58px,7vw,88px); line-height:.95; letter-spacing:-.06em; margin:24px 0 44px; }
 .contact-copy { max-width:650px; margin:-24px 0 34px; color:rgba(255,255,255,.68); font-size:17px; line-height:1.6; }
@@ -172,7 +175,7 @@ footer { display:flex; justify-content:space-between; padding:28px 70px; color:v
 
 @media (min-width:851px) {
   /* Hero su due colonne: testo a sinistra, foto grande allineata al titolo a destra. */
-  .hero { display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"eyebrow photo" "title photo" "copy photo" "actions photo" "facts facts"; column-gap:56px; align-content:center; }
+  .hero { min-height:0; padding-top:96px; padding-bottom:72px; display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"eyebrow photo" "title photo" "copy photo" "actions photo" "facts facts"; column-gap:56px; align-content:start; }
   .hero .eyebrow { grid-area:eyebrow; }
   .hero h1 { grid-area:title; }
   .hero-copy { grid-area:copy; }
@@ -189,6 +192,7 @@ footer { display:flex; justify-content:space-between; padding:28px 70px; color:v
   .social-rail a { display:grid; place-items:center; min-width:0; width:44px; height:44px; padding:6px; }
 }
 @media (min-width:1600px) {
+  .portrait-card { width:280px; }
   .project-track { grid-template-columns:repeat(3,minmax(0,1fr)); }
   .project-card:nth-child(n+5) { display:flex; }
   .project-card.project-card-extra { display:none; }

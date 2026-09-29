@@ -34,7 +34,6 @@ type PortfolioCopy = {
   experience: {
     label: string;
     title: [string, string];
-    intro: string;
     showDetails: string;
     hideDetails: string;
     items: ExperienceCopy[];
@@ -89,7 +88,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       roleShort: "Java · Angular · Vue.js",
       city: "Milano",
       title: "Senior Full-Stack Developer",
-      intro: "Trasformo requisiti complessi in software affidabile e manutenibile, per la Pubblica Amministrazione e aziende di sanità, logistica e pagamenti.",
+      intro: "Mi occupo di sviluppo end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API, per la Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
       cta: "Contattami",
       cv: "Scarica CV (PDF)",
       portfolio: "Vedi progetti",
@@ -102,7 +101,6 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     experience: {
       label: "Esperienza",
       title: ["Dal problema al prodotto,", "un livello alla volta."],
-      intro: "Mi occupo di sviluppo end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API, per la Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
       showDetails: "Mostra dettagli",
       hideDetails: "Nascondi dettagli",
       items: [
@@ -181,12 +179,12 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     socialAria: "Social profiles",
     hero: {
       role: "Java · Spring Boot · Angular · Vue.js", roleShort: "Java · Angular · Vue.js", city: "Milan", title: "Senior Full-Stack Developer",
-      intro: "I turn complex requirements into reliable, maintainable software for public administration and companies in healthcare, logistics and payments.",
+      intro: "I work end-to-end on development, maintenance, refactoring and REST API integration, for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.",
       cta: "Contact me", cv: "Download CV (PDF)", portfolio: "View projects",
       facts: [{ value: "7+", label: "years in enterprise development" }, { value: "Full-stack", label: "Java, Spring Boot, Angular and Vue.js" }, { value: "3 languages", label: "Spanish, Italian, English" }],
     },
     experience: {
-      label: "Experience", title: ["From problem to product,", "one layer at a time."], intro: "I work end-to-end on development, maintenance, refactoring and REST API integration, for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.", showDetails: "Show details", hideDetails: "Hide details",
+      label: "Experience", title: ["From problem to product,", "one layer at a time."], showDetails: "Show details", hideDetails: "Hide details",
       items: [
         {
           period: "2023 — present", role: "Software Developer", company: "GeneGIS GI · Full-time", location: "Milan · Hybrid",
@@ -248,12 +246,12 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     socialAria: "Perfiles sociales",
     hero: {
       role: "Java · Spring Boot · Angular · Vue.js", roleShort: "Java · Angular · Vue.js", city: "Milán", title: "Senior Full-Stack Developer",
-      intro: "Convierto requisitos complejos en software fiable y mantenible para la Administración Pública y empresas de sanidad, logística y pagos.",
+      intro: "Trabajo end-to-end en desarrollo, mantenimiento evolutivo, refactorización e integración mediante API REST, para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.",
       cta: "Contáctame", cv: "Descargar CV (PDF)", portfolio: "Ver proyectos",
       facts: [{ value: "7+", label: "años en desarrollo empresarial" }, { value: "Full-stack", label: "Java, Spring Boot, Angular y Vue.js" }, { value: "3 idiomas", label: "español, italiano e inglés" }],
     },
     experience: {
-      label: "Experiencia", title: ["Del problema al producto,", "capa a capa."], intro: "Trabajo end-to-end en desarrollo, mantenimiento evolutivo, refactorización e integración mediante API REST, para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.", showDetails: "Mostrar detalles", hideDetails: "Ocultar detalles",
+      label: "Experiencia", title: ["Del problema al producto,", "capa a capa."], showDetails: "Mostrar detalles", hideDetails: "Ocultar detalles",
       items: [
         {
           period: "2023 — actualidad", role: "Desarrollador de software", company: "GeneGIS GI · Tiempo completo", location: "Milán · Híbrido",

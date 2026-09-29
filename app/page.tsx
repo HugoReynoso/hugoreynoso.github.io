@@ -210,7 +210,6 @@ export default function Home() {
           <header className="section-heading">
             <span>{copy.experience.label}</span>
             <h2>{copy.experience.title[0]}<br />{copy.experience.title[1]}</h2>
-            <p className="section-intro">{copy.experience.intro}</p>
           </header>
           <div className="timeline">{copy.experience.items.map((item, index) => (
             <article className="experience-card" key={`${item.company}-${item.period}`}>
