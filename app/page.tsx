@@ -14,6 +14,7 @@ const experienceTech = [
 ];
 
 const projects = [
+<<<<<<< HEAD
   { name: "CAPI: Shadow Missions", path: "CAPI", language: "React · TypeScript · Babylon.js", href: "https://github.com/HugoReynoso/game-capi-shadow-missions", preview: "/projects/capi-shadow-missions-opt.webp" },
   { name: "TikTok Chat", path: "HugoReynoso / utility-tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/utility-tiktok-chat", preview: "/projects/tiktok-chat.webp" },
   { name: "Defend My Dog", path: "HugoReynoso / game-defend-my-dog", language: "JavaScript · Vite", href: "https://github.com/HugoReynoso/game-defend-my-dog", preview: "/projects/defend-my-dog.webp" },
@@ -21,6 +22,17 @@ const projects = [
   { name: "SpinWheel", path: "HugoReynoso / utility-spin-wheel", language: "React · TypeScript", href: "https://github.com/HugoReynoso/utility-spin-wheel", preview: "/projects/spin-wheel.webp" },
   { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.webp" },
   { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense", preview: "/projects/green-valley-guardians.webp" },
+=======
+  { name: "SafeMI", path: "Demo · In lavorazione", language: "Web app", href: "/progetti/", preview: "/projects/safemi.png" },
+  { name: "TrovaBenzina.it", path: "Demo pubblica · progetto privato", language: "Web app", href: "https://trovabenzina.it/", preview: "/projects/trova-benzina.png" },
+  { name: "CAPI: Shadow Missions", path: "CAPI", language: "React · TypeScript · Babylon.js", href: "https://github.com/HugoReynoso/game-capi-shadow-missions", preview: "/projects/capi-shadow-missions.webp" },
+  { name: "TikTok Chat", path: "HugoReynoso / utility-tiktok-chat", language: "Vue 3 · TypeScript · Node.js", href: "https://github.com/HugoReynoso/utility-tiktok-chat", preview: "/projects/tiktok-chat.jpg" },
+  { name: "Defend My Dog", path: "HugoReynoso / game-defend-my-dog", language: "JavaScript · Vite", href: "https://github.com/HugoReynoso/game-defend-my-dog", preview: "/projects/defend-my-dog.png" },
+  { name: "Crownfall — Puzzle Rescue", path: "HugoReynoso / game-puzzle-rescue", language: "React · TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-puzzle-rescue", preview: "/projects/crownfall-puzzle-rescue.jpg" },
+  { name: "SpinWheel", path: "HugoReynoso / utility-spin-wheel", language: "React · TypeScript", href: "https://github.com/HugoReynoso/utility-spin-wheel", preview: "/projects/spin-wheel.jpg" },
+  { name: "Neon Bastion", path: "HugoReynoso / game-sparatutto", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-sparatutto", preview: "/projects/neon-bastion.png" },
+  { name: "Green Valley Guardians", path: "HugoReynoso / game-tower-defense", language: "TypeScript · Phaser 3", href: "https://github.com/HugoReynoso/game-tower-defense", preview: "/projects/green-valley-guardians.jpg" },
+>>>>>>> f301de0cd68f3d88415aeacf0fe3e70bedf45680
   //{ name: "Personal Portfolio", path: "HugoReynoso / hugoreynoso.github.io", language: "React · TypeScript", href: "https://github.com/HugoReynoso/hugoreynoso.github.io" },
   { name: "Flag Streak", path: "HugoReynoso / game-flags", language: "Vue 3 · TypeScript", href: "https://github.com/HugoReynoso/game-flags", preview: "/projects/flag-streak.webp" },
   { name: "Logo Streak", path: "HugoReynoso / game-logos", language: "React · TypeScript", href: "https://github.com/HugoReynoso/game-logos", preview: "/projects/logo-streak.webp" },
@@ -44,7 +56,9 @@ export default function Home() {
   const [firstVisibleProject, setFirstVisibleProject] = useState(0);
   const [canScrollProjectsBack, setCanScrollProjectsBack] = useState(false);
   const [canScrollProjectsForward, setCanScrollProjectsForward] = useState(true);
+  const [canScrollNavigationForward, setCanScrollNavigationForward] = useState(false);
   const projectTrackRef = useRef<HTMLDivElement>(null);
+  const navigationRef = useRef<HTMLElement>(null);
   const copy = portfolioCopy[locale];
 
   useEffect(() => {
@@ -88,6 +102,23 @@ export default function Home() {
     track.scrollBy({ left: direction * (firstCard.offsetWidth + 16), behavior: "smooth" });
   };
 
+  const updateNavigationHint = () => {
+    const navigation = navigationRef.current;
+    if (!navigation) return;
+    setCanScrollNavigationForward(navigation.scrollLeft < navigation.scrollWidth - navigation.clientWidth - 2);
+  };
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(updateNavigationHint);
+    window.addEventListener("resize", updateNavigationHint);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateNavigationHint);
+    };
+  }, [locale]);
+
+  const scrollNavigation = () => navigationRef.current?.scrollBy({ left: 180, behavior: "smooth" });
+
   return (
     <main>
       <aside className="sidebar">
@@ -101,10 +132,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <nav aria-label={copy.navigationAria}>
+        <nav ref={navigationRef} onScroll={updateNavigationHint} aria-label={copy.navigationAria}>
           <p className="nav-label">{copy.explore}</p>
           {copy.nav.map((label, index) => <a className="nav-item" href={navTargets[index]} key={navTargets[index]}><span>{label}</span><span className="nav-chevron" aria-hidden="true" /></a>)}
         </nav>
+        {canScrollNavigationForward && <button className="nav-scroll-hint" type="button" onClick={scrollNavigation} aria-label={copy.navigationNextAria}>&rsaquo;</button>}
         <div className="sidebar-footer"><span className="status-dot" /> {copy.sidebarTagline}<small>{copy.location}</small></div>
       </aside>
 

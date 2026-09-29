@@ -14,6 +14,7 @@ type PortfolioCopy = {
   languageLabel: string;
   brandAria: string;
   navigationAria: string;
+  navigationNextAria: string;
   explore: string;
   nav: string[];
   sidebarTagline: string;
@@ -71,6 +72,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     languageLabel: "Seleziona lingua",
     brandAria: "Vai all'inizio",
     navigationAria: "Navigazione principale",
+    navigationNextAria: "Mostra altre sezioni del menu",
     explore: "Esplora",
     nav: ["Profilo", "Esperienza", "Progetti", "Competenze", "Formazione", "Contatti"],
     sidebarTagline: "Software, dati e AI",
@@ -131,6 +133,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       label: "Progetti", title: ["Codice pubblico,", "apprendimento continuo."],
       intro: "Tutti i miei repository pubblici, dai giochi web mobile-first agli esperimenti su dati e Apache Spark.", publicLabel: "Pubblico",
       descriptions: [
+        "Sicurezza Milano in tempo reale: una mappa per consultare furti, rapine e incidenti. Demo in lavorazione.",
+        "Web app per confrontare i prezzi del carburante e trovare la stazione più conveniente.",
         "Demo 3D mobile-first di uno sniper game narrativo: CAPI e il Labrador Docky indagano su un carico sospetto in una missione tattica giocabile.",
         "Web app mobile-first per connettersi a una LIVE TikTok, seguire la chat, leggere i messaggi con la sintesi vocale e visualizzare regali e classifiche in tempo reale.",
         "Gioco mobile-first in cui disegni una linea per proteggere un cane dagli attacchi: livelli rapidi, fisica semplice e comandi immediati.",
@@ -144,8 +148,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "Repository dedicato allo studio e alla sperimentazione con Apache Spark e l'elaborazione distribuita dei dati.",
         "Fork con esempi pratici in Java per esplorare Apache Spark e i principali flussi di elaborazione dati.",
       ],
-      types: ["Gioco", "Web app", "Gioco", "Gioco", "Utility", "Gioco", "Gioco", "PWA", "PWA", "Utility", "Dati", "Fork"],
-      previewAlts: ["Anteprima del gioco CAPI: Shadow Missions", "Anteprima di TikTok Chat", "Anteprima del gioco Defend My Dog", "Anteprima del gioco Crownfall — Puzzle Rescue", "Anteprima di SpinWheel", "Anteprima del gioco Neon Bastion", "Anteprima del gioco Green Valley Guardians", "Anteprima del gioco Flag Streak", "Anteprima del gioco Logo Streak", "Anteprima di Find My Car", "", ""],
+      types: ["Web app", "Web app", "Gioco", "Web app", "Gioco", "Gioco", "Utility", "Gioco", "Gioco", "PWA", "PWA", "Utility", "Dati", "Fork"],
+      previewAlts: ["Anteprima di SafeMI", "Anteprima di TrovaBenzina.it", "Anteprima del gioco CAPI: Shadow Missions", "Anteprima di TikTok Chat", "Anteprima del gioco Defend My Dog", "Anteprima del gioco Crownfall — Puzzle Rescue", "Anteprima di SpinWheel", "Anteprima del gioco Neon Bastion", "Anteprima del gioco Green Valley Guardians", "Anteprima del gioco Flag Streak", "Anteprima del gioco Logo Streak", "Anteprima di Find My Car", "", ""],
       allRepositories: "Visualizza tutti i progetti",
       carouselLabel: "Carosello dei repository GitHub",
       previousLabel: "Mostra i repository precedenti",
@@ -167,6 +171,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     languageLabel: "Select language",
     brandAria: "Back to the top",
     navigationAria: "Main navigation",
+    navigationNextAria: "Show more menu sections",
     explore: "Explore",
     nav: ["Profile", "Experience", "Projects", "Skills", "Education", "Contact"],
     sidebarTagline: "Software, data and AI",
@@ -206,6 +211,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     projects: {
       label: "Projects", title: ["Public code,", "continuous learning."], intro: "All my public repositories, from mobile-first web games to data and Apache Spark experiments.", publicLabel: "Public",
       descriptions: [
+        "Real-time Milan safety: a map for consulting thefts, robberies and incidents. Demo in progress.",
+        "A web app for comparing fuel prices and finding the most convenient station.",
         "A mobile-first 3D narrative sniper-game demo: CAPI and her Labrador Docky investigate suspicious cargo in a playable tactical mission.",
         "A mobile-first web app for connecting to a TikTok LIVE, following the chat, reading messages with text-to-speech and viewing gifts and rankings in real time.",
         "A mobile-first game where you draw a line to protect a dog from incoming attacks, with quick levels, simple physics and direct controls.",
@@ -218,7 +225,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "A mobile utility for saving a car's location and finding it again through a map and the current position.",
         "A repository for learning and experimenting with Apache Spark and distributed data processing.",
         "A fork containing practical Java examples for exploring Apache Spark and essential data-processing workflows.",
-      ], types: ["Game", "Web app", "Game", "Game", "Utility", "Game", "Game", "PWA", "PWA", "Utility", "Data", "Fork"], previewAlts: ["CAPI: Shadow Missions game preview", "TikTok Chat preview", "Defend My Dog game preview", "Crownfall — Puzzle Rescue game preview", "SpinWheel preview", "Neon Bastion game preview", "Green Valley Guardians game preview", "Flag Streak game preview", "Logo Streak game preview", "Find My Car preview", "", ""], allRepositories: "View all projects",
+      ], types: ["Web app", "Web app", "Game", "Web app", "Game", "Game", "Utility", "Game", "Game", "PWA", "PWA", "Utility", "Data", "Fork"], previewAlts: ["SafeMI preview", "TrovaBenzina.it preview", "CAPI: Shadow Missions game preview", "TikTok Chat preview", "Defend My Dog game preview", "Crownfall — Puzzle Rescue game preview", "SpinWheel preview", "Neon Bastion game preview", "Green Valley Guardians game preview", "Flag Streak game preview", "Logo Streak game preview", "Find My Car preview", "", ""], allRepositories: "View all projects",
       carouselLabel: "GitHub repositories carousel",
       previousLabel: "Show previous repositories",
       nextLabel: "Show next repositories",
@@ -239,6 +246,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     languageLabel: "Seleccionar idioma",
     brandAria: "Volver al inicio",
     navigationAria: "Navegación principal",
+    navigationNextAria: "Mostrar más secciones del menú",
     explore: "Explorar",
     nav: ["Perfil", "Experiencia", "Proyectos", "Competencias", "Formación", "Contacto"],
     sidebarTagline: "Software, datos e IA",
@@ -278,6 +286,8 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     projects: {
       label: "Proyectos", title: ["Código público,", "aprendizaje continuo."], intro: "Todos mis repositorios públicos, desde juegos web mobile-first hasta experimentos con datos y Apache Spark.", publicLabel: "Público",
       descriptions: [
+        "Seguridad de Milán en tiempo real: un mapa para consultar robos, atracos e incidentes. Demo en desarrollo.",
+        "Aplicación web para comparar precios de combustible y encontrar la estación más conveniente.",
         "Demo 3D mobile-first de un juego narrativo de francotirador: CAPI y el labrador Docky investigan una carga sospechosa en una misión táctica jugable.",
         "Aplicación web mobile-first para conectarse a un LIVE de TikTok, seguir el chat, leer mensajes con síntesis de voz y ver regalos y clasificaciones en tiempo real.",
         "Juego mobile-first en el que dibujas una línea para proteger a un perro de los ataques, con niveles rápidos, física sencilla y controles directos.",
@@ -290,7 +300,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
         "Utilidad móvil para guardar la posición del coche y encontrarlo fácilmente mediante mapa y ubicación actual.",
         "Repositorio para aprender y experimentar con Apache Spark y el procesamiento distribuido de datos.",
         "Fork con ejemplos prácticos en Java para explorar Apache Spark y los principales flujos de procesamiento de datos.",
-      ], types: ["Juego", "Aplicación web", "Juego", "Juego", "Utilidad", "Juego", "Juego", "PWA", "PWA", "Utilidad", "Datos", "Fork"], previewAlts: ["Vista previa del juego CAPI: Shadow Missions", "Vista previa de TikTok Chat", "Vista previa del juego Defend My Dog", "Vista previa del juego Crownfall — Puzzle Rescue", "Vista previa de SpinWheel", "Vista previa del juego Neon Bastion", "Vista previa del juego Green Valley Guardians", "Vista previa del juego Flag Streak", "Vista previa del juego Logo Streak", "Vista previa de Find My Car", "", ""], allRepositories: "Ver todos los proyectos",
+      ], types: ["Aplicación web", "Aplicación web", "Juego", "Aplicación web", "Juego", "Juego", "Utilidad", "Juego", "Juego", "PWA", "PWA", "Utilidad", "Datos", "Fork"], previewAlts: ["Vista previa de SafeMI", "Vista previa de TrovaBenzina.it", "Vista previa del juego CAPI: Shadow Missions", "Vista previa de TikTok Chat", "Vista previa del juego Defend My Dog", "Vista previa del juego Crownfall — Puzzle Rescue", "Vista previa de SpinWheel", "Vista previa del juego Neon Bastion", "Vista previa del juego Green Valley Guardians", "Vista previa del juego Flag Streak", "Vista previa del juego Logo Streak", "Vista previa de Find My Car", "", ""], allRepositories: "Ver todos los proyectos",
       carouselLabel: "Carrusel de repositorios de GitHub",
       previousLabel: "Mostrar repositorios anteriores",
       nextLabel: "Mostrar repositorios siguientes",
