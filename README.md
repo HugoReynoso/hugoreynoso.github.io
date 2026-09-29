@@ -4,7 +4,7 @@
 
 Personal portfolio website of **Hugo Aldo Reynoso**, Senior Full-Stack Developer in Milan (Java, Spring Boot, Angular, Vue.js).
 
-This repository contains the source code of the site. It presents my professional background, selected projects, technical skills, education, and contact information.
+This repository contains the source code of the site. It presents my professional background, selected projects, technical skills, and contact information, with a downloadable CV.
 
 The website was designed to support my personal brand as a software developer in Milan and to provide recruiters, companies, and other developers with a clear overview of my experience and interests.
 
@@ -16,7 +16,7 @@ The website was designed to support my personal brand as a software developer in
 - Multilingual content (Italian, English, Spanish)
 - SEO: structured data (schema.org), Open Graph, sitemap, optimized WebP images
 - Technical skills grouped by area
-- Education and specialization
+- Downloadable CV (PDF)
 - Contact links for email, LinkedIn, GitHub, and Instagram
 - Responsive layout optimized for desktop, tablet, and mobile devices
 - Accessible semantic structure and touch-friendly navigation

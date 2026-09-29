@@ -22,11 +22,10 @@ type PortfolioCopy = {
   socialAria: string;
   hero: {
     role: string;
+    roleShort: string;
     city: string;
     title: string;
-    introBefore: string;
-    introLead: string;
-    introMore: string;
+    intro: string;
     cta: string;
     cv: string;
     portfolio: string;
@@ -35,6 +34,7 @@ type PortfolioCopy = {
   experience: {
     label: string;
     title: [string, string];
+    intro: string;
     showDetails: string;
     hideDetails: string;
     items: ExperienceCopy[];
@@ -59,13 +59,9 @@ type PortfolioCopy = {
   skills: {
     label: string;
     title: [string, string];
+    coreLabel: string;
     groups: string[];
     items: string[][];
-  };
-  education: {
-    label: string;
-    title: [string, string];
-    items: Array<{ type: string; degree: string; school: string; details: string }>;
   };
   contact: {
     eyebrow: string;
@@ -84,17 +80,16 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     navigationAria: "Navigazione principale",
     menuLabel: "Menu di navigazione",
     explore: "Esplora",
-    nav: ["Profilo", "Esperienza", "Progetti", "Competenze", "Formazione", "Contatti"],
+    nav: ["Profilo", "Esperienza", "Progetti", "Competenze", "Contatti"],
     sidebarTagline: "Software, dati e AI",
     location: "Milano, Italia",
     socialAria: "Profili social",
     hero: {
       role: "Java · Spring Boot · Angular · Vue.js",
+      roleShort: "Java · Angular · Vue.js",
       city: "Milano",
       title: "Senior Full-Stack Developer",
-      introBefore: "Ciao, sono",
-      introLead: "sviluppo applicazioni web e mobile enterprise da oltre 7 anni.",
-      introMore: "Mi occupo di sviluppo end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API, per la Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
+      intro: "Trasformo requisiti complessi in software affidabile e manutenibile, per la Pubblica Amministrazione e aziende di sanità, logistica e pagamenti.",
       cta: "Contattami",
       cv: "Scarica CV (PDF)",
       portfolio: "Vedi progetti",
@@ -107,6 +102,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     experience: {
       label: "Esperienza",
       title: ["Dal problema al prodotto,", "un livello alla volta."],
+      intro: "Mi occupo di sviluppo end-to-end, manutenzione evolutiva, refactoring e integrazione tramite REST API, per la Pubblica Amministrazione e clienti enterprise nei settori sicurezza, healthcare, logistica, telecomunicazioni e pagamenti.",
       showDetails: "Mostra dettagli",
       hideDetails: "Nascondi dettagli",
       items: [
@@ -169,15 +165,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       previousLabel: "Mostra i repository precedenti",
       nextLabel: "Mostra i repository successivi",
     },
-    skills: { label: "Competenze", title: ["Un profilo trasversale,", "con solide fondamenta."], groups: ["Front-end", "Back-end", "Database & dati", "Strumenti & lingue"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Spagnolo · madrelingua", "Italiano · avanzato", "Inglese · intermedio"]] },
-    education: {
-      label: "Formazione", title: ["Curiosità continua,", "dalle basi all'AI."],
-      items: [
-        { type: "Università", degree: "Laurea in Informatica · in corso", school: "Università degli Studi di Milano-Bicocca", details: "Studente universitario, in corso." },
-        { type: "Specializzazione", degree: "Database & Business Intelligence", school: "Philmark Informatica S.p.A. · Everis Italia S.p.A.", details: "2017 · 240 ore · SQL e PL/SQL, Data Warehouse, ETL, OLAP, Business Intelligence e fondamenti di Big Data." },
-        { type: "Diploma", degree: "Diploma di Perito Informatico", school: "Istituto Tecnico Industriale Altiero Spinelli · Sesto San Giovanni", details: "Le fondamenta tecniche da cui è iniziato tutto." },
-      ],
-    },
+    skills: { label: "Competenze", coreLabel: "Tecnologie principali", title: ["Un profilo trasversale,", "con solide fondamenta."], groups: ["Front-end", "Back-end", "Database & dati", "Strumenti & lingue"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Spagnolo · madrelingua", "Italiano · avanzato", "Inglese · intermedio"]] },
     contact: { eyebrow: "Restiamo in contatto", title: ["Conosciamoci", "meglio."], copy: "Mi fa piacere entrare in contatto con professionisti, aziende e persone interessate a software, dati e intelligenza artificiale.", copyEmail: "Copia email", emailCopied: "Email copiata" },
   },
   en: {
@@ -187,19 +175,18 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     navigationAria: "Main navigation",
     menuLabel: "Navigation menu",
     explore: "Explore",
-    nav: ["Profile", "Experience", "Projects", "Skills", "Education", "Contact"],
+    nav: ["Profile", "Experience", "Projects", "Skills", "Contact"],
     sidebarTagline: "Software, data and AI",
     location: "Milan, Italy",
     socialAria: "Social profiles",
     hero: {
-      role: "Java · Spring Boot · Angular · Vue.js", city: "Milan", title: "Senior Full-Stack Developer", introBefore: "Hi, I'm",
-      introLead: "I have been building enterprise web and mobile applications for over 7 years.",
-      introMore: "I work end-to-end on development, maintenance, refactoring and REST API integration, for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.",
+      role: "Java · Spring Boot · Angular · Vue.js", roleShort: "Java · Angular · Vue.js", city: "Milan", title: "Senior Full-Stack Developer",
+      intro: "I turn complex requirements into reliable, maintainable software for public administration and companies in healthcare, logistics and payments.",
       cta: "Contact me", cv: "Download CV (PDF)", portfolio: "View projects",
       facts: [{ value: "7+", label: "years in enterprise development" }, { value: "Full-stack", label: "Java, Spring Boot, Angular and Vue.js" }, { value: "3 languages", label: "Spanish, Italian, English" }],
     },
     experience: {
-      label: "Experience", title: ["From problem to product,", "one layer at a time."], showDetails: "Show details", hideDetails: "Hide details",
+      label: "Experience", title: ["From problem to product,", "one layer at a time."], intro: "I work end-to-end on development, maintenance, refactoring and REST API integration, for public administration and enterprise clients in security, healthcare, logistics, telecommunications and payments.", showDetails: "Show details", hideDetails: "Hide details",
       items: [
         {
           period: "2023 — present", role: "Software Developer", company: "GeneGIS GI · Full-time", location: "Milan · Hybrid",
@@ -245,15 +232,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       previousLabel: "Show previous repositories",
       nextLabel: "Show next repositories",
     },
-    skills: { label: "Skills", title: ["A versatile profile,", "built on solid foundations."], groups: ["Front-end", "Back-end", "Databases & data", "Tools & languages"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Spanish · native", "Italian · advanced", "English · intermediate"]] },
-    education: {
-      label: "Education", title: ["Continuous curiosity,", "from fundamentals to AI."],
-      items: [
-        { type: "University", degree: "BSc in Computer Science · ongoing", school: "University of Milano-Bicocca", details: "Current undergraduate student." },
-        { type: "Specialization", degree: "Database & Business Intelligence", school: "Philmark Informatica S.p.A. · Everis Italia S.p.A.", details: "2017 · 240 hours · SQL and PL/SQL, Data Warehouse, ETL, OLAP, Business Intelligence and Big Data fundamentals." },
-        { type: "Diploma", degree: "IT Technician Diploma", school: "Altiero Spinelli Technical Industrial Institute · Sesto San Giovanni", details: "The technical foundations where it all began." },
-      ],
-    },
+    skills: { label: "Skills", coreLabel: "Core technologies", title: ["A versatile profile,", "built on solid foundations."], groups: ["Front-end", "Back-end", "Databases & data", "Tools & languages"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Spanish · native", "Italian · advanced", "English · intermediate"]] },
     contact: { eyebrow: "Let's stay in touch", title: ["Let's get to know", "each other."], copy: "I am always happy to connect with professionals, companies and people interested in software, data and artificial intelligence.", copyEmail: "Copy email", emailCopied: "Email copied" },
   },
   es: {
@@ -263,19 +242,18 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
     navigationAria: "Navegación principal",
     menuLabel: "Menú de navegación",
     explore: "Explorar",
-    nav: ["Perfil", "Experiencia", "Proyectos", "Competencias", "Formación", "Contacto"],
+    nav: ["Perfil", "Experiencia", "Proyectos", "Competencias", "Contacto"],
     sidebarTagline: "Software, datos e IA",
     location: "Milán, Italia",
     socialAria: "Perfiles sociales",
     hero: {
-      role: "Java · Spring Boot · Angular · Vue.js", city: "Milán", title: "Senior Full-Stack Developer", introBefore: "Hola, soy",
-      introLead: "desarrollo aplicaciones web y móviles empresariales desde hace más de 7 años.",
-      introMore: "Trabajo end-to-end en desarrollo, mantenimiento evolutivo, refactorización e integración mediante API REST, para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.",
+      role: "Java · Spring Boot · Angular · Vue.js", roleShort: "Java · Angular · Vue.js", city: "Milán", title: "Senior Full-Stack Developer",
+      intro: "Convierto requisitos complejos en software fiable y mantenible para la Administración Pública y empresas de sanidad, logística y pagos.",
       cta: "Contáctame", cv: "Descargar CV (PDF)", portfolio: "Ver proyectos",
       facts: [{ value: "7+", label: "años en desarrollo empresarial" }, { value: "Full-stack", label: "Java, Spring Boot, Angular y Vue.js" }, { value: "3 idiomas", label: "español, italiano e inglés" }],
     },
     experience: {
-      label: "Experiencia", title: ["Del problema al producto,", "capa a capa."], showDetails: "Mostrar detalles", hideDetails: "Ocultar detalles",
+      label: "Experiencia", title: ["Del problema al producto,", "capa a capa."], intro: "Trabajo end-to-end en desarrollo, mantenimiento evolutivo, refactorización e integración mediante API REST, para la Administración Pública y clientes empresariales de seguridad, sanidad, logística, telecomunicaciones y pagos.", showDetails: "Mostrar detalles", hideDetails: "Ocultar detalles",
       items: [
         {
           period: "2023 — actualidad", role: "Desarrollador de software", company: "GeneGIS GI · Tiempo completo", location: "Milán · Híbrido",
@@ -321,15 +299,7 @@ export const portfolioCopy: Record<Locale, PortfolioCopy> = {
       previousLabel: "Mostrar repositorios anteriores",
       nextLabel: "Mostrar repositorios siguientes",
     },
-    skills: { label: "Competencias", title: ["Un perfil versátil,", "con bases sólidas."], groups: ["Front-end", "Back-end", "Bases de datos", "Herramientas e idiomas"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Español · nativo", "Italiano · avanzado", "Inglés · intermedio"]] },
-    education: {
-      label: "Formación", title: ["Curiosidad constante,", "desde las bases hasta la IA."],
-      items: [
-        { type: "Universidad", degree: "Grado en Informática · en curso", school: "Universidad de Milano-Bicocca", details: "Estudiante universitario en curso." },
-        { type: "Especialización", degree: "Database & Business Intelligence", school: "Philmark Informatica S.p.A. · Everis Italia S.p.A.", details: "2017 · 240 horas · SQL y PL/SQL, Data Warehouse, ETL, OLAP, Business Intelligence y fundamentos de Big Data." },
-        { type: "Diploma", degree: "Diploma de Técnico Informático", school: "Instituto Técnico Industrial Altiero Spinelli · Sesto San Giovanni", details: "Las bases técnicas con las que comenzó todo." },
-      ],
-    },
+    skills: { label: "Competencias", coreLabel: "Tecnologías principales", title: ["Un perfil versátil,", "con bases sólidas."], groups: ["Front-end", "Back-end", "Bases de datos", "Herramientas e idiomas"], items: [["Angular (2+/6+/8)", "Vue.js", "TypeScript", "JavaScript", "Ionic", "HTML5", "CSS3/SASS", "Bootstrap"], ["Java", "Spring", "Spring Boot", "REST API"], ["PostgreSQL", "MySQL", "SQL Server", "SQL", "T-SQL", "SSIS"], ["Git", "Jira", "Confluence", "Agile/Scrum", "Español · nativo", "Italiano · avanzado", "Inglés · intermedio"]] },
     contact: { eyebrow: "Sigamos en contacto", title: ["Conozcámonos", "mejor."], copy: "Me interesa conectar con profesionales, empresas y personas interesadas en el software, los datos y la inteligencia artificial.", copyEmail: "Copiar email", emailCopied: "Email copiado" },
   },
 };

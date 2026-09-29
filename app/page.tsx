@@ -1,12 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { type Locale, portfolioCopy } from "./translations";
 
-const navTargets = ["#profilo", "#esperienza", "#progetti", "#competenze", "#formazione", "#contatti"];
+const navTargets = ["#profilo", "#esperienza", "#progetti", "#competenze", "#contatti"];
 const locales: Locale[] = ["it", "en", "es"];
 const email = "HugoAldoReynoso@gmail.com";
 const cvPath = "/cv/Hugo-Aldo-Reynoso-CV.pdf";
+const coreSkills = ["Java", "Spring Boot", "Angular", "Vue.js", "TypeScript"];
+// "Angular (2+/6+/8)" conta come Angular.
+const isCoreSkill = (skill: string) => coreSkills.some((core) => skill === core || skill.startsWith(`${core} `));
+// Su desktop la sezione mostra in griglia solo i primi progetti (4 su laptop, 6 da 1600px);
+// gli altri restano nel carosello mobile e in /progetti/.
+const featuredProjects = 6;
 
 const experienceTech = [
   ["Angular 6/8", "Vue.js", "Ionic", "Java", "Spring Boot", "REST API", "C#", "SQL", "Git", "Agile/Scrum"],
@@ -56,6 +62,7 @@ export default function Home() {
   const [isEmailCopied, setIsEmailCopied] = useState(false);
   const projectTrackRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
+  const firstExperienceRef = useRef<HTMLDetailsElement>(null);
   const copy = portfolioCopy[locale];
   const activeLabel = copy.nav[Math.max(0, navTargets.indexOf(activeSection))];
 
@@ -74,6 +81,11 @@ export default function Home() {
     document.title = copy.pageTitle;
     window.localStorage.setItem("portfolio-language", locale);
   }, [copy.pageTitle, isLanguageReady, locale]);
+
+  // Su desktop c'è spazio: il lavoro attuale parte già aperto.
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 851px)").matches) firstExperienceRef.current?.setAttribute("open", "");
+  }, []);
 
   // Evidenzia nel menu la sezione che attraversa il centro dello schermo.
   useEffect(() => {
@@ -175,15 +187,15 @@ export default function Home() {
 
       <div className="content">
         <section className="hero" id="profilo">
-          <div className="eyebrow"><span>{copy.hero.role}</span><span>·</span><span>{copy.hero.city}</span></div>
+          <div className="eyebrow"><span className="eyebrow-pill"><span className="role-full">{copy.hero.role}</span><span className="role-short">{copy.hero.roleShort}</span></span><span>·</span><span>{copy.hero.city}</span></div>
           <div className="hero-heading">
             <figure className="portrait-card">
               <picture><source srcSet="/hugo-reynoso.webp" type="image/webp" /><img src="/hugo-reynoso.jpg" alt="Hugo Aldo Reynoso, Senior Full-Stack Developer a Milano" width="660" height="800" fetchPriority="high" decoding="async" /></picture>
               <figcaption><span className="status-dot" /> @hugoaldorey</figcaption>
             </figure>
-            <h1><span className="hero-name">Hugo Aldo Reynoso</span>{copy.hero.title}</h1>
+            <h1><span className="hero-name">Hugo Aldo Reynoso</span>{copy.hero.title.split(" ").map((word, index) => <Fragment key={word}>{index > 0 && " "}<span className="nowrap">{word}</span></Fragment>)}</h1>
           </div>
-          <p className="hero-copy">{copy.hero.introBefore} <strong>Hugo Aldo Reynoso</strong>, {copy.hero.introLead}<span className="hero-copy-more"> {copy.hero.introMore}</span></p>
+          <p className="hero-copy">{copy.hero.intro}</p>
           <div className="hero-actions">
             <a className="button primary" href="#contatti">{copy.hero.cta} <span>→</span></a>
             <a className="button secondary" href={cvPath} download>{copy.hero.cv} <span>↓</span></a>
@@ -195,7 +207,11 @@ export default function Home() {
         </section>
 
         <section id="esperienza">
-          <header className="section-heading"><span>{copy.experience.label}</span><h2>{copy.experience.title[0]}<br />{copy.experience.title[1]}</h2></header>
+          <header className="section-heading">
+            <span>{copy.experience.label}</span>
+            <h2>{copy.experience.title[0]}<br />{copy.experience.title[1]}</h2>
+            <p className="section-intro">{copy.experience.intro}</p>
+          </header>
           <div className="timeline">{copy.experience.items.map((item, index) => (
             <article className="experience-card" key={`${item.company}-${item.period}`}>
               <p className="period">{item.period}</p>
@@ -203,7 +219,7 @@ export default function Home() {
                 <h3>{item.role}</h3>
                 <p className="company">{item.company}<span>{item.location}</span></p>
                 <p className="experience-summary">{item.description}</p>
-                <details className="experience-details">
+                <details className="experience-details" ref={index === 0 ? firstExperienceRef : undefined}>
                   <summary><span className="details-show">{copy.experience.showDetails}</span><span className="details-hide">{copy.experience.hideDetails}</span></summary>
                   <ul className="experience-activities">{item.activities.map((activity) => <li key={activity}>{activity}</li>)}</ul>
                   <div className="tags">{experienceTech[index].map((tech) => <span key={tech}>{tech}</span>)}</div>
@@ -232,7 +248,7 @@ export default function Home() {
             aria-label={copy.projects.carouselLabel}
           >
             {projects.map((project, index) => (
-              <article className="project-card" key={project.name}>
+              <article className={`project-card${index >= featuredProjects ? " project-card-extra" : ""}`} key={project.name}>
                 {project.preview && <img className="project-preview" src={project.preview} alt={copy.projects.previewAlts[index]} width="1200" height="675" loading="lazy" decoding="async" />}
                 <div className="repo-top"><span className="repo-icon">⌘</span><span className={`project-status ${project.status}`}>{copy.projects.statusLabels[project.status]}</span></div>
                 <p className="repo-path">{project.path}</p>
@@ -253,16 +269,13 @@ export default function Home() {
 
         <section id="competenze">
           <header className="section-heading"><span>{copy.skills.label}</span><h2>{copy.skills.title[0]}<br />{copy.skills.title[1]}</h2></header>
-          <div className="skill-grid">{copy.skills.groups.map((title, index) => (
-            <article className="skill-card" key={title}><h3>{title}</h3><ul>{copy.skills.items[index].map((skill) => <li key={skill}>{skill}</li>)}</ul></article>
-          ))}</div>
-        </section>
-
-        <section id="formazione">
-          <header className="section-heading"><span>{copy.education.label}</span><h2>{copy.education.title[0]}<br />{copy.education.title[1]}</h2></header>
-          <div className="education-list">
-            {copy.education.items.map((item) => <article key={item.type}><span>{item.type}</span><div><h3>{item.degree}</h3><p>{item.school}</p><small>{item.details}</small></div></article>)}
+          <div className="core-skills">
+            <p>{copy.skills.coreLabel}</p>
+            <ul>{coreSkills.map((skill) => <li key={skill}>{skill}</li>)}</ul>
           </div>
+          <div className="skill-grid">{copy.skills.groups.map((title, index) => (
+            <article className="skill-card" key={title}><h3>{title}</h3><ul>{copy.skills.items[index].map((skill) => <li className={isCoreSkill(skill) ? "core" : undefined} key={skill}>{skill}</li>)}</ul></article>
+          ))}</div>
         </section>
 
         <section className="contact" id="contatti">
